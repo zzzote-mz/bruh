@@ -49,6 +49,8 @@ async def start(client, message):
             InlineKeyboardButton('Inline', switch_inline_query_current_chat=''),
             InlineKeyboardButton('About', callback_data='about')
             ],[
+            InlineKeyboardButton('Developer', url='https://t.me/rsrmusic')
+            ],[
             InlineKeyboardButton('Source Code', url='tg://need_update_for_some_feature')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
