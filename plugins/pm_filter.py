@@ -436,11 +436,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.ABOUT_TXT, show_alert=True,
-            reply_markup=reply_markup,
-            parse_mode='html'
-        )
+        await query.answer("""
+        ● Hming: MizoMovies
+        ● Siamtu: RSR
+        ● Version: 1.0
+        ● Database: Mongo DB
+        """, show_alert=True)
+        
     elif query.data == "source":
         buttons = [[
             InlineKeyboardButton('👩‍🦯 Back', callback_data='about')
