@@ -43,7 +43,7 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('Tutorial', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('Helpline', url='https://t.me/helptereuhte),
+            InlineKeyboardButton('Helpline', url='https://t.me/helptereuhte'),
             InlineKeyboardButton('Channel', url='https://t.me/rsrbots')
             ],[
             InlineKeyboardButton('Inline', switch_inline_query_current_chat=''),
