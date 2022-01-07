@@ -444,10 +444,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         await query.answer("""
-● Hming: MizoMovies
-● Siamtu: RSR
-● Version: 1.0
-● Database: Mongo DB
+● 𝗛𝗺𝗶𝗻𝗴: MizoMovies
+● 𝗦𝗶𝗮𝗺𝘁𝘂: RSR
+● 𝗩𝗲𝗿𝘀𝗶𝗼𝗻: 1.0
+● 𝗗𝗮𝘁𝗮𝗯𝗮𝘀𝗲: Mongo DB
 """, show_alert=True)
         
     elif query.data == "source":
