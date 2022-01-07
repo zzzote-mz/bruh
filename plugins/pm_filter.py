@@ -2,7 +2,7 @@
 import asyncio
 import re
 import ast
-
+from plugins.fsub import ForceSub
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script
 import pyrogram
@@ -30,6 +30,10 @@ rsr = "https://telegra.ph/file/97cb26fb3a722e2d8529e.jpg"
 
 @Client.on_message(filters.private & filters.text)
 async def give_filter(client,message):
+    await AddUser(client, message)
+    FSub = await ForceSub(client, message)
+    if FSub == 400:
+        return
     k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)   
