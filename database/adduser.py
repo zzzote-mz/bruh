@@ -6,8 +6,8 @@ from sample_config import Config
 async def AddUser(bot: Client, update: Message):
     if not await clinton.is_user_exist(update.from_user.id):
            await clinton.add_user(update.from_user.id)
-           if Config.LOG_CHANNEL is not None:
+           if Config.LOG_CHANNELS is not None:
             await bot.send_message(
-                int(Config.LOG_CHANNEL),
+                int(Config.LOG_CHANNELS),
                 f"#NEW_USER \n\n➥**Hming:** [{update.from_user.first_name}](tg://user?id={update.from_user.id})\n\n➥**ID:** {update.from_user.id}"
             ) 
