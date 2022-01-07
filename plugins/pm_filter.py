@@ -3,6 +3,7 @@ import asyncio
 import re
 import ast
 from plugins.fsub import ForceSub
+from database.adduser import AddUser
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script
 import pyrogram
