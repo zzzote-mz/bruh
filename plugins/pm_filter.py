@@ -40,7 +40,8 @@ async def give_filter(client,message):
             text="Min hman duh chuan a hnuaia **Join** tih button hi hmet la join rawh, channel member te chauh in min hmang thei.",
             reply_to_message_id=message.message_id,
             reply_markup=InlineKeyboardMarkup(buttons)
-            return
+        )
+        return
     k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)   
