@@ -652,8 +652,15 @@ async def advantage_spell_chok(msg):
                 movielist += [movie.get('title') for movie in imdb_s]
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist)) # removing duplicates
+    btt = [[
+                InlineKeyboardButton(
+                    "Helpline",
+                    url="https://t.me/helptereuhte",
+                )
+            ]
+           ]
     if not movielist:
-        await msg.reply("I couldn't find anything related to that. Check your spelling")
+        await send_message(message.chat.id, text="i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Helpline** tih button khu hmet la, kha mi group ah khan i sawi thei ang.", reply_markup=InlineKeyboardMarkup(btt))
         return
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
