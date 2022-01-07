@@ -1,7 +1,7 @@
 import asyncio
 from pyrogram import Client, filters
 from plugins.fsub import ForceSub
-
+from database.adduser import AddUser
 
 
 @Client.on_message(filters.private & filters.text)
