@@ -42,7 +42,7 @@ async def give_filter(client,message):
             reply_markup=InlineKeyboardMarkup(buttons)
         )
         return
-    await client.send_message(LOG_CHANNEL, text=f"#Search\n\n**Sender:** {}\n**Search:** {}.format(message.from_user.id, message.from_user.mention)
+    await client.send_message(LOG_CHANNEL, text=f"#Search\n\n**Sender:** {}\n**Search:** {}".format(message.from_user.mention, message.text))
     k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)   
