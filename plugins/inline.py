@@ -91,11 +91,8 @@ async def answer(bot, query):
 def get_reply_markup(query):
     buttons = [
         [
-            InlineKeyboardButton('Zawn lehna', switch_inline_query_current_chat="")
-        ],
-        [
-            InlineKeyboardButton('Bot', url="https://t.me/mzmvbot")
-        ],
+            InlineKeyboardButton('Upload tu', url="https://t.me/mzmvbot")
+        ]
         ]
     return InlineKeyboardMarkup(buttons)
 
