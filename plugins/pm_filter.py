@@ -601,7 +601,7 @@ async def auto_filter(client, msg, spoll=False):
         btn.append(
             [InlineKeyboardButton(text="🗓 1/1",callback_data="pages")]
         )
-    cap = f"**A hnuaia button ami ho khu i duh mil tur ka zawn hmuh te ania, i duh ber kha hmet la ka lo thawn ang che.**"
+    cap = f"**A hnuaia button ami khu i duh mil tur ka zawn hmuh ania, i duh kha hmet la ka lo thawn ang che.**"
     await client.send_message(message.chat.id, text=cap, reply_to_message_id=message.message_id, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
         await msg.message.delete()
