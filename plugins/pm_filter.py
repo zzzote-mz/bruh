@@ -608,11 +608,11 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text=f"🗓 1/{round(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="NEXT ⏩",callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton(text=f"Page 1/{round(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="NEXT ⏩",callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
-            [InlineKeyboardButton(text="🗓 1/1",callback_data="pages")]
+            [InlineKeyboardButton(text="Page 1/1",callback_data="pages")]
         )
     cap = f"**A hnuaia button ami khu i duh mil tur ka zawn hmuh ania, i duh kha hmet la ka lo thawn ang che.**"
     await client.send_message(message.chat.id, text=cap, reply_to_message_id=message.message_id, reply_markup=InlineKeyboardMarkup(btn))
