@@ -660,7 +660,7 @@ async def advantage_spell_chok(msg):
             ]
            ]
     if not movielist:
-        await send_message(message.chat.id, text="i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Helpline** tih button khu hmet la, kha mi group ah khan i sawi thei ang.", reply_markup=InlineKeyboardMarkup(btt))
+        await client.send_message(message.chat.id, text="i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Helpline** tih button khu hmet la, kha mi group ah khan i sawi thei ang.", reply_to_message_id=message.message_id, reply_markup=InlineKeyboardMarkup(btt))
         return
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
@@ -670,7 +670,7 @@ async def advantage_spell_chok(msg):
                 )
             ]
            ]
-    await client.send_message(message.chat.id, text="i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Helpline** tih button khu hmet la, kha mi group ah khan i sawi thei ang.", reply_markup=InlineKeyboardMarkup(btn))
+    await client.send_message(message.chat.id, text="i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Helpline** tih button khu hmet la, kha mi group ah khan i sawi thei ang.", reply_to_message_id=message.message_id, reply_markup=InlineKeyboardMarkup(btn))
     
 
 async def manual_filters(client, message, text=False):
