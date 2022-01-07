@@ -92,10 +92,10 @@ def get_reply_markup(query):
     buttons = [
         [
             InlineKeyboardButton('Zawn lehna', switch_inline_query_current_chat="")
-        ]
+        ],
         [
             InlineKeyboardButton('Bot', url="https://t.me/mzmvbot")
-        ]
+        ],
         ]
     return InlineKeyboardMarkup(buttons)
 
