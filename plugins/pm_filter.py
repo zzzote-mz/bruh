@@ -435,7 +435,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode='html'
         )
     elif query.data == "about":
-        reply_markup = InlineKeyboardMarkup(buttons)
         await query.answer("""
         ● Hming: MizoMovies
         ● Siamtu: RSR
