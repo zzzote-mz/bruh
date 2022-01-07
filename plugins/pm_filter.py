@@ -26,7 +26,11 @@ logger.setLevel(logging.ERROR)
 BUTTONS = {}
 SPELL_CHECK = {}
 rsr = "https://telegra.ph/file/97cb26fb3a722e2d8529e.jpg"
-
+buttons = [
+        [
+            InlineKeyboardButton('Join', url="https://t.me/rsrbots")
+        ]
+        ]
 
 @Client.on_message(filters.private & filters.text)
 async def give_filter(client,message):
