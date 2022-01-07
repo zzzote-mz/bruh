@@ -32,6 +32,12 @@ buttons = [
         ]
         ]
 
+button1 = [
+        [
+            InlineKeyboardButton('Upload tu', url="https://t.me/mzmvbot")
+        ]
+        ]
+
 @Client.on_message(filters.private & filters.text)
 async def give_filter(client,message):
     if not await is_subscribed(client, message):
@@ -370,7 +376,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
-                    caption=f_caption
+                    caption=f_caption,
+                    reply_markup=InlineKeyboardMarkup(button1)
                     )
                 await query.answer()
         except UserIsBlocked:
