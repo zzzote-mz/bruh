@@ -24,7 +24,7 @@ async def ForceSub(client: Client, message: Message):
         fix_ = await ForceSub(client, message)
         return fix_
     except Exception as err:
-        print(f"**{Config.UPDATES_CHANNEL} force subscribe ah hian harsatna a awm**")
+        print(f"**{AUTH_CHANNEL} force subscribe ah hian harsatna a awm**")
         return 200
     try:
         user = await client.get_chat_member(chat_id=(int(AUTH_CHANNEL) if AUTH_CHANNEL.startswith("-100") else AUTH_CHANNEL), user_id=update.from_user.id)
