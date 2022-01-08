@@ -451,7 +451,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         await query.answer("""
-● 𝗛𝗺𝗶𝗻𝗴: MizoMovies
+● 𝗛𝗺𝗶𝗻𝗴: Mizo Movies
 ● 𝗦𝗶𝗮𝗺𝘁𝘂: RSR
 ● 𝗩𝗲𝗿𝘀𝗶𝗼𝗻: 1.0
 ● 𝗗𝗮𝘁𝗮𝗯𝗮𝘀𝗲: Mongo DB
