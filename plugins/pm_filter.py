@@ -673,8 +673,8 @@ async def advantage_spell_chok(msg):
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
                 InlineKeyboardButton(
-                    "Helpline",
-                    url="https://t.me/helptereuhte",
+                    "Files",
+                    url="https://t.me/mzfile",
                 )
             ]
            ]
