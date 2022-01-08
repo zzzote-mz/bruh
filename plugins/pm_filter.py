@@ -662,13 +662,13 @@ async def advantage_spell_chok(msg):
     movielist = list(dict.fromkeys(movielist)) # removing duplicates
     btt = [[
                 InlineKeyboardButton(
-                    "Helpline",
-                    url="https://t.me/helptereuhte",
+                    "Files",
+                    url="https://t.me/mzfile",
                 )
             ]
            ]
     if not movielist:
-        await msg.reply("i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Helpline** tih button khu hmet la, kha mi group ah khan i sawi thei ang.", reply_markup=InlineKeyboardMarkup(btt))
+        await msg.reply("i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan i zawn hmuh loh kha zawng rawh, ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_markup=InlineKeyboardMarkup(btt))
         return
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
@@ -678,7 +678,7 @@ async def advantage_spell_chok(msg):
                 )
             ]
            ]
-    await msg.reply("i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Helpline** tih button khu hmet la, kha mi group ah khan i sawi thei ang.", reply_markup=InlineKeyboardMarkup(btn))
+    await msg.reply("i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan i zawn hmuh loh kha zawng rawh, ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_markup=InlineKeyboardMarkup(btn))
     
 
 async def manual_filters(client, message, text=False):
