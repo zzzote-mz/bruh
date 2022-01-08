@@ -76,7 +76,6 @@ async def start(client, message):
             ]
         ]
 
-        if message.command[1] != "subscribe":
         await client.send_message(
             chat_id=message.from_user.id,
             text="Min hman duh chuan a hnuaia **Join** tih button hi hmet la join rawh, channel member te chauh in min hmang thei.",
