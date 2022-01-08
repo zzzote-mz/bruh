@@ -1,7 +1,7 @@
 class script(object):
     START_TXT = """Chibai le {},
     
-Kei hi Mizo ṭawnga lehlin movie zawnna Bot ka ni e, keima kaltlang in Mizo ṭawng a lehlin movie te i zawng thei ang. A hmasa ber ah chuan a hnuaia <b>Tutorial</b> tih button khu hmet la, tah khan min hman dan video en tur alo awm anga, uluk em em in i en chhuak dawn nia aw.\n\nHun hman nuam le😊"""
+Kei hi Mizo ṭawnga lehlin movie zawnna Bot ka ni e, keima kaltlang in Mizo ṭawng a lehlin movie te i zawng thei ang. A hmasa ber ah chuan a hnuaia <b>Tutorial</b> tih button khu hmet la, tah khan min hman dan video en tur alo awm anga, uluk em em in i en chhuak dawn nia aw. Harsatna i nei thei a <b>Helpline</b> tih button khu hmet la join rawh, tah khan i harsatna te i sawi thei ang.\n\nHun hman nuam le😊"""
     HELP_TXT = """𝙷𝙴𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂."""
     ABOUT_TXT = """● Hming: Mizo Movies
