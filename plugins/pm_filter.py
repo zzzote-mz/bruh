@@ -415,7 +415,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             )
 
     elif query.data == "pages":
-        await query.answer("Page awmzat lan na ani e,", show_alert=True)
+        await query.answer("Page awmzat lan na ani e", show_alert=True)
     elif query.data == "start":
         buttons = [[
             InlineKeyboardButton('Help', callback_data='help')
