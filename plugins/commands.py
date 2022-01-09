@@ -46,10 +46,11 @@ async def start(client, message):
             InlineKeyboardButton('Helpline', url='https://t.me/helptereuhte'),
             InlineKeyboardButton('Channel', url='https://t.me/rsrbots')
             ],[
+            InlineKeyboardButton('Help', callback_data='help'),
             InlineKeyboardButton('Inline', switch_inline_query_current_chat=''),
             InlineKeyboardButton('About', callback_data='about')
             ],[
-            InlineKeyboardButton('Developer', url='https://t.me/rsrmusic')
+            InlineKeyboardButton('Developer', url='https://t.me/rsrmusic'),
             ],[
             InlineKeyboardButton('Source Code', url='tg://need_update_for_some_feature')
         ]]
