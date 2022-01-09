@@ -41,12 +41,11 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('Tutorial', url='https://youtu.be/1jhYo0ugBTw')
+            InlineKeyboardButton('Help', callback_data='help')
             ],[
             InlineKeyboardButton('Helpline', url='https://t.me/helptereuhte'),
             InlineKeyboardButton('Channel', url='https://t.me/rsrbots')
             ],[
-            InlineKeyboardButton('Help', callback_data='help'),
             InlineKeyboardButton('Inline', switch_inline_query_current_chat=''),
             InlineKeyboardButton('About', callback_data='about')
             ],[
