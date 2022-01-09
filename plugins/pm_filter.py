@@ -418,12 +418,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer("Page awmzat lan na ani e,", show_alert=True)
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('Tutorial', url='https://youtu.be/1jhYo0ugBTw')
+            InlineKeyboardButton('Help', callback_data='help')
             ],[
             InlineKeyboardButton('Helpline', url='https://t.me/helptereuhte'),
             InlineKeyboardButton('Channel', url='https://t.me/rsrbots')
             ],[
-            InlineKeyboardButton('Help', callback_data='help'),
             InlineKeyboardButton('Inline', switch_inline_query_current_chat=''),
             InlineKeyboardButton('About', callback_data='about')
             ],[
@@ -439,7 +438,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "help":
         buttons = [[
-            InlineKeyboardButton('Back', callback_data='start'),
+            InlineKeyboardButton('Tutorial', url='https://youtu.be/1jhYo0ugBTw'),
+            ],[
+            InlineKeyboardButton('Back', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
