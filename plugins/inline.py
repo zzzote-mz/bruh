@@ -66,9 +66,9 @@ async def answer(bot, query):
                 reply_markup=reply_markup))
 
     if results:
-        switch_pm_text = f"Movie hmuh - {total},"
+        switch_pm_text = f'Movie hmuh - "{total}"'
         if string:
-            switch_pm_text += f" i zawn - {string}"
+            switch_pm_text += f' i zawn - "{string}"'
         try:
             await query.answer(results=results,
                            is_personal = True,
@@ -85,7 +85,7 @@ async def answer(bot, query):
                            switch_pm_text=str(e)[:63],
                            switch_pm_parameter="error")
     else:
-        switch_pm_text = f'Movie hmuh anilo,'
+        switch_pm_text = f'Movie hmuh anilo😔'
         if string:
             switch_pm_text += f' i zawn - "{string}"'
 
