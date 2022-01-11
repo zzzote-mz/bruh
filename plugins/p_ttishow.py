@@ -22,11 +22,11 @@ async def save_group(bot, message):
         if message.chat.id in temp.BANNED_CHATS:
             # Inspired from a boat of a banana tree
             buttons = [[
-                InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
+                InlineKeyboardButton('Helpline', url=f'https://t.me/helptereuhte')
             ]]
             reply_markup=InlineKeyboardMarkup(buttons)
             k = await message.reply(
-                text='<b>CHAT NOT ALLOWED 🐞\n\nMy admins has restricted me from working here ! If you want to know more about it contact support..</b>',
+                text='He group ah hian hna ka thawk theilo, a chhan chu min siamtu in a phalloh vang ani, a chhan i zawh duh chuan a hnuaia <b>Helpline</b> tih button hi hmet la, tah khan i sawi thei ang.',
                 reply_markup=reply_markup,
             )
 
@@ -37,22 +37,16 @@ async def save_group(bot, message):
             await bot.leave_chat(message.chat.id)
             return
         buttons = [[
-            InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
-            InlineKeyboardButton('📢 Updates', url='https://t.me/TeamEvamaria')
+            InlineKeyboardButton('Min hman dan', url="https://youtu.be/1jhYo0ugBTw")
+            ],[
+            InlineKeyboardButton('Helpline', url='https://t.me/helptereuhte'),
+            InlineKeyboardButton('Channel', url='https://t.me/rsrbots')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
-            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support.</b>",
+            text=f"<b>{message.chat.title}</b> ah hian min add avangin ka lawm e😊",
             reply_markup=reply_markup)
-    else:
-        for u in message.new_chat_members:
-            if (temp.MELCOW).get('welcome') is not None:
-                try:
-                    await (temp.MELCOW['welcome']).delete()
-                except:
-                    pass
-            temp.MELCOW['welcome'] = await message.reply(f"<b>Hey , {u.mention}, Welcome to {message.chat.title}</b>")
-
+    
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
 async def leave_a_chat(bot, message):
@@ -65,12 +59,12 @@ async def leave_a_chat(bot, message):
         chat = chat
     try:
         buttons = [[
-            InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
+            InlineKeyboardButton('Helpline', url=f'https://t.me/helptereuhte')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat,
-            text='<b>Hello Friends, \nMy admin has told me to leave from group so i go! If you wanna add me again contact my support group.</b>',
+            text='Min siamtu in group hi chhuahsan turin min ti tlat mai, ka chhuahsan mai ange, min add leh duh chuan a hnuaia <b>Helpline</b> tih button hi hmet la, tah khan ilo sawi dawn nia.,
             reply_markup=reply_markup,
         )
 
@@ -108,7 +102,7 @@ async def disable_chat(bot, message):
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat_, 
-            text=f'<b>Hello Friends, \nMy admin has told me to leave from group so i go! If you wanna add me again contact my support group.</b> \nReason : <code>{reason}</code>',
+            text=f'Min siamtu in group hi chhuahsan turin min ti tlat mai\n\n<b>A chhan:</b> {reason}\n\nChuvang chuan ka chhuahsan mai ange, min add leh duh chuan a hnuaia <b>Helpline</b> tih button hi hmet la, tah khan ilo sawi dawn nia.',
             reply_markup=reply_markup)
         await bot.leave_chat(chat_)
     except Exception as e:
@@ -149,7 +143,7 @@ async def get_ststs(bot, message):
 
 # a function for trespassing into others groups, Inspired by a Vazha
 # Not to be used , But Just to showcase his vazhatharam.
-# @Client.on_message(filters.command('invite') & filters.user(ADMINS))
+@Client.on_message(filters.command('invite') & filters.user(ADMINS))
 async def gen_invite(bot, message):
     if len(message.command) == 1:
         return await message.reply('Give me a chat id')
