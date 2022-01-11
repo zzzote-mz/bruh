@@ -64,7 +64,7 @@ async def leave_a_chat(bot, message):
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat,
-            text='Min siamtu in group hi chhuahsan turin min ti tlat mai, ka chhuahsan mai ange, min add leh duh chuan a hnuaia <b>Helpline</b> tih button hi hmet la, tah khan ilo sawi dawn nia.,
+            text='Min siamtu in group hi chhuahsan turin min ti tlat mai, ka chhuahsan mai ange, min add leh duh chuan a hnuaia <b>Helpline</b> tih button hi hmet la, tah khan ilo sawi dawn nia.',
             reply_markup=reply_markup,
         )
 
