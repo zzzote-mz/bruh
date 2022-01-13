@@ -452,7 +452,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer("""
 ● 𝗛𝗺𝗶𝗻𝗴: Mizo Movies
 ● 𝗦𝗶𝗮𝗺𝘁𝘂: RSR
-● 𝗩𝗲𝗿𝘀𝗶𝗼𝗻: 1.0
+● 𝗩𝗲𝗿𝘀𝗶𝗼𝗻: 1.1
 ● 𝗗𝗮𝘁𝗮𝗯𝗮𝘀𝗲: Mongo DB
 """, show_alert=True)
         
