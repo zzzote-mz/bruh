@@ -431,6 +431,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Source Code', url='tg://need_update_for_some_feature')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await query.answer()
         await query.message.edit_text(
             text=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
@@ -443,6 +444,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Back', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await query.answer()
         await query.message.edit_text(
             text=script.HELP_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
