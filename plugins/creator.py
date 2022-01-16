@@ -27,6 +27,6 @@ rsrk = InlineKeyboardMarkup(
 
 @Client.on_message(filters.command('creator'))
 async def creator(client, message):
-  await client.send_video(message.chat.id, photo=rsr, caption="**A hnuaia button ho khu min siamtu biak pawh theihna te ani e.**", reply_markup=rsrk, reply_to_message_id=message.message_id)
+  await client.send_video(message.chat.id, video=rsr, caption="**A hnuaia button ho khu min siamtu biak pawh theihna te ani e.**", reply_markup=rsrk, reply_to_message_id=message.message_id)
     
         
