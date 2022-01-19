@@ -22,14 +22,11 @@ async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
-                InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
-            ],
-            [
-                InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
+                InlineKeyboardButton('Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await client.send_message(message.chat.id, script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_to_message_id=message.message_id, reply_markup=reply_markup)
+        await client.send_message(message.chat.id, text="Hello {}, a hnuaia **Help** tih button khu hmet la start rawh, chuan private lam ah a pawimawh dang chu i en thei ang.".format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_to_message_id=message.message_id, reply_markup=reply_markup)
         await asyncio.sleep(2) # 😢 https://github.com/EvamariaTG/EvaMaria/blob/master/plugins/p_ttishow.py#L17 😬 wait a bit, before checking.
         if not await db.get_chat(message.chat.id):
             total=await client.get_chat_members_count(message.chat.id)
@@ -86,13 +83,17 @@ async def start(client, message):
         return
     if len(message.command) ==2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('Help', callback_data='help')
             ],[
-            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
+            InlineKeyboardButton('Helpline', url='https://t.me/helptereuhte'),
+            InlineKeyboardButton('Channel', url='https://t.me/rsrbots')
             ],[
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            InlineKeyboardButton('😊 About', callback_data='about')
+            InlineKeyboardButton('Inline', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('About', callback_data='about')
+            ],[
+            InlineKeyboardButton('Developer', url='https://t.me/rsrmusic'),
+            ],[
+            InlineKeyboardButton('Share', url='https://t.me/share/url?url=Mizo%20%E1%B9%ADawnga%20lehlin%20movie%20%E1%B9%ADhenkhat%20zawn%20na%2C%20en%20na%20leh%20download%20na%20i%20hman%20ve%20duh%20chuan%20a%20hnuaia%20Bot%20tia%20ka%20kawh%20na%20zawn%20a%20username%20khu%20hmet%20la%20i%20hmang%20thei%20ang%2C%20a%20free%20vek%20in.%0A%0ABot%20%F0%9F%91%89%20%40mzmvbot')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.send_message(
