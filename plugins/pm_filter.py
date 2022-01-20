@@ -377,8 +377,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
-                    reply_markup=InlineKeyboardMarkup(button1),
-                    protect_content=True
+                    protect_content=True,
+                    reply_markup=InlineKeyboardMarkup(button1)
                     )
                 await query.answer()
         except UserIsBlocked:
@@ -409,10 +409,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{title}"
         await query.answer()
-        await client.send_cached_media(
+        await client.send_document(
             chat_id=query.from_user.id,
             file_id=file_id,
-            caption=f_caption
+            caption=f_caption,
+            protect_content=True,
+            reply_markup=InlineKeyboardMarkup(button1)
             )
 
     elif query.data == "pages":
