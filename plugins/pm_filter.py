@@ -418,7 +418,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             protect_content=True,
             reply_markup=InlineKeyboardMarkup(button1)
             )
-         await hgg.delete()
+        
 
     elif query.data == "pages":
         await query.answer("Page awmzat lan na ani e", show_alert=True)
