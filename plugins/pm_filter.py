@@ -373,11 +373,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={file_id}")
                 return
             else:
-                await client.send_cached_media(
+                await client.send_document(
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
-                    reply_markup=InlineKeyboardMarkup(button1)
+                    reply_markup=InlineKeyboardMarkup(button1),
+                    protect_content=True
                     )
                 await query.answer()
         except UserIsBlocked:
