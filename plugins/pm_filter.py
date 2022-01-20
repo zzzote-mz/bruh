@@ -375,7 +375,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             else:
                 await client.send_document(
                     chat_id=query.from_user.id,
-                    file_id=file_id,
+                    document=file_id,
                     caption=f_caption,
                     protect_content=True,
                     reply_markup=InlineKeyboardMarkup(button1)
@@ -411,7 +411,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
         await client.send_document(
             chat_id=query.from_user.id,
-            file_id=file_id,
+            document=file_id,
             caption=f_caption,
             protect_content=True,
             reply_markup=InlineKeyboardMarkup(button1)
