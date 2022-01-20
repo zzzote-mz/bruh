@@ -49,7 +49,6 @@ async def give_filter(client,message):
         )
         return
     await client.send_message(LOG_CHANNEL, text="#Search\n\n**Sender:** {}\n**ID:** `{}`\n**Search:** `{}`".format(message.from_user.mention, message.chat.id, message.text))
-    hgg = await client.send_message(message.chat.id, text="**Zawng mek e...**", reply_to_message_id=message.message_id)
     k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)   
@@ -382,7 +381,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     reply_markup=InlineKeyboardMarkup(button1)
                     )
                 await query.answer()
-                await hgg.delete()
         except UserIsBlocked:
             await query.answer('Bot hi unblock phawt rawh',show_alert = True)
         except PeerIdInvalid:
@@ -629,7 +627,6 @@ async def auto_filter(client, msg, spoll=False):
         )
     cap = f"**A hnuaia button ami khu i duh mil tur ka zawn hmuh ania, i duh kha hmet la ka lo thawn ang che.**"
     await client.send_message(message.chat.id, text=cap, reply_to_message_id=message.message_id, reply_markup=InlineKeyboardMarkup(btn))
-    await hgg.delete()
     if spoll:
         await msg.message.delete()
         
@@ -676,7 +673,7 @@ async def advantage_spell_chok(msg):
     if not movielist:
         await msg.reply("i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan i zawn hmuh loh kha zawng rawh, ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_markup=InlineKeyboardMarkup(btt))
         return
-        await hgg.delete()
+        
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
                 InlineKeyboardButton(
@@ -686,7 +683,7 @@ async def advantage_spell_chok(msg):
             ]
            ]
     await msg.reply("i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan i zawn hmuh loh kha zawng rawh, ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_markup=InlineKeyboardMarkup(btn))
-    await hgg.delete()
+    
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
