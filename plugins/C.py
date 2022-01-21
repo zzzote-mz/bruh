@@ -11,7 +11,12 @@ rsrk = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Tutorial", url="https://youtu.be/1jhYo0ugBTw"
+                        "Tutorial", url="https://youtu.be/5dpRZY_CsJY"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "Helpline", url="https://t.me/helptereuhte"
                     )
                 ],
             ]
@@ -19,6 +24,6 @@ rsrk = InlineKeyboardMarkup(
 
 @Client.on_message(filters.command('tutorial'))
 async def tutorial(client, message):
-  await client.send_message(message.chat.id, text="A hnuaia **Tutorial** tih button khu hmet la, video kha uluk deuh in en zo rawh, kha kha min hman dan hrilhfiahna video ani.", reply_markup=rsrk, reply_to_message_id=message.message_id)
+  await client.send_message(message.chat.id, text="A hnuaia **Tutorial** tih button khu hmet la, video kha uluk deuh in en zo rawh, kha kha min hman dan hrilhfiahna video ani. Chuan, min hman dan ah harsatna i neih a i thlen na tur in **Helpline** tih button khu hmet la joim rawh.", reply_markup=rsrk, reply_to_message_id=message.message_id)
     
         
