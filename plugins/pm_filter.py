@@ -631,7 +631,7 @@ async def auto_filter(client, msg, spoll=False):
         await msg.message.delete()
         
 
-async def advantage_spell_chok(msg):
+async def advantage_spell_chok(client, msg):
     query = re.sub(r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|new|latest|br((o|u)h?)*|^h(e|a)?(l)*(o)*|mal(ayalam)?|t(h)?amil|file|that|find|und(o)*|kit(t(i|y)?)?o(w)?|thar(u)?(o)*w?|kittum(o)*|aya(k)*(um(o)*)?|full\smovie|any(one)|with\ssubtitle(s)?)", "", msg.text, flags=re.IGNORECASE) # plis contribute some common words 
     query = query.strip() + " movie"
     g_s = await search_gagala(query)
@@ -671,7 +671,7 @@ async def advantage_spell_chok(msg):
             ]
            ]
     if not movielist:
-        await msg.reply("i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan i zawn hmuh loh kha zawng rawh, ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_markup=InlineKeyboardMarkup(btt))
+        await client.send_message("i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan i zawn hmuh loh kha zawng rawh, ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_to_message_id=message.message_id, reply_markup=InlineKeyboardMarkup(btt))
         return
         
     SPELL_CHECK[msg.message_id] = movielist
@@ -682,7 +682,7 @@ async def advantage_spell_chok(msg):
                 )
             ]
            ]
-    await msg.reply("i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan i zawn hmuh loh kha zawng rawh, ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_markup=InlineKeyboardMarkup(btn))
+    await client.send_message("i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan i zawn hmuh loh kha zawng rawh, ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_to_message_id=message.message_id, reply_markup=InlineKeyboardMarkup(btn))
     
 
 async def manual_filters(client, message, text=False):
