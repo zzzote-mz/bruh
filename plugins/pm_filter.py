@@ -637,10 +637,15 @@ async def advantage_spell_chok(client, msg):
     g_s = await search_gagala(query)
     g_s += await search_gagala(msg.text)
     gs_parsed = []
+    btp = [[
+                InlineKeyboardButton(
+                    "Files",
+                    url="https://t.me/mzfile",
+                )
+            ]
+           ]
     if not g_s:
-        k = await msg.reply("I couldn't find any movie in that name.")
-        await asyncio.sleep(8)
-        await k.delete()
+        await client.send_message(msg.chat.id, text="i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan i zawn hmuh loh kha zawng rawh, ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_to_message_id=msg.message_id, reply_markup=InlineKeyboardMarkup(btp))
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE) # look for imdb / wiki results
     gs = list(filter(regex.match, g_s))
