@@ -43,7 +43,7 @@ async def give_filter(client,message):
     if not await is_subscribed(client, message):
         await client.send_message(
             message.chat.id,
-            text="Min hman duh chuan a hnuaia **Join** tih button hi hmet la join rawh, channel member te chauh in min hmang thei.",
+            text="Min hman duh chuan a hnuaia **Join** tih button hi hmet la join rawh, channel member te chauh in min hmang thei. I join zawh ah i movie duh hming kha min thawn leh dawn nia.",
             reply_to_message_id=message.message_id,
             reply_markup=InlineKeyboardMarkup(buttons)
         )
