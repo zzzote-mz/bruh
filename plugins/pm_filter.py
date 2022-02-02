@@ -34,7 +34,7 @@ buttons = [
 
 button1 = [
         [
-            InlineKeyboardButton('Upload tu', url="https://t.me/mzmvbot")
+            InlineKeyboardButton('Share', url="https://t.me/share/url?url=Mizo%20%E1%B9%ADawnga%20lehlin%20movie%20%E1%B9%ADhenkhat%20zawn%20na%20leh%20en%20na%20hi%20i%20hman%20ve%20duh%20chuan%20a%20hnuaia%20Bot%20tia%20ka%20kawh%20na%20zawn%20a%20username%20khu%20hmet%20la%20i%20hmang%20thei%20ang%2C%20a%20free%20vek%20in.%0A%0ABot%20%F0%9F%91%89%20%40mzmvbot")
         ]
         ]
 
