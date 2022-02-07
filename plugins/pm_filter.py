@@ -645,7 +645,7 @@ async def advantage_spell_chok(client, msg):
             ]
            ]
     if not g_s:
-        await client.send_message(msg.chat.id, text="i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan i zawn hmuh loh kha zawng rawh, ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_to_message_id=msg.message_id, reply_markup=InlineKeyboardMarkup(btp))
+        await client.send_message(msg.chat.id, text="i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan zawng rawh (join angailo), ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_to_message_id=msg.message_id, reply_markup=InlineKeyboardMarkup(btp))
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE) # look for imdb / wiki results
     gs = list(filter(regex.match, g_s))
@@ -676,7 +676,7 @@ async def advantage_spell_chok(client, msg):
             ]
            ]
     if not movielist:
-        await client.send_message(msg.chat.id, text="i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan i zawn hmuh loh kha zawng rawh, ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_to_message_id=msg.message_id, reply_markup=InlineKeyboardMarkup(btt))
+        await client.send_message(msg.chat.id, text="i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan zawng rawh (join angailo), ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_to_message_id=msg.message_id, reply_markup=InlineKeyboardMarkup(btt))
         return
         
     SPELL_CHECK[msg.message_id] = movielist
@@ -687,7 +687,7 @@ async def advantage_spell_chok(client, msg):
                 )
             ]
            ]
-    await client.send_message(msg.chat.id, text="i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan i zawn hmuh loh kha zawng rawh, ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_to_message_id=msg.message_id, reply_markup=InlineKeyboardMarkup(btn))
+    await client.send_message(msg.chat.id, text="i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan zawng rawh (join angailo), ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_to_message_id=msg.message_id, reply_markup=InlineKeyboardMarkup(btn))
     
 
 async def manual_filters(client, message, text=False):
