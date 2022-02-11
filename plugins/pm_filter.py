@@ -1,7 +1,6 @@
 #Kanged From @TroJanZheX
 import asyncio
 import re
-import time
 import ast
 from utils import is_subscribed
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
@@ -419,8 +418,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             protect_content=True,
             reply_markup=InlineKeyboardMarkup(button1)
             )
-         time.time(86400)
-         await rsr2.delete()
+         
         
 
     elif query.data == "pages":
