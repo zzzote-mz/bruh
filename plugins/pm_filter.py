@@ -380,9 +380,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     protect_content=True,
                     reply_markup=InlineKeyboardMarkup(button1)
                     )
-                rsr2 = await client.send_message(query.from_user.id, text="Ka movie rawn pek che hi ni 1 hnu ah amah in a in delete ang")
+                rsr2 = await client.send_message(query.from_user.id, text="Ka movie rawn pek che hi ni 1 hnu ah amah in a in delete ang.")
                 await query.answer()
-                await asyncio.sleep(10)
+                await asyncio.sleep(86400)
                 await rsr1.delete()
                 await rsr2.delete()
         except UserIsBlocked:
