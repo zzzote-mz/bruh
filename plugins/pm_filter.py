@@ -381,7 +381,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     reply_markup=InlineKeyboardMarkup(button1)
                     )
                 await query.answer()
-                await asyncio.sleep(10)
+                await asyncio.sleep(86400)
                 await rsr1.delete()
         except UserIsBlocked:
             await query.answer('Bot hi unblock phawt rawh',show_alert = True)
