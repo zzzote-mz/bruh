@@ -373,7 +373,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={file_id}")
                 return
             else:
-                await client.send_cached_media(
+                rsr1 = await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
@@ -381,6 +381,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     reply_markup=InlineKeyboardMarkup(button1)
                     )
                 await query.answer()
+                await asyncio.sleep(86400)
+                await rsr1.delete()
         except UserIsBlocked:
             await query.answer('Bot hi unblock phawt rawh',show_alert = True)
         except PeerIdInvalid:
@@ -409,13 +411,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{title}"
         await query.answer()
-        await client.send_cached_media(
+        rsr2 = await client.send_cached_media(
             chat_id=query.from_user.id,
             file_id=file_id,
             caption=f_caption,
             protect_content=True,
             reply_markup=InlineKeyboardMarkup(button1)
             )
+         await asyncio.sleep(86400)
+         await rsr2.delete()
         
 
     elif query.data == "pages":
