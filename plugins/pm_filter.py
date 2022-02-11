@@ -641,15 +641,8 @@ async def advantage_spell_chok(client, msg):
     g_s = await search_gagala(query)
     g_s += await search_gagala(msg.text)
     gs_parsed = []
-    btp = [[
-                InlineKeyboardButton(
-                    "Files",
-                    url="https://t.me/mzfile",
-                )
-            ]
-           ]
     if not g_s:
-        await client.send_message(msg.chat.id, text="i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan zawng rawh (join angailo), ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_to_message_id=msg.message_id, reply_markup=InlineKeyboardMarkup(btp))
+        await client.send_message(msg.chat.id, text="i movie duh hi ka zawng hmulo tlat mai, i duh chuan request dan ang khan i request thei ang.", reply_to_message_id=msg.message_id)
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE) # look for imdb / wiki results
     gs = list(filter(regex.match, g_s))
@@ -672,26 +665,12 @@ async def advantage_spell_chok(client, msg):
                 movielist += [movie.get('title') for movie in imdb_s]
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist)) # removing duplicates
-    btt = [[
-                InlineKeyboardButton(
-                    "Files",
-                    url="https://t.me/mzfile",
-                )
-            ]
-           ]
     if not movielist:
-        await client.send_message(msg.chat.id, text="i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan zawng rawh (join angailo), ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_to_message_id=msg.message_id, reply_markup=InlineKeyboardMarkup(btt))
+        await client.send_message(msg.chat.id, text="i movie duh hi ka zawng hmulo tlat mai, i duh chuan request dan ang khan i request thei ang.", reply_to_message_id=msg.message_id)
         return
         
     SPELL_CHECK[msg.message_id] = movielist
-    btn = [[
-                InlineKeyboardButton(
-                    "Files",
-                    url="https://t.me/mzfile",
-                )
-            ]
-           ]
-    await client.send_message(msg.chat.id, text="i duh hi ka zawng hmulo tlat mai, ka database ah a awmlo emaw i zawn dan leh ka database a a awmdan a in an loh vang pawh ani maithei ani, i duh chuan a hnuaia **Files** tih button khu hmet la, kha mi channel ah khan zawng rawh (join angailo), ala awmlo fo anih chuan request dan tur ang khan i request thei ang.", reply_to_message_id=msg.message_id, reply_markup=InlineKeyboardMarkup(btn))
+    await client.send_message(msg.chat.id, text="i movie duh hi ka zawng hmulo tlat mai, i duh chuan request dan ang khan i request thei ang.", reply_to_message_id=msg.message_id)
     
 
 async def manual_filters(client, message, text=False):
