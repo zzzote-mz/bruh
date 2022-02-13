@@ -1,6 +1,5 @@
 #Kanged From @TroJanZheX
 import asyncio
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
 import re
 import ast
 from utils import is_subscribed
@@ -381,15 +380,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     protect_content=True,
                     reply_markup=InlineKeyboardMarkup(button1)
                     )
-                rsr2 = await client.send_message(query.from_user.id, text="Ka movie rawn pek che hi ni 1 hnu ah amah in a in delete ang.")
-                await query.answer()
-async def job():
-                await rsr1.delete()
-                await rsr2.delete()
-scheduler = AsyncIOScheduler()
-scheduler.add_job(job, "interval", seconds=10)
-
-scheduler.start()
         except UserIsBlocked:
             await query.answer('Bot hi unblock phawt rawh',show_alert = True)
         except PeerIdInvalid:
