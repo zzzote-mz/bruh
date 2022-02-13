@@ -380,6 +380,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     protect_content=True,
                     reply_markup=InlineKeyboardMarkup(button1)
                     )
+                await query.answer()
         except UserIsBlocked:
             await query.answer('Bot hi unblock phawt rawh',show_alert = True)
         except PeerIdInvalid:
