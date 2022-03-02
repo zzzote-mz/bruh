@@ -11,8 +11,8 @@ CACHE_TIME = 300
 USE_CAPTION_FILTER = False
 
 # Admins, Channels & Users
-ADMINS = [12345789, 'admin123', 98765432]
-CHANNELS = [-10012345678, -100987654321, 'channelusername']
+ADMINS = []
+CHANNELS = []
 AUTH_USERS = []
 AUTH_CHANNEL = None
 
