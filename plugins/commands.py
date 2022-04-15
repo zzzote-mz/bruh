@@ -40,7 +40,7 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('Help', callback_data='help')
             ],[
-            InlineKeyboardButton('Helpline', url='https://t.me/helptereuhte'),
+            InlineKeyboardButton('Movie Group', url='https://t.me/mizomovies'),
             InlineKeyboardButton('Channel', url='https://t.me/rsrbots')
             ],[
             InlineKeyboardButton('Developer', url='https://t.me/rsrmusic'),
@@ -83,7 +83,7 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('Help', callback_data='help')
             ],[
-            InlineKeyboardButton('Helpline', url='https://t.me/helptereuhte'),
+            InlineKeyboardButton('Movie Group', url='https://t.me/mizomovies'),
             InlineKeyboardButton('Channel', url='https://t.me/rsrbots')
             ],[
             InlineKeyboardButton('Developer', url='https://t.me/rsrmusic'),
