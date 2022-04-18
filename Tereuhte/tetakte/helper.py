@@ -1,5 +1,7 @@
 from typing import Callable, Coroutine, List
-
+from pyrogram.types import Chat, Message, User
+from pyrogram import Client
+from functools import wraps
 
 
 async def get_administrators(chat: Chat) -> List[User]:
@@ -17,7 +19,7 @@ async def get_administrators(chat: Chat) -> List[User]:
 
 def admins_only(func: Callable) -> Coroutine:
     async def wrapper(client: Client, message: Message):
-        if message.from_user.id == OWNER_ID:
+        if message.from_user.id == ADMINS:
             return await func(client, message)
         admins = await get_administrators(message.chat)
         for admin in admins:
