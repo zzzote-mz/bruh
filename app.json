@@ -15,8 +15,8 @@
       "index",
       "inline"
     ],
-    "website": "https://github.com/RSR-TG-Info/mizomv",
-    "repository": "https://github.com/RSR-TG-Info/mizomv",
+    "website": "https://github.com/RSR-TG-Info/TereuhteBackup",
+    "repository": "https://github.com/RSR-TG-Info/TereuhteBackup",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
