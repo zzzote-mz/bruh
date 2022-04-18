@@ -22,7 +22,8 @@ ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ
 auth_grp = environ.get('AUTH_GROUP')
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 
-
+#others
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
 
 LOG_STR = "Finished✅"
 
