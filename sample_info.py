@@ -10,8 +10,5 @@ USERBOT_STRING_SESSION = ''
 
 # Admins, Channels & Users
 ADMINS = []
-CHANNELS = []
-AUTH_USERS = []
-AUTH_CHANNEL = None
 
 
