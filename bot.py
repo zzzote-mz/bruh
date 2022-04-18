@@ -27,6 +27,7 @@ class Bot(Client):
 
     async def start(self):
         await super().start()
+        me = await self.get_me()
         logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
         logging.info(LOG_STR)
 
