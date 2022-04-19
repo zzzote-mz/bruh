@@ -1,0 +1,11 @@
+# ©️2022 RSR
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+
+
+
+@Client.on_message(filters.chat(-1001259409747) & filters.new_chat_members)
+async def kanleng(client, message):
+    for rsr in message.new_chat_members:
+          await client.send_message(-1001259409747, text=f"Hello {rsr.mention}\n\n**{message.chat.title}** group ah hian kan lo lawm a che.\n\nMember kan tam ang lo hian group hi a reh khawp mai a, a active chhun a te ho erawh hmeltha lem lo mah ila, kan fel hlawm nek a nia😎\n\nInthlahrung hauh lo khan, lo ri ve bawrh bawrh dawn nia.", reply_to_message_id=message.message_id)
+          return
