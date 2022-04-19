@@ -20,8 +20,8 @@ async def ban(client, message):
         await client.send_message(message.chat.id, text=f"{umen} hi Ban ani e.", reply_to_message_id=message.message_id)
         return
     else:
-        umens = message.reply_to_message.from_user.mention
         idu = message.text.split(None, 1)[1]
+        umens = idu.mention
         await client.ban_chat_member(message.chat.id, user_id=idu)
         await client.send_message(message.chat.id, text=f"{umens} hi Ban ani e.", reply_to_message_id=message.message_id)
         return
