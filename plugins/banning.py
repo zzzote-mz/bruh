@@ -5,7 +5,17 @@ from pyrogram import Client, filters
 
 @Client.on_message(filters.command("ban", prefixes=["/", "!"]))
 async def ban(client, message):
-    if message.reply_to_message:
+    if not 5301276537.status == "administrator":
+        await client.send_message(message.chat.id, text="Admin ka nilo, chuvang chuan hetah tumah ka ban theilo.", reply_to_message_id=message.message_id)
+        return
+    elif message.chat.type == "private":
+            await client.send_message(
+                message.chat.id,
+                text="**Hei chu group ah chauh a hman theih.**",
+                reply_to_message_id=message.message_id
+            )
+            return
+    elif message.reply_to_message:
         uid = message.reply_to_message.from_user.id
         umen = message.reply_to_message.from_user.mention
         await client.ban_chat_member(message.chat.id, user_id=uid)
@@ -21,7 +31,17 @@ async def ban(client, message):
       
 @Client.on_message(filters.command("unban", prefixes=["/", "!"]))
 async def unban(client, message):
-    if message.reply_to_message:
+    if not 5301276537.status == "administrator":
+        await client.send_message(message.chat.id, text="Admin ka nilo, chuvang chuan hetah tumah ka unban theilo.", reply_to_message_id=message.message_id)
+        return
+    elif message.chat.type == "private":
+            await client.send_message(
+                message.chat.id,
+                text="**Hei chu group ah chauh a hman theih.**",
+                reply_to_message_id=message.message_id
+            )
+            return
+    elif message.reply_to_message:
         uud = message.reply_to_message.from_user.id
         umun = message.reply_to_message.from_user.mention
         await client.unban_chat_member(message.chat.id, user_id=uud)
@@ -38,10 +58,21 @@ async def unban(client, message):
       
 @Client.on_message(filters.command("removeme", prefixes=["/", "!"]))
 async def selfb(client, message):
-    si = message.from_user.id
-    await client.ban_chat_member(message.chat.id, user_id=si)
-    await client.send_message(message.chat.id, text=f"Aw le, remove ini e, Bye...", reply_to_message_id=message.message_id)
-    return      
+    if not 5301276537.status == "administrator":
+        await client.send_message(message.chat.id, text="Admin ka nilo, hetah tumah ka remove theilo.", reply_to_message_id=message.message_id)
+        return
+    else:
+        si = message.from_user.id
+        await client.ban_chat_member(message.chat.id, user_id=si)
+        await client.send_message(message.chat.id, text=f"Aw le, remove ini e, Bye...", reply_to_message_id=message.message_id)
+        return   
+    if message.chat.type == "private":
+            await client.send_message(
+                message.chat.id,
+                text="**Hei chu group ah chauh a hman theih.**",
+                reply_to_message_id=message.message_id
+            )
+            return
       
       
       
