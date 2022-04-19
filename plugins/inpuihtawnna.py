@@ -1,5 +1,6 @@
 # ©️2022 RSR
 from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 rsrke = InlineKeyboardMarkup(
             [
