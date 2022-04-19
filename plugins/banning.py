@@ -6,10 +6,7 @@ from Tereuhte.tetakte.helper import admins_only
 @Client.on_message(filters.command("ban", prefixes=["/", "!"]))
 @admins_only
 async def ban(client, message):
-    if not 5301276537.status == "administrator":
-        await client.send_message(message.chat.id, text="Admin ka nilo, chuvang chuan hetah tumah ka ban theilo.", reply_to_message_id=message.message_id)
-        return
-    elif message.chat.type == "private":
+    if message.chat.type == "private":
             await client.send_message(
                 message.chat.id,
                 text="**Hei chu group ah chauh a hman theih.**",
