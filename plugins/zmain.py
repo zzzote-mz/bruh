@@ -10,3 +10,4 @@ async def gstart(client, message):
     await client.send_video(message.chat.id, video="https://telegra.ph/file/96b84705d3c1cfc51b0aa.mp4", reply_to_message_id=message.message_id, protect_content=True)
     await asyncio.sleep(3)
     await client.send_message(message.chat.id, text="Hello, Bot hi siam lai mek ania, ala hman theih rihloh.")
+    return
