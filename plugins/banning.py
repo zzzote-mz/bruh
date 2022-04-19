@@ -30,10 +30,7 @@ async def ban(client, message):
 @Client.on_message(filters.command("unban", prefixes=["/", "!"]))
 @admins_only
 async def unban(client, message):
-    if not 5301276537.status == "administrator":
-        await client.send_message(message.chat.id, text="Admin ka nilo, chuvang chuan hetah tumah ka unban theilo.", reply_to_message_id=message.message_id)
-        return
-    elif message.chat.type == "private":
+    if message.chat.type == "private":
             await client.send_message(
                 message.chat.id,
                 text="**Hei chu group ah chauh a hman theih.**",
