@@ -7,7 +7,7 @@ rsrke = InlineKeyboardMarkup(
                 [
                     InlineKeyboardButton(
                         "Bot Helpline 🤖", url="https://t.me/helptereuhte"
-                    )
+                    ),
                 ],
                 [
                     InlineKeyboardButton(
@@ -28,7 +28,7 @@ rsrke = InlineKeyboardMarkup(
                 [
                     InlineKeyboardButton(
                         "Rules ❗", url="https://telegra.ph/Rules-04-19-5"
-                    )
+                    ),
                 ],
             ]
         )
