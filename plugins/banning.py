@@ -54,14 +54,6 @@ async def unban(client, message):
       
 @Client.on_message(filters.command("removeme", prefixes=["/", "!"]))
 async def selfb(client, message):
-    if not 5301276537.status == "administrator":
-        await client.send_message(message.chat.id, text="Admin ka nilo, hetah tumah ka remove theilo.", reply_to_message_id=message.message_id)
-        return
-    else:
-        si = message.from_user.id
-        await client.ban_chat_member(message.chat.id, user_id=si)
-        await client.send_message(message.chat.id, text=f"Aw le, remove ini e, Bye...", reply_to_message_id=message.message_id)
-        return   
     if message.chat.type == "private":
             await client.send_message(
                 message.chat.id,
@@ -69,6 +61,11 @@ async def selfb(client, message):
                 reply_to_message_id=message.message_id
             )
             return
+    si = message.from_user.id
+    await client.ban_chat_member(message.chat.id, user_id=si)
+    await client.send_message(message.chat.id, text=f"Aw le, remove ini e, Bye...", reply_to_message_id=message.message_id)
+    return   
+    
       
       
       
