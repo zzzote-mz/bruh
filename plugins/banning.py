@@ -13,6 +13,9 @@ async def ban(client, message):
                 reply_to_message_id=message.message_id
             )
             return
+    elif message.command[0][0] == "d":
+        await message.reply_to_message.delete()
+        return
     elif message.reply_to_message:
         uid = message.reply_to_message.from_user.id
         umen = message.reply_to_message.from_user.mention
@@ -21,7 +24,8 @@ async def ban(client, message):
         return
     else:
         idu = message.text.split(None, 1)[1]
-        umens = idu.mention
+        hmm = await client.get_users(idu)
+        umens = hmm.mention
         await client.ban_chat_member(message.chat.id, user_id=idu)
         await client.send_message(message.chat.id, text=f"{umens} hi Ban ani e.", reply_to_message_id=message.message_id)
         return
@@ -45,7 +49,8 @@ async def unban(client, message):
         return
     else:
         idus = message.text.split(None, 1)[1]
-        umuns = idus.mention
+        haa = await client.get_users(idus)
+        umuns = haa.mention
         await client.unban_chat_member(message.chat.id, user_id=idus)
         await client.send_message(message.chat.id, text=f"{umuns} hi Ban anihna hlih sak ani e.", reply_to_message_id=message.message_id)
         return
