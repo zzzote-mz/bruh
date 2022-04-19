@@ -44,8 +44,8 @@ async def unban(client, message):
         await client.send_message(message.chat.id, text=f"{umun} hi Ban anihna hlih sak ani e.", reply_to_message_id=message.message_id)
         return
     else:
-        umuns = message.reply_to_message.from_user.mention
         idus = message.text.split(None, 1)[1]
+        umuns = idus.mention
         await client.unban_chat_member(message.chat.id, user_id=idus)
         await client.send_message(message.chat.id, text=f"{umuns} hi Ban anihna hlih sak ani e.", reply_to_message_id=message.message_id)
         return
