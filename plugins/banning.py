@@ -13,9 +13,6 @@ async def ban(client, message):
                 reply_to_message_id=message.message_id
             )
             return
-    elif message.command[0][0] == "d":
-        await message.reply_to_message.delete()
-        return
     elif message.reply_to_message:
         uid = message.reply_to_message.from_user.id
         umen = message.reply_to_message.from_user.mention
