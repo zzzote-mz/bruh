@@ -19,7 +19,7 @@ rsrke = InlineKeyboardMarkup(
                 ],
                 [
                     InlineKeyboardButton(
-                        "Mizo Bots Talk", url="http://t.me/mizobotstalk"
+                        "Mizo Bots Talk", url="https://t.me/mzbotstalk"
                     ),
                     InlineKeyboardButton(
                         "Mizo Bot Store", url="https://t.me/mizobotstore"
