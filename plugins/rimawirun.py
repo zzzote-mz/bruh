@@ -6,28 +6,33 @@ rsrke = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Rules", url="https://telegra.ph/Rules-04-19-5"
+                        "Tutorial 1", url="https://youtu.be/IGrQKIzcrL4"
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "Chat Group", url="https://t.me/zochating"
-                    ),
-                    InlineKeyboardButton(
-                        "Channel", url="https://t.me/rsrbots"
+                        "Tutorial 2", url="https://youtu.be/3THNv0R3GO4"
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "Mizo Bots Talk", url="http://t.me/mizobotstalk"
+                        "Inpuih tawnna", url="https://t.me/rsrtginfo"
                     ),
                     InlineKeyboardButton(
-                        "Mizo Bot Store 👨‍🔧", url="https://t.me/mizobotstore"
+                        "Story postna", url="https://t.me/storyhranghrangpostna"
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "Mizo Library", url="https://t.me/mizolibrary"
+                        "Group link share na", url="https://t.me/grouplinkpostna"
+                    ),
+                    InlineKeyboardButton(
+                        "Bot Helpline", url="https://t.me/helptereuhte"
+                    ),
+                ],
+                [
+                    InlineKeyboardButton(
+                        "Mizo Bot Store", url="https://t.me/mizobotstore"
                     ),
                 ],
             ]
