@@ -4,6 +4,17 @@ from pyrogram import Client
 from functools import wraps
 
 
+def get(chat_id: Union[str, int]) -> Union[List[User], bool]:
+    if isinstance(chat_id, int):
+        chat_id = str(chat_id)
+
+    if chat_id in admins:
+        return admins[chat_id]
+
+    return False
+
+
+
 async def get_administrators(chat: Chat) -> List[User]:
     _get = get(chat.id)
 
