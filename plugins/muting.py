@@ -6,7 +6,7 @@ from pyrogram.types import ChatPermissions
 
 @Client.on_message(filters.command("mute", prefixes=["/", "!"]))
 @admins_only
-async def ban(client, message):
+async def mute(client, message):
     if message.chat.type == "private":
             await client.send_message(
                 message.chat.id,
@@ -34,7 +34,7 @@ async def ban(client, message):
       
 @Client.on_message(filters.command("unmute", prefixes=["/", "!"]))
 @admins_only
-async def unban(client, message):
+async def unmute(client, message):
     if message.chat.type == "private":
             await client.send_message(
                 message.chat.id,
