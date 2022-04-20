@@ -31,14 +31,13 @@ async def open(client, message):
     else:
         await client.set_chat_permissions(
             chat_id=message.chat.id,
-            ChatPermissions(
+            permissions=ChatPermissions(
                 can_send_messages=True,
                 can_send_media_messages=True,
                 can_send_other_messages=True,
                 can_invite_users=True,
                 can_add_web_page_previews=True
             )
-          
         )
         await client.send_message(message.chat.id, text="**Group ah hian member tan paw'n message thawn thei tura siam ani e.**", reply_to_message_id=message.message_id)
         return     
