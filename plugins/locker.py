@@ -14,7 +14,7 @@ async def close(client, message):
             )
             return
     else:
-        await client.set_chat_permissions(chat_id=message.chat.id, ChatPermissions())
+        await client.set_chat_permissions(chat_id=message.chat.id, permissions=ChatPermissions())
         await client.send_message(message.chat.id, text="**Group ah hian member tan message thawn theihloh tura siam ani e.**", reply_to_message_id=message.message_id)
         return
       
