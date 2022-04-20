@@ -20,14 +20,14 @@ async def mute(client, message):
     elif message.reply_to_message:
         uid = message.reply_to_message.from_user.id
         umen = message.reply_to_message.from_user.mention
-        await client.restrict_chat_member(message.chat.id, user_id=uid, ChatPermissions())
+        await client.restrict_chat_member(message.chat.id, user_id=uid, permissions=ChatPermissions())
         await client.send_message(message.chat.id, text=f"{umen} hi Mute ani e.", reply_to_message_id=message.message_id)
         return
     else:
         idu = message.text.split(None, 1)[1]
         hmm = await client.get_users(idu)
         umens = hmm.mention
-        await client.restrict_chat_member(message.chat.id, user_id=idu, ChatPermissions())
+        await client.restrict_chat_member(message.chat.id, user_id=idu, permissions=ChatPermissions())
         await client.send_message(message.chat.id, text=f"{umens} hi Mute ani e.", reply_to_message_id=message.message_id)
         return
       
