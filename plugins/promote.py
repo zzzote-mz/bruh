@@ -155,7 +155,33 @@ async def demote(client, message):
       
       
 
-    
+@Client.on_message(filters.command("title", prefixes=["/", "!"]))
+@admins_only
+async def title(client, message):
+    if message.chat.type == "private":
+            await client.send_message(
+                message.chat.id,
+                text="**Hei chu group ah chauh a hman theih.**",
+                reply_to_message_id=message.message_id
+            )
+            return
+    elif not message.reply_to_message and len(message.command) == 1:
+       await message.reply_text("**Title i siamsak tur message reply la, command zawh ah a title tur dah la thawn rawh.**")
+       return
+    elif message.reply_to_message:
+        hehe = message.text.split(None, 1)[1]
+        uud = message.reply_to_message.from_user.id
+        umun = message.reply_to_message.from_user.mention
+        await client.set_administrator_title(
+            chat_id=message.chat.id,
+            user_id=uud,
+            title=f"{hehe}",
+        )
+        await client.send_message(message.chat.id, text=f"{umun} hi a Admin title {hehe} tia siam ani.", reply_to_message_id=message.message_id)
+        return
+    else:
+        await client.send_message(message.chat.id, text="**Title i siamsak tur message reply la, command zawh ah a title tur dah la thawn rawh.**", reply_to_message_id=message.message_id)
+        return    
       
       
       
