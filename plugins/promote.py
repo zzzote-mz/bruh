@@ -179,9 +179,6 @@ async def title(client, message):
         )
         await client.send_message(message.chat.id, text=f"{umun} hi a Admin title {hehe} tia siam ani.", reply_to_message_id=message.message_id)
         return
-    else:
-        await client.send_message(message.chat.id, text="**Title i siamsak tur message reply la, command zawh ah a title tur dah la thawn rawh.**", reply_to_message_id=message.message_id)
-        return    
       
       
       
