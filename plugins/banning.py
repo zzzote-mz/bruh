@@ -13,6 +13,9 @@ async def ban(client, message):
                 reply_to_message_id=message.message_id
             )
             return
+    elif not message.reply_to_message and len(message.command) == 1:
+       await message.reply_text("**Command hmang hian i ban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.**")
+       return
     elif message.reply_to_message:
         uid = message.reply_to_message.from_user.id
         umen = message.reply_to_message.from_user.mention
@@ -38,6 +41,9 @@ async def unban(client, message):
                 reply_to_message_id=message.message_id
             )
             return
+    elif not message.reply_to_message and len(message.command) == 1:
+       await message.reply_text("**Command hmang hian i unban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a unban theih.**")
+       return
     elif message.reply_to_message:
         uud = message.reply_to_message.from_user.id
         umun = message.reply_to_message.from_user.mention
