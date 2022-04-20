@@ -1,4 +1,4 @@
-from typing import Callable, Coroutine, List
+from typing import Callable, Coroutine, List, Union
 from pyrogram.types import Chat, Message, User
 from pyrogram import Client
 from functools import wraps
