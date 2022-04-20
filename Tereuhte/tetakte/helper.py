@@ -1,7 +1,18 @@
-from typing import Callable, Coroutine, List, Union
+from typing import Callable, Coroutine, List, Union, Dict
 from pyrogram.types import Chat, Message, User
 from pyrogram import Client
 from functools import wraps
+
+
+
+admins: Dict[str, List[User]] = {}
+
+
+def set(chat_id: Union[str, int], admins_: List[User]):
+    if isinstance(chat_id, int):
+        chat_id = str(chat_id)
+
+    admins[chat_id] = admins_
 
 
 def get(chat_id: Union[str, int]) -> Union[List[User], bool]:
