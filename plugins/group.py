@@ -79,3 +79,47 @@ async def delgpic(client, message):
     
     
     
+@Client.on_message(filters.command(["admin", "admins", "report"], prefixes="@"))
+@admins_only
+async def report_user(client, message):
+    if message.chat.type == "private":
+            await client.send_message(
+                message.chat.id,
+                text="**Hei chu group ah chauh a hman theih.**",
+                reply_to_message_id=message.message_id
+            )
+            return
+    if not message.reply_to_message:
+        return await message.reply_text(
+            "I report duh message reply rawh."
+        )
+
+    reply = message.reply_to_message
+    reply_id = reply.from_user.id if reply.from_user else reply.sender_chat.id
+    user_id = message.from_user.id if message.from_user else message.sender_chat.id
+    list_of_admins = await list_admins(message.chat.id)
+    linked_chat = (await client.get_chat(message.chat.id)).linked_chat
+    if linked_chat is not None:
+        if reply_id in list_of_admins or reply_id == message.chat.id or reply_id == linked_chat.id:
+            return await message.reply_text(
+                "Admin i report theilo."
+            )
+    else:
+        if reply_id in list_of_admins or reply_id == message.chat.id:
+            return await message.reply_text(
+                "Admin i report theilo."
+            )
+
+    user_mention = reply.from_user.mention if reply.from_user else reply.sender_chat.title
+    text = f"{user_mention} message hi Admin hnen ah report ani."
+    admin_data = await client.get_chat_members(
+        chat_id=message.chat.id, filter="administrators"
+    ) 
+    for admin in admin_data:
+        if admin.user.is_bot or admin.user.is_deleted:
+            continue
+        text += f"[\u2063](tg://user?id={admin.user.id})"
+
+    await message.reply_to_message.reply_text(text)    
+    
+    
