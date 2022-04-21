@@ -17,7 +17,7 @@ async def list_admins(chat_id: int):
         "last_updated_at": time(),
         "data": [
             member.user.id
-            async for member in app.iter_chat_members(
+            async for member in Client.iter_chat_members(
                 chat_id, filter="administrators"
             )
         ],
