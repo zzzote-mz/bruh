@@ -7,14 +7,7 @@ from Tereuhte.tetakte.helper import admins_only
 @Client.on_message(filters.command("fpromote", prefixes=["/", "!"]))
 @admins_only
 async def fpromote(client, message):
-    if message.chat.type == "private":
-            await client.send_message(
-                message.chat.id,
-                text="**Hei chu group ah chauh a hman theih.**",
-                reply_to_message_id=message.message_id
-            )
-            return
-    elif not message.reply_to_message and len(message.command) == 1:
+    if not message.reply_to_message and len(message.command) == 1:
        await message.reply_text("**Command hmang hian i promote duh message reply in emaw, command zawh ah an ID emaw username dah a i thawn chauh in mi a promote theih.**")
        return
     elif message.reply_to_message:
@@ -56,14 +49,7 @@ async def fpromote(client, message):
 @Client.on_message(filters.command("lpromote", prefixes=["/", "!"]))
 @admins_only
 async def lpromote(client, message):
-    if message.chat.type == "private":
-            await client.send_message(
-                message.chat.id,
-                text="**Hei chu group ah chauh a hman theih.**",
-                reply_to_message_id=message.message_id
-            )
-            return
-    elif not message.reply_to_message and len(message.command) == 1:
+    if not message.reply_to_message and len(message.command) == 1:
        await message.reply_text("**Command hmang hian i promote duh message reply in emaw, command zawh ah an ID emaw username dah a i thawn chauh in mi a promote theih.**")
        return
     elif message.reply_to_message:
@@ -108,14 +94,7 @@ async def lpromote(client, message):
 @Client.on_message(filters.command("demote", prefixes=["/", "!"]))
 @admins_only
 async def demote(client, message):
-    if message.chat.type == "private":
-            await client.send_message(
-                message.chat.id,
-                text="**Hei chu group ah chauh a hman theih.**",
-                reply_to_message_id=message.message_id
-            )
-            return
-    elif not message.reply_to_message and len(message.command) == 1:
+    if not message.reply_to_message and len(message.command) == 1:
        await message.reply_text("**Command hmang hian i demote duh message reply in emaw, command zawh ah an ID emaw username dah a i thawn chauh in mi a demote theih.**")
        return
     elif message.reply_to_message:
@@ -158,13 +137,6 @@ async def demote(client, message):
 @Client.on_message(filters.command("title", prefixes=["/", "!"]))
 @admins_only
 async def title(client, message):
-    if message.chat.type == "private":
-            await client.send_message(
-                message.chat.id,
-                text="**Hei chu group ah chauh a hman theih.**",
-                reply_to_message_id=message.message_id
-            )
-            return
     if not message.reply_to_message:
         return await message.reply_text(
             "Command hmang hian title i siam sak duh message reply la, command zawh ah a title tur dah rawh."
