@@ -77,43 +77,44 @@ async def unpin_message(client, message):
 @Client.on_message(filters.command("unpinall", prefixes=["/", "!"]))
 @admins_only
 async def unpinall_message(client, message):
+    rsrkey = InlineKeyboardMarkup(
+                 [
+                     [
+                         InlineKeyboardButton(
+                             "Aw", callback_data="unpin_all_in_this_chat"
+                         ),
+                         InlineKeyboardButton(
+                             "Aih", callback_data="close_admin"
+                         ),
+                     ],
+                 ]
+             )
     await message.reply_text(
         "**Group a message pin zawng zawng hi unpin vek i duh tih i chiang maw?**",
-        reply_markup=ikb([[("Yes", "unpin_all_in_this_chat"), ("No", "close_admin")]]),
+        reply_markup=rsrkey
     )
     return
 
 
 @Alita.on_callback_query(regex("^unpin_all_in_this_chat$"))
-async def unpinall_calllback(c: Alita, q: CallbackQuery):
-    user_id = q.from_user.id
-    user_status = (await q.message.chat.get_member(user_id)).status
+async def unpinall_calllback(client, query):
+    user_id = query.from_user.id
+    user_status = (await query.message.chat.get_member(user_id)).status
     if user_status not in {"creator", "administrator"}:
-        await q.answer(
-            "You're not even an admin, don't try this explosive shit!",
+        await query.answer(
+            "Group creator chauh in a ti thei.",
             show_alert=True,
         )
         return
     if user_status != "creator":
-        await q.answer(
-            "You're just an admin, not owner\nStay in your limits!",
+        await query.answer(
+            "Group creator chauh in a ti thei.",
             show_alert=True,
         )
         return
     try:
-        await c.unpin_all_chat_messages(q.message.chat.id)
-        LOGGER.info(f"{q.from_user.id} unpinned all messages in {q.message.chat.id}")
-        await q.message.edit_text(tlang(q, "pin.unpinned_all_msg"))
-    except ChatAdminRequired:
-        await q.message.edit_text(tlang(q, "admin.notadmin"))
+        await client.unpin_all_chat_messages(q.message.chat.id)
+        await query.message.edit_text("Group a message pin awm zawng zawng te unpin vek ani e.")
     except RightForbidden:
-        await q.message.edit_text(tlang(q, "pin.no_rights_unpin"))
-    except RPCError as ef:
-        await q.message.edit_text(
-            (tlang(q, "general.some_error")).format(
-                SUPPORT_GROUP=SUPPORT_GROUP,
-                ef=ef,
-            ),
-        )
-        LOGGER.error(ef)
+        await query.message.edit_text("Hetah message pin emaw unpin theihna permission ka neilo.")
     return
