@@ -7,14 +7,7 @@ from pyrogram.types import ChatPermissions
 @Client.on_message(filters.command("mute", prefixes=["/", "!"]))
 @admins_only
 async def mute(client, message):
-    if message.chat.type == "private":
-            await client.send_message(
-                message.chat.id,
-                text="**Hei chu group ah chauh a hman theih.**",
-                reply_to_message_id=message.message_id
-            )
-            return
-    elif not message.reply_to_message and len(message.command) == 1:
+    if not message.reply_to_message and len(message.command) == 1:
        await message.reply_text("**Command hmang hian i mute duh message reply in emaw, command zawh ah an ID emaw username dah a i thawn chauh in mi a mute theih.**")
        return
     elif message.reply_to_message:
@@ -35,14 +28,7 @@ async def mute(client, message):
 @Client.on_message(filters.command("unmute", prefixes=["/", "!"]))
 @admins_only
 async def unmute(client, message):
-    if message.chat.type == "private":
-            await client.send_message(
-                message.chat.id,
-                text="**Hei chu group ah chauh a hman theih.**",
-                reply_to_message_id=message.message_id
-            )
-            return
-    elif not message.reply_to_message and len(message.command) == 1:
+    if not message.reply_to_message and len(message.command) == 1:
        await message.reply_text("**Command hmang hian i unmute duh message reply in emaw, command zawh ah an ID emaw username dah a i thawn chauh in mi a unmute theih.**")
        return
     elif message.reply_to_message:
