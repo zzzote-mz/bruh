@@ -3,6 +3,9 @@ from pyrogram import Client, filters
 from Tereuhte.tetakte.helper import admins_only
 
 
+
+admins_in_chat = {}
+
 async def list_admins(chat_id: int):
     global admins_in_chat
     if chat_id in admins_in_chat:
