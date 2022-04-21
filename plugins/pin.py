@@ -30,15 +30,15 @@ async def pin_message(client, message):
                 hmm = (
                     f"https://t.me/c/{link_chat_id}/{message.reply_to_message.message_id}"
                 )
-                rsrke = InlineKeyboardMarkup(
-                            [
-                                [
-                                    InlineKeyboardButton(
-                                        "Message pin en na", url=f"{hmm}"
-                                    ),
-                                ],
-                            ]
-                        )
+            rsrke = InlineKeyboardMarkup(
+                        [
+                           [
+                               InlineKeyboardButton(
+                                   "Message pin en na", url=f"{hmm}"
+                               ),
+                           ],
+                       ]
+                    )
             await message.reply_text(
                 "**He message hi ka pin e.**",
                 reply_markup=rsrke
