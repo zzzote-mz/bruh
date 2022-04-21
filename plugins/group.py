@@ -98,7 +98,6 @@ async def report_user(client, message):
     reply = message.reply_to_message
     reply_id = reply.from_user.id if reply.from_user else reply.sender_chat.id
     user_id = message.from_user.id if message.from_user else message.sender_chat.id
-    list_of_admins = await list_admins(message.chat.id)
     linked_chat = (await client.get_chat(message.chat.id)).linked_chat
     if linked_chat is not None:
         heh = message.reply_to_message.from_user.id
