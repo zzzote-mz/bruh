@@ -17,6 +17,13 @@ async def fpromote(client, message):
     elif not message.reply_to_message and len(message.command) == 1:
        await message.reply_text("**Command hmang hian i promote duh message reply in emaw, command zawh ah an ID emaw username dah a i thawn chauh in mi a promote theih.**")
        return
+    elif message.text.split(None, 1)[1]:
+        uwu = message.text.split(None, 1)[1]
+        await client.set_administrator_title(
+            chat_id=message.chat.id,
+            user_id=uud,
+            title=f"{uwu}",
+        )
     elif message.reply_to_message:
         bot = await client.get_chat_member(chat_id=message.chat.id, user_id=5301276537)
         uid = message.reply_to_message.from_user.id
@@ -52,6 +59,13 @@ async def fpromote(client, message):
         )
         await client.send_message(message.chat.id, text=f"{umens} hi Promote ani e.", reply_to_message_id=message.message_id)
         return
+    if message.text.split(None, 2)[2]:
+        zzz = message.text.split(None, 2)[2]
+        await client.set_administrator_title(
+            chat_id=message.chat.id,
+            user_id=uud,
+            title=f"{zzz}",
+        )
     
 @Client.on_message(filters.command("lpromote", prefixes=["/", "!"]))
 @admins_only
