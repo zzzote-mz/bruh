@@ -6,14 +6,7 @@ from Tereuhte.tetakte.helper import admins_only
 @Client.on_message(filters.command("nolink", prefixes=["/", "!"]))
 @admins_only
 async def nolink(client, message):
-    if message.chat.type == "private":
-            await client.send_message(
-                message.chat.id,
-                text="**Hei chu group ah chauh a hman theih.**",
-                reply_to_message_id=message.message_id
-            )
-            return
-    elif not message.reply_to_message and len(message.command) == 1:
+    if not message.reply_to_message and len(message.command) == 1:
        await message.reply_text("**Command hmang hian i message delete sak duh leh warning nghal i duh message kha reply rawh.**")
        return
     elif message.reply_to_message:
