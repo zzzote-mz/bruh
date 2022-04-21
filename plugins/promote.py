@@ -158,6 +158,13 @@ async def demote(client, message):
 @Client.on_message(filters.command("title", prefixes=["/", "!"]))
 @admins_only
 async def title(client, message):
+    if message.chat.type == "private":
+            await client.send_message(
+                message.chat.id,
+                text="**Hei chu group ah chauh a hman theih.**",
+                reply_to_message_id=message.message_id
+            )
+            return
     if not message.reply_to_message:
         return await message.reply_text(
             "Command hmang hian title i siam sak duh message reply la, command zawh ah a title tur dah rawh."
