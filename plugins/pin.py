@@ -28,6 +28,15 @@ async def pin_message(client, message):
                 hmm = (
                     f"https://t.me/c/{link_chat_id}/{message.reply_to_message.message_id}"
                 )
+                rsrke = InlineKeyboardMarkup(
+                            [
+                                [
+                                    InlineKeyboardButton(
+                                    "Invite Friends", url="https://t.me/share/url?url=Mizo%20Mobile%20Legend%20khel%20%E1%B9%ADhin%20te%20tan%20group%20siam%20ania%2C%20i%20khel%20ve%20a%2C%20i%20join%20ve%20duh%20anih%20chuan%20a%20hnuai%20a%20join%20tia%20ka%20kawh%20na%20a%20username%20khu%20click%20in%20i%20join%20thei%20ang.%0A%0AJoin%20%F0%9F%91%89%20%40mizoml"
+                                   ),
+                                ],
+                            ]
+                        )
             await message.reply_text(
                 "**He message hi ka pin e.**",
             )
