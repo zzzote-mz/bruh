@@ -3,6 +3,26 @@ from pyrogram import Client, filters
 from Tereuhte.tetakte.helper import admins_only
 
 
+async def list_admins(chat_id: int):
+    global admins_in_chat
+    if chat_id in admins_in_chat:
+        interval = time() - admins_in_chat[chat_id]["last_updated_at"]
+        if interval < 3600:
+            return admins_in_chat[chat_id]["data"]
+
+    admins_in_chat[chat_id] = {
+        "last_updated_at": time(),
+        "data": [
+            member.user.id
+            async for member in app.iter_chat_members(
+                chat_id, filter="administrators"
+            )
+        ],
+    }
+    return admins_in_chat[chat_id]["data"]
+
+
+
 @Client.on_message(filters.command("setgtitle", prefixes=["/", "!"]))
 @admins_only
 async def setgtitle(client, message):
