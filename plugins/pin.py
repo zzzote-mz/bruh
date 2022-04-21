@@ -62,7 +62,7 @@ async def pin_message(client, message):
 @admins_only
 async def unpin_message(client, message):
     try:
-        if messags.reply_to_message:
+        if message.reply_to_message:
             await client.unpin_chat_message(message.chat.id, message.reply_to_message.message_id)
             await message.reply_text("**Message unpin ani e.**")
         else:
@@ -114,7 +114,7 @@ async def unpinall_calllback(client, query):
         )
         return
     try:
-        await client.unpin_all_chat_messages(q.message.chat.id)
+        await client.unpin_all_chat_messages(query.message.chat.id)
         await query.message.edit_text("Group a message pin awm zawng zawng te unpin vek ani e.")
     except RightForbidden:
         await query.message.edit_text("Hetah message pin emaw unpin theihna permission ka neilo.")
