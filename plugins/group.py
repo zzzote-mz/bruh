@@ -81,7 +81,6 @@ async def delgpic(client, message):
     
     
 @Client.on_message(filters.command(["admin", "admins", "report"], prefixes="@"))
-@admins_only
 async def report_user(client, message):
     if message.chat.type == "private":
             await client.send_message(
