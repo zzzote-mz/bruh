@@ -3,6 +3,7 @@ from pyrogram.errors import RightForbidden
 from pyrogram import Client, filters
 from Tereuhte.tetakte.helper import admins_only
 from pyrogram.filters import regex
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 @Client.on_message(filters.command("pin", prefixes=["/", "!"]))
