@@ -63,7 +63,7 @@ async def unpin_message(client, message):
     try:
         if messags.reply_to_message:
             await client.unpin_chat_message(message.chat.id, message.reply_to_message.message_id)
-            await m.reply_text("**Message unpin ani e.**)
+            await message.reply_text("**Message unpin ani e.**)
         else:
             await client.unpin_chat_message(message.chat.id)
             await message.reply_text("**Message pin hnu hnun ber unpin ani e."")
