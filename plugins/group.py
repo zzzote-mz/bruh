@@ -1,7 +1,7 @@
 import os
 from pyrogram import Client, filters
 from Tereuhte.tetakte.helper import admins_only
-
+from time import time
 
 
 admins_in_chat = {}
