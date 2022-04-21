@@ -101,12 +101,16 @@ async def report_user(client, message):
     list_of_admins = await list_admins(message.chat.id)
     linked_chat = (await client.get_chat(message.chat.id)).linked_chat
     if linked_chat is not None:
-        if reply.from_user.id.status == "administrator" or reply_id == message.chat.id or reply_id == linked_chat.id:
+        heh = message.reply_to_message.from_user.id
+        huh = await client.get_users(heh)
+        if huh.status == "administrator" or reply_id == message.chat.id or reply_id == linked_chat.id:
             return await message.reply_text(
                 "Admin i report theilo."
             )
     else:
-        if reply_id in list_of_admins or reply_id == message.chat.id:
+        hih = message.reply_to_message.from_user.id
+        hah = await client.get_users(hah)
+        if hah.status == "administrator" or reply_id == message.chat.id:
             return await message.reply_text(
                 "Admin i report theilo."
             )
