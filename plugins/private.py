@@ -155,3 +155,51 @@ async def unpinall(client, message):
         reply_to_message_id=message.message_id
     )
     return
+
+
+
+@Client.on_message(filters.command("fpromote", prefixes=["/", "!"]) & filters.private)
+async def fpromote(client, message):
+    await client.send_message(
+        message.chat.id,
+        text="**Hei chu group ah chauh a hman theih.**",
+        reply_to_message_id=message.message_id
+    )
+    return
+
+
+
+@Client.on_message(filters.command("lpromote", prefixes=["/", "!"]) & filters.private)
+async def lpromote(client, message):
+    await client.send_message(
+        message.chat.id,
+        text="**Hei chu group ah chauh a hman theih.**",
+        reply_to_message_id=message.message_id
+    )
+    return
+
+
+
+@Client.on_message(filters.command("demote", prefixes=["/", "!"]) & filters.private)
+async def demote(client, message):
+    await client.send_message(
+        message.chat.id,
+        text="**Hei chu group ah chauh a hman theih.**",
+        reply_to_message_id=message.message_id
+    )
+    return
+
+
+
+@Client.on_message(filters.command("title", prefixes=["/", "!"]) & filters.private)
+async def title(client, message):
+    await client.send_message(
+        message.chat.id,
+        text="**Hei chu group ah chauh a hman theih.**",
+        reply_to_message_id=message.message_id
+    )
+    return
+
+
+
+
