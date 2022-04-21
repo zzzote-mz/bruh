@@ -96,7 +96,7 @@ async def unpinall_message(client, message):
     return
 
 
-@Alita.on_callback_query(regex("^unpin_all_in_this_chat$"))
+@Client.on_callback_query(regex("^unpin_all_in_this_chat$"))
 async def unpinall_calllback(client, query):
     user_id = query.from_user.id
     user_status = (await query.message.chat.get_member(user_id)).status
