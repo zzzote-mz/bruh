@@ -50,3 +50,24 @@ async def pin_message(client, message):
         await message.reply_text("**I pin tur message reply rawh.**")
 
     return
+
+
+
+
+
+
+
+@Client.on_message(filters.command("unpin", prefixes=["/", "!"]))
+@admins_only
+async def unpin_message(client, message):
+    try:
+        if messags.reply_to_message:
+            await client.unpin_chat_message(message.chat.id, message.reply_to_message.message_id)
+            await m.reply_text("**Message unpin ani e.**)
+        else:
+            await client.unpin_chat_message(message.chat.id)
+            await message.reply_text("**Message pin hnu hnun ber unpin ani e."")
+    except RightForbidden:
+        await m.reply_text("**Hetah message pin emaw unpin theihna permission ka neilo.**")
+    
+    return
