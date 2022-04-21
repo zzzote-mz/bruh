@@ -6,7 +6,14 @@ from Tereuhte.tetakte.helper import admins_only
 @Client.on_message(filters.command("setgtitle", prefixes=["/", "!"]))
 @admins_only
 async def setgtitle(client, message):
-    if len(message.command) < 2:
+    if message.chat.type == "private":
+            await client.send_message(
+                message.chat.id,
+                text="**Hei chu group ah chauh a hman theih.**",
+                reply_to_message_id=message.message_id
+            )
+            return
+    elif len(message.command) < 2:
         return await message.reply_text("A hming tur dah tel rawh.")
     old_title = message.chat.title
     new_title = message.text.split(None, 1)[1]
@@ -22,6 +29,13 @@ async def setgtitle(client, message):
 @Client.on_message(filters.command("setgpic", prefixes=["/", "!"]))
 @admins_only
 async def setgpic(client, message):
+    if message.chat.type == "private":
+            await client.send_message(
+                message.chat.id,
+                text="**Hei chu group ah chauh a hman theih.**",
+                reply_to_message_id=message.message_id
+            )
+            return
     reply = message.reply_to_message
 
     if not reply:
@@ -50,8 +64,16 @@ async def setgpic(client, message):
 @Client.on_message(filters.command("delgpic", prefixes=["/", "!"]))
 @admins_only   
 async def delgpic(client, message):
-    await client.delete_chat_photo(chat_id=message.chat.id)
-    await message.reply_text("Group icon delete ani e.")
+    if message.chat.type == "private":
+            await client.send_message(
+                message.chat.id,
+                text="**Hei chu group ah chauh a hman theih.**",
+                reply_to_message_id=message.message_id
+            )
+            return
+            await client.delete_chat_photo(chat_id=message.chat.id)
+            await message.reply_text("Group icon delete ani e.")
+            return
     
     
     
