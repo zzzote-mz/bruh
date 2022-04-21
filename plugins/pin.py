@@ -1,7 +1,7 @@
 # ©️2022 RSR
 from pyrogram.errors import RightForbidden
 from pyrogram import Client, filters
-
+from Tereuhte.tetakte.helper import admins_only
 
 
 
