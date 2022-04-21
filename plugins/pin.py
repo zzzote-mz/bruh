@@ -9,13 +9,6 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 @Client.on_message(filters.command("pin", prefixes=["/", "!"]))
 @admins_only
 async def pin_message(client, message):
-    if message.chat.type == "private":
-            await client.send_message(
-                message.chat.id,
-                text="**Hei chu group ah chauh a hman theih.**",
-                reply_to_message_id=message.message_id
-            )
-            return
     pin_args = message.text.split(None, 1)
     if message.reply_to_message:
         try:
@@ -69,14 +62,7 @@ async def pin_message(client, message):
 @admins_only
 async def unpin_message(client, message):
     try:
-        if message.chat.type == "private":
-            await client.send_message(
-                message.chat.id,
-                text="**Hei chu group ah chauh a hman theih.**",
-                reply_to_message_id=message.message_id
-            )
-            return
-        elif message.reply_to_message:
+        if message.reply_to_message:
             await client.unpin_chat_message(message.chat.id, message.reply_to_message.message_id)
             await message.reply_text("**Message unpin ani e.**")
         else:
@@ -92,26 +78,18 @@ async def unpin_message(client, message):
 @Client.on_message(filters.command("unpinall", prefixes=["/", "!"]))
 @admins_only
 async def unpinall_message(client, message):
-    if message.chat.type == "private":
-            await client.send_message(
-                message.chat.id,
-                text="**Hei chu group ah chauh a hman theih.**",
-                reply_to_message_id=message.message_id
-            )
-            return
-    else:
-        rsrkey = InlineKeyboardMarkup(
+    rsrkey = InlineKeyboardMarkup(
+                 [
                      [
-                         [
-                             InlineKeyboardButton(
-                                 "Aw", callback_data="unpin_all_in_this_chat"
-                             ),
-                             InlineKeyboardButton(
-                                 "Aih", callback_data="close_admin"
-                             ),
-                         ],
-                     ]
-                 )
+                         InlineKeyboardButton(
+                             "Aw", callback_data="unpin_all_in_this_chat"
+                         ),
+                         InlineKeyboardButton(
+                             "Aih", callback_data="close_admin"
+                         ),
+                     ],
+                 ]
+             )
     await message.reply_text(
         "**Group a message pin zawng zawng hi unpin vek i duh tih i chiang maw?**",
         reply_markup=rsrkey
