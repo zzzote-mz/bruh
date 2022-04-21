@@ -96,3 +96,62 @@ async def open(client, message):
     return
 
 
+@Client.on_message(filters.command("mute", prefixes=["/", "!"]) & filters.private)
+async def mute(client, message):
+    await client.send_message(
+        message.chat.id,
+        text="**Hei chu group ah chauh a hman theih.**",
+        reply_to_message_id=message.message_id
+    )
+    return
+
+
+@Client.on_message(filters.command("unmute", prefixes=["/", "!"]) & filters.private)
+async def unmute(client, message):
+    await client.send_message(
+        message.chat.id,
+        text="**Hei chu group ah chauh a hman theih.**",
+        reply_to_message_id=message.message_id
+    )
+    return
+
+
+@Client.on_message(filters.command("nolink", prefixes=["/", "!"]) & filters.private)
+async def nolink(client, message):
+    await client.send_message(
+        message.chat.id,
+        text="**Hei chu group ah chauh a hman theih.**",
+        reply_to_message_id=message.message_id
+    )
+    return
+
+
+
+@Client.on_message(filters.command("pin", prefixes=["/", "!"]) & filters.private)
+async def pin(client, message):
+    await client.send_message(
+        message.chat.id,
+        text="**Hei chu group ah chauh a hman theih.**",
+        reply_to_message_id=message.message_id
+    )
+    return
+
+
+@Client.on_message(filters.command("unpin", prefixes=["/", "!"]) & filters.private)
+async def unpin(client, message):
+    await client.send_message(
+        message.chat.id,
+        text="**Hei chu group ah chauh a hman theih.**",
+        reply_to_message_id=message.message_id
+    )
+    return
+
+
+@Client.on_message(filters.command("unpinall", prefixes=["/", "!"]) & filters.private)
+async def unpinall(client, message):
+    await client.send_message(
+        message.chat.id,
+        text="**Hei chu group ah chauh a hman theih.**",
+        reply_to_message_id=message.message_id
+    )
+    return
