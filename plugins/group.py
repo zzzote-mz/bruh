@@ -109,10 +109,13 @@ async def report_user(client, message):
     
 @Client.on_message(filters.command("setdescription", prefixes=["/", "!"]) & filters.group)
 @admins_only   
-async def delgpic(client, message):
-    juu = 
-    await client.set_chat_description(chat_id=message.chat.id, description=)
-    await message.reply_text("Group icon delete ani e.")
+async def setdescription(client, message):
+    juu = message.text.split(None, 1)[1]
+    if len(juu) > 255:
+        await message.reply_text("Character 255 aia tam a tih theihloh.")
+        return
+    await client.set_chat_description(chat_id=message.chat.id, description=f"{juu}")
+    await message.reply_text("Group description siam ani e.")
     return   
     
     
