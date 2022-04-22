@@ -226,7 +226,7 @@ async def sdescription(client, message):
 
 
 @Client.on_message(filters.command("admincache", prefixes=["/", "!"]) & filters.private)
-async def sdescription(client, message):
+async def admincache(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
