@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from Tereuhte.tetakte.cahce import ADMIN_CACHE, TEMP_ADMIN_CACHE_BLOCK, admin_cache_reload
+from Tereuhte.tetakte.cache import ADMIN_CACHE, TEMP_ADMIN_CACHE_BLOCK, admin_cache_reload
 from Tereuhte.tetakte.parse import mention_html
 from Tereuhte.tetakte.helper import admins_only
 
