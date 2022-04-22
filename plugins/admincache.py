@@ -16,13 +16,6 @@ async def adminlist(client, message):
         return await message.reply_text(
             "**Hei chu group ah chauh a hman theih.**",
         )
-    try:
-        admin_list = ADMIN_CACHE[message.chat.id]
-        note = "Admin list refresh angai."
-    except KeyError:
-        admin_list = await admin_cache_reload(message, "adminlist")
-        note = "Admin list refresh angailo."
-
     adminstr = "**{}** a Admin te chu.".format(
         message.chat.title,
     ) + "\n\n"
@@ -57,7 +50,7 @@ async def adminlist(client, message):
     adminstr += "\n\n<b><u>Bot:</b></u>\n"
     adminstr += "\n".join(f"- {i}" for i in mention_bots)
 
-    await message.reply_text(adminstr + "\n\n" + note)
+    await message.reply_text(adminstr)
 
 
     
