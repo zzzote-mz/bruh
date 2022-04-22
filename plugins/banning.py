@@ -3,7 +3,7 @@ from pyrogram import Client, filters
 from Tereuhte.tetakte.helper import admins_only
 from info import GROUPS
 
-@Client.on_message(filters.command("ban", prefixes=["/", "!"]))
+@Client.on_message(filters.command("ban", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def ban(client, message):
     if not message.reply_to_message and len(message.command) == 1:
@@ -24,7 +24,7 @@ async def ban(client, message):
         return
       
       
-@Client.on_message(filters.command("unban", prefixes=["/", "!"]))
+@Client.on_message(filters.command("unban", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def unban(client, message):
     if not message.reply_to_message and len(message.command) == 1:
@@ -46,7 +46,7 @@ async def unban(client, message):
       
       
       
-@Client.on_message(filters.command("removeme", prefixes=["/", "!"]))
+@Client.on_message(filters.command("removeme", prefixes=["/", "!"]) & filters.group)
 async def selfb(client, message):
     si = message.from_user.id
     await client.ban_chat_member(message.chat.id, user_id=si)
@@ -56,7 +56,7 @@ async def selfb(client, message):
     
     
     
-@Client.on_message(filters.command("remove", prefixes=["/", "!"]))
+@Client.on_message(filters.command("remove", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def remove(client, message):
     if not message.reply_to_message and len(message.command) == 1:
@@ -81,7 +81,7 @@ async def remove(client, message):
     
     
     
-@Client.on_message(filters.command("mban", prefixes=["/", "!"]))
+@Client.on_message(filters.command("mban", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def mban(client, message):
     if not message.from_user.id == 1060318977:
