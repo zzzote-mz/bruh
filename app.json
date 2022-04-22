@@ -30,6 +30,10 @@
             "description": "Get this value from https://my.telegram.org",
             "required": true
         },
+        "GROUPS": {
+            "description": "Username or ID of channel or group. Separate multiple IDs by space.",
+            "required": false
+        },
         "ADMINS": {
             "description": "Username or ID of Admin. Separate multiple Admins by space.",
             "required": true
