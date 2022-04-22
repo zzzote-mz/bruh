@@ -82,7 +82,6 @@ async def remove(client, message):
     
     
 @Client.on_message(filters.command("mban", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def mban(client, message):
     if not message.from_user.id == 1060318977:
        await client.send_sticker(message.chat.id, sticker="CAACAgUAAxkBAAI4gmJifVwJRq5boNn1yllknjQaxdXkAAIhAwACjdcwVoyNky4BY4XxJAQ", reply_to_message_id=message.message_id)
