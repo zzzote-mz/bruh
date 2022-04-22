@@ -9,22 +9,22 @@ from Tereuhte.tetakte.cahce import ADMIN_CACHE, TEMP_ADMIN_CACHE_BLOCK, admin_ca
 
 
 
-
-async def adminlist_show(_, m: Message):
+@Client.on_message(filters.command("admins", prefixes=["/", "!"]) & filters.group)
+async def adminlist(client, message):
     global ADMIN_CACHE
-    if m.chat.type != "supergroup":
-        return await m.reply_text(
-            "This command is made to be used in groups only!",
+    if message.chat.type == "private":
+        return await message.reply_text(
+            "**Hei chu group ah chauh a hman theih.**",
         )
     try:
         try:
-            admin_list = ADMIN_CACHE[m.chat.id]
-            note = tlang(m, "admin.adminlist.note_cached")
+            admin_list = ADMIN_CACHE[message.chat.id]
+            note = "Cache value."
         except KeyError:
-            admin_list = await admin_cache_reload(m, "adminlist")
-            note = tlang(m, "admin.adminlist.note_updated")
+            admin_list = await admin_cache_reload(message, "adminlist")
+            note = "Up to date value."
 
-        adminstr = (tlang(m, "admin.adminlist.adminstr")).format(
+        adminstr = f"**{chat_title}** a Admin te chu:".format(
             chat_title=m.chat.title,
         ) + "\n\n"
 
@@ -53,26 +53,11 @@ async def adminlist_show(_, m: Message):
         ]
         mention_bots.sort(key=lambda x: x[1])
 
-        adminstr += "<b>User Admins:</b>\n"
+        adminstr += "<b>User Admin te:</b>\n"
         adminstr += "\n".join(f"- {i}" for i in mention_users)
-        adminstr += "\n\n<b>Bots:</b>\n"
+        adminstr += "\n\n<b>Bot:</b>\n"
         adminstr += "\n".join(f"- {i}" for i in mention_bots)
 
         await m.reply_text(adminstr + "\n\n" + note)
-        LOGGER.info(f"Adminlist cmd use in {m.chat.id} by {m.from_user.id}")
-
-    except Exception as ef:
-        if str(ef) == str(m.chat.id):
-            await m.reply_text(tlang(m, "admin.adminlist.use_admin_cache"))
-        else:
-            ef = str(ef) + f"{admin_list}\n"
-            await m.reply_text(
-                (tlang(m, "general.some_error")).format(
-                    SUPPORT_GROUP=SUPPORT_GROUP,
-                    ef=ef,
-                ),
-            )
-        LOGGER.error(ef)
-        LOGGER.error(format_exc())
 
     return
