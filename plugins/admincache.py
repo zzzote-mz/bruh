@@ -23,7 +23,7 @@ async def adminlist(client, message):
         admin_list = await admin_cache_reload(message, "adminlist")
         note = "Up to date value."
 
-    adminstr = f"**{}** a Admin te chu.".format(
+    adminstr = "**{}** a Admin te chu.".format(
         message.chat.title,
     ) + "\n\n"
 
