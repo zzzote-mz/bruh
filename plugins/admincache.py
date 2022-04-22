@@ -23,7 +23,6 @@ async def adminlist(client, message):
     bot_admins = [i for i in admin_list if (i[1].lower()).endswith("bot")]
     user_admins = [i for i in admin_list if not (i[1].lower()).endswith("bot")]
 
-    # format is like: (user_id, username/name,anonyamous or not)
     mention_users = [
         (
             admin[1]
@@ -46,9 +45,9 @@ async def adminlist(client, message):
     mention_bots.sort(key=lambda x: x[1])
 
     adminstr += "<b><u>User Admin te:</b></u>\n"
-    adminstr += "\n".join(f"- {i}" for i in mention_users)
+    adminstr += "\n".join(f"➥ {i}" for i in mention_users)
     adminstr += "\n\n<b><u>Bot:</b></u>\n"
-    adminstr += "\n".join(f"- {i}" for i in mention_bots)
+    adminstr += "\n".join(f"➥ {i}" for i in mention_bots)
 
     await message.reply_text(adminstr)
 
