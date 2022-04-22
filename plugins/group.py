@@ -112,10 +112,10 @@ async def report_user(client, message):
 async def setdescription(client, message):
     if len(message.command) < 2:
         return await message.reply_text("Description tur dah tel rawh.")
+    juu = message.text.split(None, 1)[1]
     if len(juu) > 255:
         await message.reply_text("Character 255 aia tam a tih theihloh.")
         return
-    juu = message.text.split(None, 1)[1]
     await client.set_chat_description(chat_id=message.chat.id, description=f"{juu}")
     await message.reply_text("Group description siam ani e.")
     return   
