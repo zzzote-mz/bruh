@@ -4,7 +4,7 @@ from Tereuhte.tetakte.helper import admins_only
 
 
 
-@Client.on_message(filters.command("fpromote", prefixes=["/", "!"]))
+@Client.on_message(filters.command("fpromote", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def fpromote(client, message):
     if not message.reply_to_message and len(message.command) == 1:
@@ -46,7 +46,7 @@ async def fpromote(client, message):
         await client.send_message(message.chat.id, text=f"{umens} hi Promote ani e.", reply_to_message_id=message.message_id)
         return
     
-@Client.on_message(filters.command("lpromote", prefixes=["/", "!"]))
+@Client.on_message(filters.command("lpromote", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def lpromote(client, message):
     if not message.reply_to_message and len(message.command) == 1:
@@ -91,7 +91,7 @@ async def lpromote(client, message):
     
       
       
-@Client.on_message(filters.command("demote", prefixes=["/", "!"]))
+@Client.on_message(filters.command("demote", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def demote(client, message):
     if not message.reply_to_message and len(message.command) == 1:
@@ -134,7 +134,7 @@ async def demote(client, message):
       
       
 
-@Client.on_message(filters.command("title", prefixes=["/", "!"]))
+@Client.on_message(filters.command("title", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def title(client, message):
     if not message.reply_to_message:
