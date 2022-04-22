@@ -32,7 +32,7 @@ async def fpromote(client, message):
         idu = message.text.split(None, 1)[1]
         hmm = await client.get_users(idu)
         umens = hmm.mention
-        await member.chat.promote_member(
+        await message.chat.promote_member(
             user_id=idu,
             can_change_info=bot.can_change_info,
             can_invite_users=bot.can_invite_users,
