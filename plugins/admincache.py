@@ -18,10 +18,10 @@ async def adminlist(client, message):
         )
     try:
         admin_list = ADMIN_CACHE[message.chat.id]
-        note = "Cache value."
+        note = "Admin list refresh angai."
     except KeyError:
         admin_list = await admin_cache_reload(message, "adminlist")
-        note = "Up to date value."
+        note = "Admin list refresh angailo."
 
     adminstr = "**{}** a Admin te chu.".format(
         message.chat.title,
