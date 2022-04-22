@@ -111,6 +111,8 @@ async def report_user(client, message):
 @admins_only   
 async def setdescription(client, message):
     juu = message.text.split(None, 1)[1]
+    if len(message.command) < 2:
+        return await message.reply_text("Description tur dah tel rawh.")
     if len(juu) > 255:
         await message.reply_text("Character 255 aia tam a tih theihloh.")
         return
