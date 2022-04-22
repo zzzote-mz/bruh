@@ -4,7 +4,7 @@ from Tereuhte.tetakte.helper import admins_only
 
 
 
-@Client.on_message(filters.command("setgtitle", prefixes=["/", "!"]))
+@Client.on_message(filters.command("setgtitle", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def setgtitle(client, message):
     if len(message.command) < 2:
@@ -20,7 +20,7 @@ async def setgtitle(client, message):
   
   
   
-@Client.on_message(filters.command("setgpic", prefixes=["/", "!"]))
+@Client.on_message(filters.command("setgpic", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def setgpic(client, message):
     reply = message.reply_to_message
@@ -48,7 +48,7 @@ async def setgpic(client, message):
     
     
     
-@Client.on_message(filters.command("delgpic", prefixes=["/", "!"]))
+@Client.on_message(filters.command("delgpic", prefixes=["/", "!"]) & filters.group)
 @admins_only   
 async def delgpic(client, message):
     await client.delete_chat_photo(chat_id=message.chat.id)
