@@ -6,7 +6,7 @@ from pyrogram.filters import regex
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
-@Client.on_message(filters.command("pin", prefixes=["/", "!"]))
+@Client.on_message(filters.command("pin", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def pin_message(client, message):
     pin_args = message.text.split(None, 1)
@@ -58,7 +58,7 @@ async def pin_message(client, message):
 
 
 
-@Client.on_message(filters.command("unpin", prefixes=["/", "!"]))
+@Client.on_message(filters.command("unpin", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def unpin_message(client, message):
     try:
@@ -75,7 +75,7 @@ async def unpin_message(client, message):
                                      
                                      
                                      
-@Client.on_message(filters.command("unpinall", prefixes=["/", "!"]))
+@Client.on_message(filters.command("unpinall", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def unpinall_message(client, message):
     rsrkey = InlineKeyboardMarkup(
