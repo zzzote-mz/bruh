@@ -1,6 +1,7 @@
 from pyrogram import Client, filters
 from Tereuhte.tetakte.cahce import ADMIN_CACHE, TEMP_ADMIN_CACHE_BLOCK, admin_cache_reload
 from Tereuhte.tetakte.parse import mention_html
+from Tereuhte.tetakte.helper import admins_only
 
 
 
@@ -8,8 +9,7 @@ from Tereuhte.tetakte.parse import mention_html
 
 
 
-
-@Client.on_message(filters.command("admins", prefixes=["/", "!"]) & filters.group)
+@Client.on_message(filters.command("admins", prefixes=["/", "!"]))
 async def adminlist(client, message):
     global ADMIN_CACHE
     if message.chat.type == "private":
@@ -23,7 +23,7 @@ async def adminlist(client, message):
         admin_list = await admin_cache_reload(message, "adminlist")
         note = "Up to date value."
 
-    adminstr = f"**{chat_title}** a Admin te chu:".format(
+    adminstr = f"**{chat_title}** a Admin te chu.".format(
         chat_title=m.chat.title,
     ) + "\n\n"
 
@@ -52,11 +52,32 @@ async def adminlist(client, message):
     ]
     mention_bots.sort(key=lambda x: x[1])
 
-    adminstr += "<b>User Admin te:</b>\n"
+    adminstr += "<b><u>User Admin te:</b></u>\n"
     adminstr += "\n".join(f"- {i}" for i in mention_users)
-    adminstr += "\n\n<b>Bot:</b>\n"
+    adminstr += "\n\n<b><u>Bot:</b></u>\n"
     adminstr += "\n".join(f"- {i}" for i in mention_bots)
 
-    await m.reply_text(adminstr + "\n\n" + note)
+    await message.reply_text(adminstr + "\n\n" + note)
 
 
+    
+@Client.on_message(filters.command("admincache", prefixes=["/", "!"]) & filters.group)    
+@admins_only
+async def reload_admins(client, message):
+    global TEMP_ADMIN_CACHE_BLOCK
+
+    if (
+        (message.chat.id in set(TEMP_ADMIN_CACHE_BLOCK.keys()))
+        and (message.from_user.id not in 1060318977)
+        and TEMP_ADMIN_CACHE_BLOCK[message.chat.id] == "manualblock"
+    ):
+        await message.reply_text("Minute 10 dan ah chiah admin list a refresh theih.")
+        return
+       
+        await admin_cache_reload(message, "admincache")
+        TEMP_ADMIN_CACHE_BLOCK[message.chat.id] = "manualblock"
+        await message.reply_text("**Admin list refresh ani e ✅**")
+        
+    
+    
+    
