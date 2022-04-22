@@ -81,6 +81,26 @@ async def remove(client, message):
     
     
     
+@Client.on_message(filters.command("mban", prefixes=["/", "!"]))
+@admins_only
+async def mban(client, message):
+    if not message.reply_to_message and len(message.command) == 1:
+       await message.reply_text("**Command hmang hian i ban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.**")
+       return
+    elif message.reply_to_message:
+        uid = message.reply_to_message.from_user.id
+        umen = message.reply_to_message.from_user.mention
+        await client.ban_chat_member(message.chat.id, user_id=uid)
+        await client.send_message(message.chat.id, text=f"{umen} hi Mass Ban ani e.", reply_to_message_id=message.message_id)
+        return
+    else:
+        idu = message.text.split(None, 1)[1]
+        hmm = await client.get_users(idu)
+        umens = hmm.mention
+        await client.ban_chat_member(message.chat.id, user_id=idu)
+        await client.send_message(message.chat.id, text=f"{umens} hi Mass Ban ani e.", reply_to_message_id=message.message_id)
+        return   
+    
     
       
       
