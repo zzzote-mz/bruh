@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 from Tereuhte.tetakte.cache import ADMIN_CACHE, TEMP_ADMIN_CACHE_BLOCK, admin_cache_reload
 from Tereuhte.tetakte.parse import mention_html
 from Tereuhte.tetakte.helper import admins_only
-
+from info import ADMINS
 
 
 
@@ -23,8 +23,8 @@ async def adminlist(client, message):
         admin_list = await admin_cache_reload(message, "adminlist")
         note = "Up to date value."
 
-    adminstr = f"**{chat_title}** a Admin te chu.".format(
-        chat_title=m.chat.title,
+    adminstr = f"**{}** a Admin te chu.".format(
+        message.chat.title,
     ) + "\n\n"
 
     bot_admins = [i for i in admin_list if (i[1].lower()).endswith("bot")]
@@ -68,7 +68,7 @@ async def reload_admins(client, message):
 
     if (
         (message.chat.id in set(TEMP_ADMIN_CACHE_BLOCK.keys()))
-        and (message.from_user.id not in 1060318977)
+        and (message.from_user.id not in ADMINS)
         and TEMP_ADMIN_CACHE_BLOCK[message.chat.id] == "manualblock"
     ):
         await message.reply_text("Minute 10 dan ah chiah admin list a refresh theih.")
