@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 from Tereuhte.tetakte.cache import ADMIN_CACHE, TEMP_ADMIN_CACHE_BLOCK, admin_cache_reload
 from Tereuhte.tetakte.parse import mention_html
 from Tereuhte.tetakte.helper import admins_only
-from info import ADMINS
+from info import ADMUN
 
 
 
@@ -68,7 +68,7 @@ async def reload_admins(client, message):
 
     if (
         (message.chat.id in set(TEMP_ADMIN_CACHE_BLOCK.keys()))
-        and (message.from_user.id not in ADMINS)
+        and (message.from_user.id not in ADMUN)
         and TEMP_ADMIN_CACHE_BLOCK[message.chat.id] == "manualblock"
     ):
         await message.reply_text("Minute 10 dan ah chiah admin list a refresh theih.")
