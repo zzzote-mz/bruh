@@ -203,3 +203,17 @@ async def title(client, message):
 
 
 
+@Client.on_message(filters.command("mban", prefixes=["/", "!"]) & filters.private)
+async def title(client, message):
+    await client.send_message(
+        message.chat.id,
+        text="**Hei chu group ah chauh a hman theih.**",
+        reply_to_message_id=message.message_id
+    )
+    return
+
+
+
+
+
+
