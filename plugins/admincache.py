@@ -59,4 +59,4 @@ async def adminlist(client, message):
 
     await m.reply_text(adminstr + "\n\n" + note)
 
-return
+
