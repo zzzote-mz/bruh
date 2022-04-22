@@ -30,7 +30,7 @@ async def adminlist(client, message):
             else (await mention_html(admin[1], admin[0]))
         )
         for admin in user_admins
-        if not admin[2]  # if non-anonyamous admin
+        if not admin[2]  
     ]
     mention_users.sort(key=lambda x: x[1])
 
