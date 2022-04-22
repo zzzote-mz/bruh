@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from Tereuhte.tetakte.cache import ADMIN_CACHE, TEMP_ADMIN_CACHE_BLOCK, admin_cache_reload
+from Tereuhte.tetakte.cache import ADMIN_CACHE, admin_cache_reload
 from Tereuhte.tetakte.parse import mention_html
 from Tereuhte.tetakte.helper import admins_only
 
@@ -64,18 +64,8 @@ async def adminlist(client, message):
 @Client.on_message(filters.command("admincache", prefixes=["/", "!"]) & filters.group)    
 @admins_only
 async def reload_admins(client, message):
-    global TEMP_ADMIN_CACHE_BLOCK
-
-    if (
-        (message.chat.id in set(TEMP_ADMIN_CACHE_BLOCK.keys()))
-        and TEMP_ADMIN_CACHE_BLOCK[message.chat.id] == "manualblock"
-    ):
-        await message.reply_text("Minute 10 dan ah chiah admin list a refresh theih.")
-        return
-       
-        await admin_cache_reload(message, "admincache")
-        TEMP_ADMIN_CACHE_BLOCK[message.chat.id] = "manualblock"
-        await message.reply_text("**Admin list refresh ani e ✅**")
+    await admin_cache_reload(message, "admincache")
+    await message.reply_text("**Admin list refresh ani e ✅**")
         
     
     
