@@ -49,9 +49,9 @@ async def adminlist(client, message):
     mention_bots.sort(key=lambda x: x[1])
 
     adminstr += "<b><u>User Admin te:</b></u>\n"
-    adminstr += "\n".join(f"➥ {i}" for i in mention_users)
-    adminstr += "\n\n<b><u>Bot:</b></u>\n"
-    adminstr += "\n".join(f"➥ {i}" for i in mention_bots)
+    adminstr += "\n\n".join(f"➥ {i}" for i in mention_users)
+    adminstr += "\n\n\n<b><u>Bot:</b></u>\n"
+    adminstr += "\n\n".join(f"➥ {i}" for i in mention_bots)
 
     await message.reply_text(adminstr)
 
