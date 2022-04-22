@@ -16,6 +16,10 @@ async def adminlist(client, message):
         return await message.reply_text(
             "**Hei chu group ah chauh a hman theih.**",
         )
+    try:
+       admin_list = ADMIN_CACHE[message.chat.id]
+    except KeyError:
+       admin_list = await admin_cache_reload(message, "adminlist")
     adminstr = "**{}** a Admin te chu.".format(
         message.chat.title,
     ) + "\n\n"
