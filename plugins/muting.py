@@ -4,7 +4,7 @@ from Tereuhte.tetakte.helper import admins_only
 from pyrogram.types import ChatPermissions
 
 
-@Client.on_message(filters.command("mute", prefixes=["/", "!"]))
+@Client.on_message(filters.command("mute", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def mute(client, message):
     if not message.reply_to_message and len(message.command) == 1:
@@ -25,7 +25,7 @@ async def mute(client, message):
         return
       
       
-@Client.on_message(filters.command("unmute", prefixes=["/", "!"]))
+@Client.on_message(filters.command("unmute", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def unmute(client, message):
     if not message.reply_to_message and len(message.command) == 1:
