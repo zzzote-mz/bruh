@@ -80,14 +80,14 @@ async def report_user(client, message):
     if linked_chat is not None:
         heh = message.reply_to_message.from_user.id
         huh = await message.chat.get_member(heh)
-        if huh.status == "administrator" or reply_id == message.chat.id or reply_id == linked_chat.id:
+        if huh.status in {"creator", "administrator"} or reply_id == message.chat.id or reply_id == linked_chat.id:
             return await message.reply_text(
                 "Admin i report theilo."
             )
     else:
         hih = message.reply_to_message.from_user.id
-        hah = await client.get_users(hah)
-        if hah.status not in {"creator", "administrator"} or reply_id == message.chat.id:
+        hah = await message.chat.get_member(hah)
+        if hah.status in {"creator", "administrator"} or reply_id == message.chat.id:
             return await message.reply_text(
                 "Admin i report theilo."
             )
