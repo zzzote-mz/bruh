@@ -116,8 +116,8 @@ async def unmute(client, message):
     return
 
 
-@Client.on_message(filters.command("nolink", prefixes=["/", "!"]) & filters.private)
-async def nolink(client, message):
+@Client.on_message(filters.command("dmute", prefixes=["/", "!"]) & filters.private)
+async def dmute(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
@@ -235,6 +235,41 @@ async def admincache(client, message):
     return
 
 
+
+
+
+@Client.on_message(filters.command("dban", prefixes=["/", "!"]) & filters.private)
+async def dban(client, message):
+    await client.send_message(
+        message.chat.id,
+        text="**Hei chu group ah chauh a hman theih.**",
+        reply_to_message_id=message.message_id
+    )
+    return
+
+
+
+
+@Client.on_message(filters.command("warn", prefixes=["/", "!"]) & filters.private)
+async def warn(client, message):
+    await client.send_message(
+        message.chat.id,
+        text="**Hei chu group ah chauh a hman theih.**",
+        reply_to_message_id=message.message_id
+    )
+    return
+
+
+
+
+@Client.on_message(filters.command("dwarn", prefixes=["/", "!"]) & filters.private)
+async def dwarn(client, message):
+    await client.send_message(
+        message.chat.id,
+        text="**Hei chu group ah chauh a hman theih.**",
+        reply_to_message_id=message.message_id
+    )
+    return
 
 
 
