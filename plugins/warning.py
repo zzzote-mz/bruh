@@ -7,15 +7,16 @@ from Tereuhte.tetakte.helper import admins_only
 @admins_only
 async def warn(client, message):
     if message.reply_to_message:
-        idu = message.text.split(None, 1)[1]
         uid = message.reply_to_message.from_user.id
         umen = message.reply_to_message.from_user.mention
-        await client.send_message(message.chat.id, text=f"**❗ Warning**\n\n**➥User:** {umen}\n**➥ID:** {uid}", reply_to_message_id=message.reply_to_message.message_id)
+        await client.send_message(message.chat.id, text=f"**❗ Warning**\n\n**➥User:** {umen}\n**➥ID:** {uid}\n**➥A chhan:** Awmlo", reply_to_message_id=message.reply_to_message.message_id)
         return
-    else:
-        idu = message.text.split(None, 1)[1]
-        hmm = await client.get_users(idu)
-        umens = hmm.mention
-        await client.ban_chat_member(message.chat.id, user_id=idu)
-        await client.send_message(message.chat.id, text=f"{umens} hi Ban ani e.", reply_to_message_id=message.message_id)
+    elif message.reply_to_message and len(message.command) == 2:
+        zz = message.text.split(None, 1)[1]
+        zx = message.reply_to_message.from_user.id
+        zc = message.reply_to_message.from_user.mention
+        await client.send_message(message.chat.id, text=f"**❗ Warning**\n\n**➥User:** {zc}\n**➥ID:** {zx}\n**➥A chhan:** {zz}")
+        return
+    elif not message.reply_to_message and len(message.command) == 1:
+        await message.reply_text("Command hmang hian i warning duh message reply rawh. I warning chhan dah tel i duh chuan command zawh ah a chhan tur i dah dawn nia")
         return
