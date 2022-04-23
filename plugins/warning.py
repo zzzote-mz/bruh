@@ -3,6 +3,17 @@ from pyrogram import Client, filters
 from Tereuhte.tetakte.helper import admins_only
 
 
+rsrk = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "Warning sûtna", callback_data="close_i"
+                    )
+                ],
+            ]
+        )
+
+
 @Client.on_message(filters.command("warn", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def warn(client, message):
