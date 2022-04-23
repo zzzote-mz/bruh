@@ -32,7 +32,7 @@ async def close_admin(client, query):
     user_id = query.from_user.id
     user_mention = query.from_user.mention
     user_status = (await query.message.chat.get_member(user_id)).status
-    if user_status != "administrator":
+    if user_status not in {"creator", "administrator"}:
         await query.answer(
             "Group Admin inih loh chuan iti ve theilo.",
             show_alert=True,
