@@ -87,7 +87,7 @@ async def report_user(client, message):
     else:
         hih = message.reply_to_message.from_user.id
         hah = await client.get_users(hah)
-        if hah.status == "administrator" or reply_id == message.chat.id:
+        if hah.status not in {"creator", "administrator"} or reply_id == message.chat.id:
             return await message.reply_text(
                 "Admin i report theilo."
             )
