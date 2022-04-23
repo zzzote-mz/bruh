@@ -46,7 +46,7 @@ async def dwarn(client, message):
         uid = message.reply_to_message.from_user.id
         zu = message.text.split(None, 1)[1]
         uvu = await message.chat.get_member(uid)
-        if uvu.status not in {"creator", "administrator"}:
+        if uvu.status in {"creator", "administrator"}:
             await message.reply_text("Admin ka warning theilo.")
         umen = message.reply_to_message.from_user.mention
         await client.send_message(message.chat.id, text=f"**❗ Warning**\n\n**➥User:** {umen}\n**➥ID:** {uid}\n**➥A chhan:** {zu}", reply_markup=rsrk)
