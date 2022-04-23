@@ -22,7 +22,7 @@ async def warn(client, message):
     if message.reply_to_message:
         uid = message.reply_to_message.from_user.id
         uvu = await message.chat.get_member(uid)
-        if uvu.status == "administrator":
+        if uvu.status not in {"creator", "administrator"}:
             await message.reply_text("Admin ka warning theilo.")
         umen = message.reply_to_message.from_user.mention
         await client.send_message(message.chat.id, text=f"**❗ Warning**\n\n**➥User:** {umen}\n**➥ID:** {uid}\n**➥A chhan:** Awmlo", reply_markup=rsrk, reply_to_message_id=message.reply_to_message.message_id)
@@ -31,7 +31,7 @@ async def warn(client, message):
         zz = message.text.split(None, 1)[1]
         zx = message.reply_to_message.from_user.id
         xc = await message.chat.get_member(zx)
-        if xc.status == "administrator":
+        if xc.status not in {"creator", "administrator"}:
             await message.reply_text("Admin ka warning theilo.")
         zc = message.reply_to_message.from_user.mention
         await client.send_message(message.chat.id, text=f"**❗ Warning**\n\n**➥User:** {zc}\n**➥ID:** {zx}\n**➥A chhan:** {zz}", reply_markup=rsrk, reply_to_message_id=message.reply_to_message.message_id)
@@ -49,7 +49,7 @@ async def dwarn(client, message):
     if message.reply_to_message:
         uid = message.reply_to_message.from_user.id
         uvu = await message.chat.get_member(uid)
-        if uvu.status == "administrator":
+        if uvu.status not in {"creator", "administrator"}:
             await message.reply_text("Admin ka warning theilo.")
         umen = message.reply_to_message.from_user.mention
         await client.send_message(message.chat.id, text=f"**❗ Warning**\n\n**➥User:** {umen}\n**➥ID:** {uid}\n**➥A chhan:** Awmlo", reply_markup=rsrk)
@@ -60,7 +60,7 @@ async def dwarn(client, message):
         zz = message.text.split(None, 1)[1]
         zx = message.reply_to_message.from_user.id
         xc = await message.chat.get_member(zx)
-        if xc.status == "administrator":
+        if xc.status not in {"creator", "administrator"}:
             await message.reply_text("Admin ka warning theilo.")
         zc = message.reply_to_message.from_user.mention
         await client.send_message(message.chat.id, text=f"**❗ Warning**\n\n**➥User:** {zc}\n**➥ID:** {zx}\n**➥A chhan:** {zz}", reply_markup=rsrk)
