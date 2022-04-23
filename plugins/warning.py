@@ -21,7 +21,7 @@ rsrk = InlineKeyboardMarkup(
 async def warn(client, message):
     if message.reply_to_message:
         uid = message.reply_to_message.from_user.id
-        uvu = await client.get_users(uid)
+        uvu = await message.chat.get_member(uid)
         if uvu.status == "administrator":
             await message.reply_text("Admin ka warning theilo.")
         umen = message.reply_to_message.from_user.mention
@@ -30,7 +30,7 @@ async def warn(client, message):
     if message.reply_to_message and len(message.command) == 2:
         zz = message.text.split(None, 1)[1]
         zx = message.reply_to_message.from_user.id
-        xc = await client.get_users(zx)
+        xc = await message.chat.get_member(zx)
         if xc.status == "administrator":
             await message.reply_text("Admin ka warning theilo.")
         zc = message.reply_to_message.from_user.mention
@@ -48,7 +48,7 @@ async def warn(client, message):
 async def dwarn(client, message):
     if message.reply_to_message:
         uid = message.reply_to_message.from_user.id
-        uvu = await client.get_users(uid)
+        uvu = await message.chat.get_member(uid)
         if uvu.status == "administrator":
             await message.reply_text("Admin ka warning theilo.")
         umen = message.reply_to_message.from_user.mention
@@ -59,7 +59,7 @@ async def dwarn(client, message):
     if message.reply_to_message and len(message.command) == 2:
         zz = message.text.split(None, 1)[1]
         zx = message.reply_to_message.from_user.id
-        xc = await client.get_users(zx)
+        xc = await message.chat.get_member(zx)
         if xc.status == "administrator":
             await message.reply_text("Admin ka warning theilo.")
         zc = message.reply_to_message.from_user.mention
