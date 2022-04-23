@@ -27,7 +27,7 @@ async def warn(client, message):
         umen = message.reply_to_message.from_user.mention
         await client.send_message(message.chat.id, text=f"**❗ Warning**\n\n**➥User:** {umen}\n**➥ID:** {uid}\n**➥A chhan:** Awmlo", reply_markup=rsrk, reply_to_message_id=message.reply_to_message.message_id)
         return
-    if message.reply_to_message and len(message.command) == 2:
+    if len(message.command) == 2:
         zz = message.text.split(None, 1)[1]
         zx = message.reply_to_message.from_user.id
         xc = await message.chat.get_member(zx)
