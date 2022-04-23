@@ -8,12 +8,18 @@ from Tereuhte.tetakte.helper import admins_only
 async def warn(client, message):
     if message.reply_to_message:
         uid = message.reply_to_message.from_user.id
+        uvu = await client.get_users(uid)
+    elif uvu.status == "administrator":
+        await message.reply_text("Admin ka warning theilo")
         umen = message.reply_to_message.from_user.mention
         await client.send_message(message.chat.id, text=f"**❗ Warning**\n\n**➥User:** {umen}\n**➥ID:** {uid}\n**➥A chhan:** Awmlo", reply_to_message_id=message.reply_to_message.message_id)
         return
     elif message.reply_to_message and len(message.command) == 2:
         zz = message.text.split(None, 1)[1]
         zx = message.reply_to_message.from_user.id
+        xc = await client.get_users(zx)
+    elif xc.status == "administrator":
+        await message.reply_text("Admin ka earning theilo")
         zc = message.reply_to_message.from_user.mention
         await client.send_message(message.chat.id, text=f"**❗ Warning**\n\n**➥User:** {zc}\n**➥ID:** {zx}\n**➥A chhan:** {zz}")
         return
