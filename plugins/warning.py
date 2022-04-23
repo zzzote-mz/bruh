@@ -1,6 +1,8 @@
 # ©️2022 RSR
 from pyrogram import Client, filters
 from Tereuhte.tetakte.helper import admins_only
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+
 
 
 rsrk = InlineKeyboardMarkup(
