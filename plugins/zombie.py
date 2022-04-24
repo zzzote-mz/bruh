@@ -39,7 +39,7 @@ async def zombie(client, message):
     sgname = message.text.split(None, 1)[1]
     user_id = message.from_user.id
     if sgname.lower().strip() == "clean":
-        async for lol in message.chat.get_member(user_id)
+        lol = await client.get_chat_member(message.chat.id, user_id)
         if lol.status not in {"creator", "administrator"}:
             await pablo.edit("**Admin inih loh chuan iti ve theilo.**")
             return
