@@ -24,12 +24,12 @@ async def pin_message(client, message):
             if message.chat.username:
                 link_chat_id = message.chat.username
                 hmm = (
-                    f"https://t.me/{link_chat_id}/{message.reply_to_message.message_id}"
+                    f"https://t.me/{link_chat_id}/{message.reply_to_message.id}"
                 )
             elif (str(message.chat.id)).startswith("-100"):
                 link_chat_id = (str(message.chat.id)).replace("-100", "")
                 hmm = (
-                    f"https://t.me/c/{link_chat_id}/{message.reply_to_message.message_id}"
+                    f"https://t.me/c/{link_chat_id}/{message.reply_to_message.id}"
                 )
             rsrke = InlineKeyboardMarkup(
                         [
@@ -63,7 +63,7 @@ async def pin_message(client, message):
 async def unpin_message(client, message):
     try:
         if message.reply_to_message:
-            await client.unpin_chat_message(message.chat.id, message.reply_to_message.message_id)
+            await client.unpin_chat_message(message.chat.id, message.reply_to_message.id)
             await message.reply_text("**Message unpin ani e.**")
         else:
             await client.unpin_chat_message(message.chat.id)
