@@ -16,12 +16,12 @@ async def zombie(client, message):
         async for member in client.get_chat_members(message.chat.id):
             if member.user.is_deleted:
                 await sleep(1)
-                if member.status == "member":
-                    dm += 1
-                elif member.status == "administrator":
+                if member.status == "administrator":
                     da += 1
                 elif member.status == "creator":
                     dc += 1
+                elif member.status == "member":
+                    dm += 1
         text = "**📊 Zombies Stats** \n\n"
         if dm > 0:
             text += "**Zombies (Members) :** `{}` \n".format(dm)
@@ -54,7 +54,7 @@ async def zombie(client, message):
                     f += 1
         text = "🧟‍♂️"
         if s > 0:
-            text += "**Account Delete** {} **Remove ani.**".format(s)
+            text += f"**Account Delete** {s} **Remove ani.**"
         if f > 0:
             text += "\n\n**Account Delete remove theihloh** {} **a awm, Admin emaw Creator an nih vang ani maithei.**".format(f)
         await pablo.edit(text)

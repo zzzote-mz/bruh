@@ -20,9 +20,7 @@ async def adminlist(client, message):
        admin_list = ADMIN_CACHE[message.chat.id]
     except KeyError:
        admin_list = await admin_cache_reload(message, "adminlist")
-    adminstr = "**{}** a Admin te chu.".format(
-        message.chat.title,
-    ) + "\n\n"
+    adminstr = (f"**{message.chat.title}** a Admin te chu." + "\n\n")
 
     bot_admins = [i for i in admin_list if (i[1].lower()).endswith("bot")]
     user_admins = [i for i in admin_list if not (i[1].lower()).endswith("bot")]

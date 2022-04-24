@@ -8,8 +8,7 @@ from Tereuhte.tetakte.helper import admins_only
 @admins_only
 async def fpromote(client, message):
     if not message.reply_to_message and len(message.command) == 1:
-       await message.reply_text("**Command hmang hian i promote duh message reply in emaw, command zawh ah an ID emaw username dah a i thawn chauh in mi a promote theih.**")
-       return
+        await message.reply_text("**Command hmang hian i promote duh message reply in emaw, command zawh ah an ID emaw username dah a i thawn chauh in mi a promote theih.**")
     elif message.reply_to_message:
         bot = await client.get_chat_member(chat_id=message.chat.id, user_id=5301276537)
         uid = message.reply_to_message.from_user.id
@@ -26,7 +25,6 @@ async def fpromote(client, message):
             can_manage_video_chats=bot.can_manage_video_chats,
         )
         await client.send_message(message.chat.id, text=f"{umen} hi Promote ani e.", reply_to_message_id=message.id)
-        return
     else:
         bot = await client.get_chat_member(chat_id=message.chat.id, user_id=5301276537)
         idu = message.text.split(None, 1)[1]
@@ -44,14 +42,14 @@ async def fpromote(client, message):
             can_manage_video_chats=bot.can_manage_video_chats,
         )
         await client.send_message(message.chat.id, text=f"{umens} hi Promote ani e.", reply_to_message_id=message.id)
-        return
+
+    return
     
 @Client.on_message(filters.command("lpromote", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def lpromote(client, message):
     if not message.reply_to_message and len(message.command) == 1:
-       await message.reply_text("**Command hmang hian i promote duh message reply in emaw, command zawh ah an ID emaw username dah a i thawn chauh in mi a promote theih.**")
-       return
+        await message.reply_text("**Command hmang hian i promote duh message reply in emaw, command zawh ah an ID emaw username dah a i thawn chauh in mi a promote theih.**")
     elif message.reply_to_message:
         bot = await client.get_chat_member(chat_id=message.chat.id, user_id=5301276537)
         uid = message.reply_to_message.from_user.id
@@ -68,7 +66,6 @@ async def lpromote(client, message):
             can_manage_video_chats=bot.can_manage_video_chats,
         )
         await client.send_message(message.chat.id, text=f"{umen} hi Promote ani e.", reply_to_message_id=message.id)
-        return
     else:
         bot = await client.get_chat_member(chat_id=message.chat.id, user_id=5301276537)
         idu = message.text.split(None, 1)[1]
@@ -85,8 +82,9 @@ async def lpromote(client, message):
             can_manage_chat=bot.can_manage_chat,
             can_manage_video_chats=bot.can_manage_video_chats,
         )
-        await client.send_message(message.chat.id, text=f"{umens} hi Promote ani e.", reply_to_message_id=message.id)
-        return   
+        await client.send_message(message.chat.id, text=f"{umens} hi Promote ani e.", reply_to_message_id=message.id)   
+
+    return   
     
     
       
@@ -95,8 +93,7 @@ async def lpromote(client, message):
 @admins_only
 async def demote(client, message):
     if not message.reply_to_message and len(message.command) == 1:
-       await message.reply_text("**Command hmang hian i demote duh message reply in emaw, command zawh ah an ID emaw username dah a i thawn chauh in mi a demote theih.**")
-       return
+        await message.reply_text("**Command hmang hian i demote duh message reply in emaw, command zawh ah an ID emaw username dah a i thawn chauh in mi a demote theih.**")
     elif message.reply_to_message:
         uud = message.reply_to_message.from_user.id
         umun = message.reply_to_message.from_user.mention
@@ -112,7 +109,6 @@ async def demote(client, message):
             can_manage_video_chats=False,
         )
         await client.send_message(message.chat.id, text=f"{umun} hi Admin anihna hlih sak ani e.", reply_to_message_id=message.id)
-        return
     else:
         idus = message.text.split(None, 1)[1]
         haa = await client.get_users(idus)
@@ -129,7 +125,8 @@ async def demote(client, message):
             can_manage_video_chats=False,
         )
         await client.send_message(message.chat.id, text=f"{umuns} hi Admin anihna hlih sak ani e.", reply_to_message_id=message.id)
-        return
+
+    return
       
       
       
