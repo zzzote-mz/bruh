@@ -274,7 +274,7 @@ async def dwarn(client, message):
 
 
 
-@Client.on_message(filters.command("tereuhte", prefixes=["/", "!"]) & filters.private)
+@Client.on_message(filters.command("tetakte", prefixes=["/", "!"]) & filters.private)
 async def tereuhte(client, message):
     await client.send_message(
         message.chat.id,
