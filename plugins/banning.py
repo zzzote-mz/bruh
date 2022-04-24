@@ -13,14 +13,14 @@ async def ban(client, message):
         uid = message.reply_to_message.from_user.id
         umen = message.reply_to_message.from_user.mention
         await client.ban_chat_member(message.chat.id, user_id=uid)
-        await client.send_message(message.chat.id, text=f"{umen} hi Ban ani e.", reply_to_message_id=message.message_id)
+        await client.send_message(message.chat.id, text=f"{umen} hi Ban ani e.", reply_to_message_id=message.id)
         return
     else:
         idu = message.text.split(None, 1)[1]
         hmm = await client.get_users(idu)
         umens = hmm.mention
         await client.ban_chat_member(message.chat.id, user_id=idu)
-        await client.send_message(message.chat.id, text=f"{umens} hi Ban ani e.", reply_to_message_id=message.message_id)
+        await client.send_message(message.chat.id, text=f"{umens} hi Ban ani e.", reply_to_message_id=message.id)
         return
     
     
@@ -62,14 +62,14 @@ async def unban(client, message):
         uud = message.reply_to_message.from_user.id
         umun = message.reply_to_message.from_user.mention
         await client.unban_chat_member(message.chat.id, user_id=uud)
-        await client.send_message(message.chat.id, text=f"{umun} hi Ban anihna hlih sak ani e.", reply_to_message_id=message.message_id)
+        await client.send_message(message.chat.id, text=f"{umun} hi Ban anihna hlih sak ani e.", reply_to_message_id=message.id)
         return
     else:
         idus = message.text.split(None, 1)[1]
         haa = await client.get_users(idus)
         umuns = haa.mention
         await client.unban_chat_member(message.chat.id, user_id=idus)
-        await client.send_message(message.chat.id, text=f"{umuns} hi Ban anihna hlih sak ani e.", reply_to_message_id=message.message_id)
+        await client.send_message(message.chat.id, text=f"{umuns} hi Ban anihna hlih sak ani e.", reply_to_message_id=message.id)
         return
       
       
@@ -78,7 +78,7 @@ async def unban(client, message):
 async def selfb(client, message):
     si = message.from_user.id
     await client.ban_chat_member(message.chat.id, user_id=si)
-    await client.send_message(message.chat.id, text=f"Aw le, remove ini e, Bye...", reply_to_message_id=message.message_id)
+    await client.send_message(message.chat.id, text=f"Aw le, remove ini e, Bye...", reply_to_message_id=message.id)
     await asyncio.sleep(1)
     await client.unban_chat_member(message.chat.id, user_id=si)
     
@@ -94,7 +94,7 @@ async def remove(client, message):
         uid = message.reply_to_message.from_user.id
         umen = message.reply_to_message.from_user.mention
         await client.ban_chat_member(message.chat.id, user_id=uid)
-        await client.send_message(message.chat.id, text=f"{umen} hi Ban ani e.", reply_to_message_id=message.message_id)
+        await client.send_message(message.chat.id, text=f"{umen} hi Ban ani e.", reply_to_message_id=message.id)
         await asyncio.sleep(1)
         await client.unban_chat_member(message.chat.id, user_id=uid)
     else:
@@ -102,7 +102,7 @@ async def remove(client, message):
         hmm = await client.get_users(idu)
         umens = hmm.mention
         await client.ban_chat_member(message.chat.id, user_id=idu)
-        await client.send_message(message.chat.id, text=f"{umens} hi Ban ani e.", reply_to_message_id=message.message_id)
+        await client.send_message(message.chat.id, text=f"{umens} hi Ban ani e.", reply_to_message_id=message.id)
         await asyncio.sleep(1)
         await client.unban_chat_member(message.chat.id, user_id=idu)
     
@@ -122,14 +122,14 @@ async def mban(client, message):
         uid = message.reply_to_message.from_user.id
         umen = message.reply_to_message.from_user.mention
         await client.ban_chat_member(chat_id=GROUPS, user_id=uid)
-        await client.send_message(message.chat.id, text=f"{umen} hi Mass Ban ani e.", reply_to_message_id=message.message_id)
+        await client.send_message(message.chat.id, text=f"{umen} hi Mass Ban ani e.", reply_to_message_id=message.id)
         return
     else:
         idu = message.text.split(None, 1)[1]
         hmm = await client.get_users(idu)
         umens = hmm.mention
         await client.ban_chat_member(chat_id=GROUPS, user_id=idu)
-        await client.send_message(message.chat.id, text=f"{umens} hi Mass Ban ani e.", reply_to_message_id=message.message_id)
+        await client.send_message(message.chat.id, text=f"{umens} hi Mass Ban ani e.", reply_to_message_id=message.id)
         return   
     
     
