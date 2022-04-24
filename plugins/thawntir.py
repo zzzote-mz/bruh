@@ -13,11 +13,11 @@ async def thawntir(client, message):
      await client.copy_message(
        chat_id=message.chat.id,
        from_chat_id= message.chat.id,
-       message_id=message.reply_to_message.message_id
+       message_id=message.reply_to_message.id
      )
      await client.delete_messages(
        message.chat.id,
-       message.reply_to_message.message_id
+       message.reply_to_message.id
      )
      await message.delete()
   else:
