@@ -23,7 +23,7 @@ async def fpromote(client, message):
             can_pin_messages=bot.can_pin_messages,
             can_promote_members=bot.can_promote_members,
             can_manage_chat=bot.can_manage_chat,
-            can_manage_voice_chats=bot.can_manage_voice_chats,
+            can_manage_video_chats=bot.can_manage_video_chats,
         )
         await client.send_message(message.chat.id, text=f"{umen} hi Promote ani e.", reply_to_message_id=message.id)
         return
@@ -41,7 +41,7 @@ async def fpromote(client, message):
             can_pin_messages=bot.can_pin_messages,
             can_promote_members=bot.can_promote_members,
             can_manage_chat=bot.can_manage_chat,
-            can_manage_voice_chats=bot.can_manage_voice_chats,
+            can_manage_video_chats=bot.can_manage_video_chats,
         )
         await client.send_message(message.chat.id, text=f"{umens} hi Promote ani e.", reply_to_message_id=message.id)
         return
@@ -65,7 +65,7 @@ async def lpromote(client, message):
             can_pin_messages=False,
             can_promote_members=False,
             can_manage_chat=bot.can_manage_chat,
-            can_manage_voice_chats=bot.can_manage_voice_chats,
+            can_manage_video_chats=bot.can_manage_video_chats,
         )
         await client.send_message(message.chat.id, text=f"{umen} hi Promote ani e.", reply_to_message_id=message.id)
         return
@@ -83,7 +83,7 @@ async def lpromote(client, message):
             can_pin_messages=False,
             can_promote_members=False,
             can_manage_chat=bot.can_manage_chat,
-            can_manage_voice_chats=bot.can_manage_voice_chats,
+            can_manage_video_chats=bot.can_manage_video_chats,
         )
         await client.send_message(message.chat.id, text=f"{umens} hi Promote ani e.", reply_to_message_id=message.id)
         return   
@@ -109,7 +109,7 @@ async def demote(client, message):
             can_pin_messages=False,
             can_promote_members=False,
             can_manage_chat=False,
-            can_manage_voice_chats=False,
+            can_manage_video_chats=False,
         )
         await client.send_message(message.chat.id, text=f"{umun} hi Admin anihna hlih sak ani e.", reply_to_message_id=message.id)
         return
@@ -126,7 +126,7 @@ async def demote(client, message):
             can_pin_messages=False,
             can_promote_members=False,
             can_manage_chat=False,
-            can_manage_voice_chats=False,
+            can_manage_video_chats=False,
         )
         await client.send_message(message.chat.id, text=f"{umuns} hi Admin anihna hlih sak ani e.", reply_to_message_id=message.id)
         return
