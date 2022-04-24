@@ -65,7 +65,7 @@ async def report_user(client, message):
             await client.send_message(
                 message.chat.id,
                 text="**Hei chu group ah chauh a hman theih.**",
-                reply_to_message_id=message.message_id
+                reply_to_message_id=message.id
             )
             return
     if not message.reply_to_message:
