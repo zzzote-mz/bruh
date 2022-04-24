@@ -94,7 +94,7 @@ async def report_user(client, message):
 
     user_mention = reply.from_user.mention if reply.from_user else reply.sender_chat.title
     text = f"{user_mention} message hi Admin hnen ah report ani."
-    async for admin_data in message.chat.get_members(filter="administrators")
+    admin_data = await client.get_chat_members(message.chat.id, filter="administrators")
     if admin_data.user.is_bot or admin_data.user.is_deleted:
         continue
     text += f"[\u2063](tg://user?id={admin.user.id})"
