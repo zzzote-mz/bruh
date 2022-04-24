@@ -6,7 +6,7 @@ rsrp = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Website", web_app="web_app"
+                        "Website", web_app_data="web_app"
                     ),
                 ],
             ]
