@@ -6,9 +6,9 @@ from Tereuhte.tetakte.helper import admins_only
 @Client.on_message(filters.command("dltall", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def spurge(client, message):
-    if message.chat.type != "supergroup":
-        await message.reply_text("Supergroup ami chiah ka delete thei.")
-        return
+    #if message.chat.type != "supergroup":
+        #await message.reply_text("Supergroup ami chiah ka delete thei.")
+        #return
 
     if message.reply_to_message:
         message_ids = list(range(message.reply_to_message.message_id, message.message_id))
@@ -48,8 +48,8 @@ async def spurge(client, message):
 @Client.on_message(filters.command("dlt", prefixes=["/", "!"]) & filters.group)
 @admins_only    
 async def dlt(client, message):
-    if message.chat.type != "supergroup":
-        return
+    #if message.chat.type != "supergroup":
+        #return
 
     if message.reply_to_message:
         await message.delete()
