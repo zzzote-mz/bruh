@@ -9,7 +9,7 @@ async def ban(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -20,7 +20,7 @@ async def unban(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -30,7 +30,7 @@ async def remove(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -40,7 +40,7 @@ async def setgtitle(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -50,7 +50,7 @@ async def setgpic(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -61,7 +61,7 @@ async def delgpic(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -71,7 +71,7 @@ async def removeme(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -81,7 +81,7 @@ async def close(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -91,7 +91,7 @@ async def open(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -101,7 +101,7 @@ async def mute(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -111,7 +111,7 @@ async def unmute(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -121,7 +121,7 @@ async def dmute(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -132,7 +132,7 @@ async def pin(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -142,7 +142,7 @@ async def unpin(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -152,7 +152,7 @@ async def unpinall(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -163,7 +163,7 @@ async def fpromote(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -174,7 +174,7 @@ async def lpromote(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -185,7 +185,7 @@ async def demote(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -196,7 +196,7 @@ async def title(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -208,7 +208,7 @@ async def mban(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -220,7 +220,7 @@ async def sdescription(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -230,7 +230,7 @@ async def admincache(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -243,7 +243,7 @@ async def dban(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -255,7 +255,7 @@ async def warn(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -267,7 +267,7 @@ async def dwarn(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -279,7 +279,7 @@ async def tereuhte(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -290,7 +290,7 @@ async def protect(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
@@ -301,7 +301,7 @@ async def zombies(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
-        reply_to_message_id=message.message_id
+        reply_to_message_id=message.id
     )
     return
 
