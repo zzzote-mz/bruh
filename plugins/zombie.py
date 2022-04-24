@@ -13,7 +13,7 @@ async def zombie(client, message):
         dm = 0
         da = 0
         dc = 0
-        async for member in client.iter_chat_members(message.chat.id):
+        async for member in client.get_chat_members(message.chat.id):
             if member.user.is_deleted:
                 await sleep(1)
                 if member.status == "member":
@@ -39,13 +39,13 @@ async def zombie(client, message):
     sgname = message.text.split(None, 1)[1]
     user_id = message.from_user.id
     if sgname.lower().strip() == "clean":
-        lol = await message.chat.get_member(user_id)
+        async for lol in message.chat.get_member(user_id)
         if lol.status not in {"creator", "administrator"}:
             await pablo.edit("**Admin inih loh chuan iti ve theilo.**")
             return
         s = 0
         f = 0
-        async for member in client.iter_chat_members(message.chat.id):
+        async for member in client.get_chat_members(message.chat.id):
             if member.user.is_deleted:
                 try:
                     await client.ban_chat_member(message.chat.id, member.user.id)
