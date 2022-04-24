@@ -3,7 +3,7 @@ from pyrogram import Client, filters
 from Tereuhte.tetakte.helper import admins_only
 
 
-@Client.on_message(filters.command("tereuhte", prefixes=["/", "!"]) & filters.group)
+@Client.on_message(filters.command("tetakte", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def thawntir(client, message):
   if not message.reply_to_message and len(message.command) == 1:
