@@ -11,7 +11,7 @@ async def spurge(client, message):
         #return
 
     if message.reply_to_message:
-        message_ids = list(range(message.reply_to_message.message_id, message.message_id))
+        message_ids = list(range(message.reply_to_message.message_id, message.id))
 
         def divide_chunks(l: list, n: int = 100):
             for i in range(0, len(l), n):
@@ -55,7 +55,7 @@ async def dlt(client, message):
         await message.delete()
         await client.delete_messages(
             chat_id=message.chat.id,
-            message_ids=message.reply_to_message.message_id,
+            message_ids=message.reply_to_message.id,
         )
     else:
         await message.reply_text("I message delete duh reply rawh.")
