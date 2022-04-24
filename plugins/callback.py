@@ -45,3 +45,11 @@ async def close_admin(client, query):
 
 
 
+@Client.on_callback_query(filters.regex("^web_app$"))
+async def close_admin(client, query):
+    answer_web_app_query("https://www.imrsr.online")
+    return
+
+
+
+
