@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from pyrogram.types import CallbackQuery
+from pyrogram.types import CallbackQuery, WebAppInfo
 
 
 
@@ -46,8 +46,8 @@ async def close_admin(client, query):
 
 
 @Client.on_callback_query(filters.regex("^web_app$"))
-async def close_admin(client, query):
-    answer_web_app_query("https://www.imrsr.online")
+async def webapp(client, web):
+    web.answer_web_app_query("https://www.imrsr.online")
     return
 
 
