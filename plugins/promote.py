@@ -25,7 +25,7 @@ async def fpromote(client, message):
             can_manage_chat=bot.can_manage_chat,
             can_manage_voice_chats=bot.can_manage_voice_chats,
         )
-        await client.send_message(message.chat.id, text=f"{umen} hi Promote ani e.", reply_to_message_id=message.message_id)
+        await client.send_message(message.chat.id, text=f"{umen} hi Promote ani e.", reply_to_message_id=message.id)
         return
     else:
         bot = await client.get_chat_member(chat_id=message.chat.id, user_id=5301276537)
@@ -43,7 +43,7 @@ async def fpromote(client, message):
             can_manage_chat=bot.can_manage_chat,
             can_manage_voice_chats=bot.can_manage_voice_chats,
         )
-        await client.send_message(message.chat.id, text=f"{umens} hi Promote ani e.", reply_to_message_id=message.message_id)
+        await client.send_message(message.chat.id, text=f"{umens} hi Promote ani e.", reply_to_message_id=message.id)
         return
     
 @Client.on_message(filters.command("lpromote", prefixes=["/", "!"]) & filters.group)
@@ -67,7 +67,7 @@ async def lpromote(client, message):
             can_manage_chat=bot.can_manage_chat,
             can_manage_voice_chats=bot.can_manage_voice_chats,
         )
-        await client.send_message(message.chat.id, text=f"{umen} hi Promote ani e.", reply_to_message_id=message.message_id)
+        await client.send_message(message.chat.id, text=f"{umen} hi Promote ani e.", reply_to_message_id=message.id)
         return
     else:
         bot = await client.get_chat_member(chat_id=message.chat.id, user_id=5301276537)
@@ -85,7 +85,7 @@ async def lpromote(client, message):
             can_manage_chat=bot.can_manage_chat,
             can_manage_voice_chats=bot.can_manage_voice_chats,
         )
-        await client.send_message(message.chat.id, text=f"{umens} hi Promote ani e.", reply_to_message_id=message.message_id)
+        await client.send_message(message.chat.id, text=f"{umens} hi Promote ani e.", reply_to_message_id=message.id)
         return   
     
     
@@ -111,7 +111,7 @@ async def demote(client, message):
             can_manage_chat=False,
             can_manage_voice_chats=False,
         )
-        await client.send_message(message.chat.id, text=f"{umun} hi Admin anihna hlih sak ani e.", reply_to_message_id=message.message_id)
+        await client.send_message(message.chat.id, text=f"{umun} hi Admin anihna hlih sak ani e.", reply_to_message_id=message.id)
         return
     else:
         idus = message.text.split(None, 1)[1]
@@ -128,7 +128,7 @@ async def demote(client, message):
             can_manage_chat=False,
             can_manage_voice_chats=False,
         )
-        await client.send_message(message.chat.id, text=f"{umuns} hi Admin anihna hlih sak ani e.", reply_to_message_id=message.message_id)
+        await client.send_message(message.chat.id, text=f"{umuns} hi Admin anihna hlih sak ani e.", reply_to_message_id=message.id)
         return
       
       
