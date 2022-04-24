@@ -6,7 +6,7 @@ from pyrogram import Client, filters
 from Tereuhte.tetakte.helper import admins_only
 
 
-@pbot.on_message(filters.command("zombies", prefixes=["/", "!"]) & filters.group)
+@Client.on_message(filters.command("zombies", prefixes=["/", "!"]) & filters.group)
 @admins_only
 async def zombie(client, message):
     pablo = await message.reply_text("**Zawng mek...**")
