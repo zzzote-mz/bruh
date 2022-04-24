@@ -24,7 +24,7 @@ async def warn(client, message):
     if message.reply_to_message:
         uid = message.reply_to_message.from_user.id
         zz = message.text.split(None, 1)[1]
-        async for uvu in message.chat.get_member(uid)
+        uvu = await client.get_chat_member(message.chat.id, uid)
         if uvu.status in {"creator", "administrator"}:
             return await message.reply_text("Admin ka warning theilo.")
         umen = message.reply_to_message.from_user.mention
@@ -45,7 +45,7 @@ async def dwarn(client, message):
     if message.reply_to_message:
         uid = message.reply_to_message.from_user.id
         zu = message.text.split(None, 1)[1]
-        async for uvu in message.chat.get_member(uid)
+        uvu = await client.get_chat_member(message.chat.id, uid)
         if uvu.status in {"creator", "administrator"}:
             await message.reply_text("Admin ka warning theilo.")
         umen = message.reply_to_message.from_user.mention
