@@ -29,7 +29,7 @@ async def spurge(client, message):
                 )
             await message.delete()
         except MessageDeleteForbidden:
-            await message.reply_text("I message delete duh hi ka delete theilo, a chhan chu message hi a hlui tawh ani thei(ni 2 liam tawh message ka delete theilo. Chuan supergroup ami lo chu ka delete theilo, emaw hemi group ah hian message delete theihna permission ka neilo pawh ani thei. A khawi emaw ber vang hian i message delete duh hi ka delete theilo.")
+            await message.reply_text("I message delete duh hi ka delete theilo, zawh chian duh emaw harsatna i neih chuan @helptereuhte ah hian i sawi thei ang.")
             return
         except RPCError as ef:
             await message.reply_text(
