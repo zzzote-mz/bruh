@@ -1,4 +1,4 @@
-pyrogram==2.0.4
+pyrogram==2.0.6
 tgcrypto==1.2.2
 requests
 asyncio
