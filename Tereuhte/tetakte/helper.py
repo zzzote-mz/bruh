@@ -27,16 +27,17 @@ def get(chat_id: Union[str, int]) -> Union[List[User], bool]:
 
 
 async def get_administrators(chat: Chat) -> List[User]:
-    _get = get(chat.id)
-
-    if _get:
+    if _get := get(chat.id):
         return _get
-    else:
-        set(
-            chat.id,
-            [member.user for member in await chat.get_members(filter="administrators")],
-        )
-        return await get_administrators(chat)
+    set(
+        chat.id,
+        (
+            member.user
+            for member in await chat.get_members(filter="administrators")
+        ),
+    )
+
+    return await get_administrators(chat)
 
 
 def admins_only(func: Callable) -> Coroutine:
@@ -47,8 +48,7 @@ def admins_only(func: Callable) -> Coroutine:
         for admin in admins:
             if admin.id == message.from_user.id:
                 return await func(client, message)
-            if not admin.id == message.from_user.id:
-                await message.reply_text("**Admin inih loh chuan iti ve theilo.**")
-                return
+            await message.reply_text("**Admin inih loh chuan iti ve theilo.**")
+            return
 
     return wrapper

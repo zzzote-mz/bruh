@@ -37,12 +37,15 @@ async def admin_cache_reload(m: Message or CallbackQuery, status=None) -> List[i
         admin_list = [
             (
                 z.user.id,
-                (("@" + z.user.username) if z.user.username else z.user.first_name),
+                f"@{z.user.username}"
+                if z.user.username
+                else z.user.first_name,
                 z.is_anonymous,
             )
             async for z in m.chat.get_members(filter="administrators")
             if not z.user.is_deleted
         ]
+
         ADMIN_CACHE[m.chat.id] = admin_list
         TEMP_ADMIN_CACHE_BLOCK[m.chat.id] = "autoblock"
 
