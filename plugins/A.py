@@ -286,7 +286,7 @@ async def tereuhte(client, message):
 
 
 @Client.on_message(filters.command("protect", prefixes=["/", "!"]) & filters.private)
-async def dwarn(client, message):
+async def protect(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
