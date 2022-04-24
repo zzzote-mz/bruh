@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from Tereuhte.tetakte.cache import ADMIN_CACHE, admin_cache_reload
-from Tereuhte.tetakte.parse import mention_html
+from Tereuhte.tetakte.parse import mention_html, mention_markdown
 from Tereuhte.tetakte.helper import admins_only
 
 
@@ -31,7 +31,7 @@ async def adminlist(client, message):
         (
             admin[1]
             if admin[1].startswith("@")
-            else (await mention_html(admin[1], admin[0]))
+            else (await mention_markdown(admin[1], admin[0]))
         )
         for admin in user_admins
         if not admin[2]  
@@ -42,7 +42,7 @@ async def adminlist(client, message):
         (
             admin[1]
             if admin[1].startswith("@")
-            else (await mention_html(admin[1], admin[0]))
+            else (await mention_markdown(admin[1], admin[0]))
         )
         for admin in bot_admins
     ]
