@@ -92,8 +92,9 @@ async def report_user(client, message):
             return await message.reply_text(
                 "Admin i report theilo."
             )
-
-    if hah.status not in admin_status:
+    heh = message.reply_to_message.from_user.id
+    hoh = await message.chat.get_member(heh)
+    if hoh.status not in admin_status:
         text = ""
         async for admin in message.chat.get_members(filter=ChatMembersFilter.ADMINISTRATORS):
             if not (admin.user.is_deleted or admin.is_anonymous or admin.user.is_bot):
