@@ -27,6 +27,7 @@ class Bot(Client):
 
     async def start(self):
         await super().start()
+        await self.send_message(-1001126383177, "Upgrade Finished ✅")
         logging.info(LOG_STR)
 
     async def stop(self, *args):
