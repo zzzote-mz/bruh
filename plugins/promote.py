@@ -16,14 +16,14 @@ async def fpromote(client, message):
         await message.chat.promote_member(
             user_id=uid,
             privileges=ChatPrivileges(
-                can_change_info=bot.can_change_info,
-                can_invite_users=bot.can_invite_users,
-                can_delete_messages=bot.can_delete_messages,
-                can_restrict_members=bot.can_restrict_members,
-                can_pin_messages=bot.can_pin_messages,
-                can_promote_members=bot.can_promote_members,
-                can_manage_chat=bot.can_manage_chat,
-                can_manage_video_chats=bot.can_manage_video_chats,
+                can_change_info=True,
+                can_invite_users=True,
+                can_delete_messages=True,
+                can_restrict_members=True,
+                can_pin_messages=True,
+                can_promote_members=True,
+                can_manage_chat=True,
+                can_manage_video_chats=True,
             ),
         )
         await client.send_message(message.chat.id, text=f"{umen} hi Promote ani e.", reply_to_message_id=message.id)
