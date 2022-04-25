@@ -1,7 +1,8 @@
 import os
 from pyrogram import Client, filters
 from Tereuhte.tetakte.helper import admins_only
-
+from pyrogram.enums import ChatMembersFilter
+from Tereuhte.tetakte.admins import admin_status
 
 
 @Client.on_message(filters.command("setgtitle", prefixes=["/", "!"]) & filters.group)
@@ -80,23 +81,23 @@ async def report_user(client, message):
     if linked_chat is not None:
         heh = message.reply_to_message.from_user.id
         huh = await message.chat.get_member(heh)
-        if huh.status in {"creator", "administrator"} or reply_id == message.chat.id or reply_id == linked_chat.id:
+        if huh.status in admin_status or reply_id == message.chat.id or reply_id == linked_chat.id:
             return await message.reply_text(
                 "Admin i report theilo."
             )
     else:
         hih = message.reply_to_message.from_user.id
-        hah = await client.get_chat_member(message.chat.id, hih)
-        if hah.status in {"creator", "administrator"} or reply_id == message.chat.id:
+        hah = await message.chat.get_member(hih)
+        if hah.status in admin_status or reply_id == message.chat.id:
             return await message.reply_text(
                 "Admin i report theilo."
             )
 
     user_mention = reply.from_user.mention if reply.from_user else reply.sender_chat.title
     text = f"{user_mention} message hi Admin hnen ah report ani."
-    async for admin in client.get_chat_members(message.chat.id, filter="administrators")
-    if admin.user.is_bot or admin.user.is_deleted:
-    text += f"[\u2063](tg://user?id={admin.user.id})"
+async for admin in message.chat.get_members(filter=ChatMembersFilter.ADMINISTRATORS):
+    if not (admin.user.is_deleted or admin.is_anonymous or admin.user.is_bot):
+    text += f"<a href='tg://user?id={admin.user.id}'>\u2063</a>"
 
     await message.reply_to_message.reply_text(text)    
     
