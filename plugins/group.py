@@ -60,7 +60,7 @@ async def delgpic(client, message):
     
     
     
-@Client.on_message(filters.command(["admin", "admins", "report"], prefixes="@"))
+@Client.on_message(filters.command(["admin", "admins", "report"], prefixes="@") & filters.group)
 async def report_user(client, message):
     if not message.reply_to_message:
         return await message.reply_text(
