@@ -1,7 +1,7 @@
 import os
 from pyrogram import Client, filters
 from Tereuhte.tetakte.helper import admins_only
-from pyrogram.enums import ChatMembersFilter
+from pyrogram import enums
 from Tereuhte.tetakte.admins import admin_status
 
 
@@ -62,7 +62,7 @@ async def delgpic(client, message):
     
 @Client.on_message(filters.command(["admin", "admins", "report"], prefixes="@"))
 async def report_user(client, message):
-    if message.chat.type == "BOT":
+    if message.chat.type == "bot":
             await client.send_message(
                 message.chat.id,
                 text="**Hei chu group ah chauh a hman theih.**",
@@ -92,15 +92,15 @@ async def report_user(client, message):
             return await message.reply_text(
                 "Admin i report theilo."
             )
-    heh = message.reply_to_message.from_user.id
-    hoh = await message.chat.get_member(heh)
-    if hoh.status not in admin_status:
-        text = ""
-        async for admin in message.chat.get_members(filter=ChatMembersFilter.ADMINISTRATORS):
+        user_mention = reply.from_user.mention if reply.from_user else reply.sender_chat.title
+        text = f"{user_mention} message hi Admin hnen ah report ani e."
+        admin = list(await client.get_chat_members(
+            chat_id=message.chat.id,
+            filter=enums.ChatMembersFilter.ADMINISTRATORS))
             if not (admin.user.is_deleted or admin.is_anonymous or admin.user.is_bot):
                 text += f"[\u2063](tg://user?id={admin.user.id})"
 
-            await message.reply_to_message.reply_text("{} hian {} message hi Admin hnen ah a report e.").format(admins_list=text, reported_user=message.reply_to_message.from_user.mention())  
+            await message.reply_to_message.reply_text(text)  
     
     
 
