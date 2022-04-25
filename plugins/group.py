@@ -79,14 +79,14 @@ async def report_user(client, message):
     linked_chat = (await client.get_chat(message.chat.id)).linked_chat
     if linked_chat is not None:
         heh = message.reply_to_message.from_user.id
-        huh = client.get_chat_member(message.chat.id, heh)
+        huh = await client.get_chat_member(message.chat.id, heh)
         if huh.status in {"creator", "administrator"} or reply_id == message.chat.id or reply_id == linked_chat.id:
             return await message.reply_text(
                 "Admin i report theilo."
             )
     else:
         hih = message.reply_to_message.from_user.id
-        hah = client.get_chat_member(message.chat.id, hah)
+        hah = await client.get_chat_member(message.chat.id, hih)
         if hah.status in {"creator", "administrator"} or reply_id == message.chat.id:
             return await message.reply_text(
                 "Admin i report theilo."
@@ -94,7 +94,7 @@ async def report_user(client, message):
 
     user_mention = reply.from_user.mention if reply.from_user else reply.sender_chat.title
     text = f"{user_mention} message hi Admin hnen ah report ani."
-    admin_data = client.get_chat_members(message.chat.id, filter="administrators")
+    admin_data = await client.get_chat_members(message.chat.id, filter="administrators")
     for admin in admin_data:
         if admin.user.is_bot or admin.user.is_deleted:
             continue
