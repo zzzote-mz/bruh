@@ -97,7 +97,7 @@ async def report_user(client, message):
     text = f"{user_mention} message hi Admin hnen ah report ani."
 async for admin in message.chat.get_members(filter=ChatMembersFilter.ADMINISTRATORS):
     if not (admin.user.is_deleted or admin.is_anonymous or admin.user.is_bot):
-    text += f"<a href='tg://user?id={admin.user.id}'>\u2063</a>"
+        text += f"[\u2063](tg://user?id={admin.user.id})"
 
     await message.reply_to_message.reply_text(text)    
     
