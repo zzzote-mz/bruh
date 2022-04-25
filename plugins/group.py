@@ -62,7 +62,7 @@ async def delgpic(client, message):
     
 @Client.on_message(filters.command(["admin", "admins", "report"], prefixes="@"))
 async def report_user(client, message):
-    if message.chat.type == "bot":
+    if message.chat.type == "BOT":
             await client.send_message(
                 message.chat.id,
                 text="**Hei chu group ah chauh a hman theih.**",
