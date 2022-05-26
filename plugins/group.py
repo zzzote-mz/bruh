@@ -6,8 +6,9 @@ from Tereuhte.tetakte.admins import admin_status
 
 
 @Client.on_message(filters.command("setgtitle", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def setgtitle(client, message):
+    if not admin_status:
+        return await message.reply_text("Admin i nih loh chuan i ti ve theilo.")
     if len(message.command) < 2:
         return await message.reply_text("A hming tur dah tel rawh.")
     old_title = message.chat.title
