@@ -12,10 +12,6 @@ from Tereuhte.tetakte.helper import admins_only
 @Client.on_message(filters.command("admins", prefixes=["/", "!"]))
 async def adminlist(client, message):
     global ADMIN_CACHE
-    if message.chat.type == "private":
-        return await message.reply_text(
-            "**Hei chu group ah chauh a hman theih.**",
-        )
     try:
        admin_list = ADMIN_CACHE[message.chat.id]
     except KeyError:
@@ -56,8 +52,13 @@ async def adminlist(client, message):
 
     
 @Client.on_message(filters.command("admincache", prefixes=["/", "!"]) & filters.group)    
-@admins_only
 async def reload_admins(client, message):
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     await admin_cache_reload(message, "admincache")
     await message.reply_text("**Admin list refresh ani e ✅**")
         
