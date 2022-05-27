@@ -19,6 +19,7 @@ async def mentionadmins(client, message):
     await client.send_message(
         message.chat.id,
         text=("**{}** a Admin te chu:\n\n{}").format(message.chat.title, mention),
+        reply_to_message_id=message.id
     )    
     
     
