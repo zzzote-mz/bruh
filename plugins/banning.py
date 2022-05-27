@@ -2,10 +2,16 @@
 from pyrogram import Client, filters
 from Tereuhte.tetakte.helper import admins_only
 from info import GROUPS
+from Tereuhte.tetakte.admins import admin_status
 
 @Client.on_message(filters.command("ban", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def ban(client, message):
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     if not message.reply_to_message and len(message.command) == 1:
         await message.reply_text("**Command hmang hian i ban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.**")
     elif message.reply_to_message:
@@ -25,8 +31,13 @@ async def ban(client, message):
     
     
 @Client.on_message(filters.command("dban", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def dban(client, message):
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     if not message.reply_to_message and len(message.command) == 1:
         await message.reply_text("**Command hmang hian i ban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.**")
     elif message.reply_to_message:
@@ -51,8 +62,13 @@ async def dban(client, message):
       
       
 @Client.on_message(filters.command("unban", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def unban(client, message):
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     if not message.reply_to_message and len(message.command) == 1:
         await message.reply_text("**Command hmang hian i unban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a unban theih.**")
     elif message.reply_to_message:
@@ -87,8 +103,13 @@ async def selfb(client, message):
     
     
 @Client.on_message(filters.command("remove", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def remove(client, message):
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     if not message.reply_to_message and len(message.command) == 1:
        await message.reply_text("**Command hmang hian i ban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.**")
        return
