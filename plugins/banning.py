@@ -16,6 +16,7 @@ async def ban(client, message):
     if not message.reply_to_message and len(message.command) == 1:
         await message.reply_text("**Command hmang hian i ban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.**")
     lel = message.reply_to_message.from_user.id
+    lal = await message.chat.get_members
     lol = message.text.split(None, 1)[1]
     lil = await client.get_users(lol)
     lul = lil.id
