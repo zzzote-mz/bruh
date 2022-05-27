@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 from Tereuhte.tetakte.cache import ADMIN_CACHE, admin_cache_reload
 from Tereuhte.tetakte.parse import mention_html, mention_markdown
 from Tereuhte.tetakte.helper import admins_only
-
+from Tereuhte.tetakte.admins import admin_status
 
 
 
