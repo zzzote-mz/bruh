@@ -4,10 +4,6 @@ from Tereuhte.tetakte.admins import admin_status
 from pyrogram.enums import ChatMembersFilter
 
 
-
-
-
-
 @Client.on_message(filters.command("admins", prefixes=["/", "!"]) & filters.group)
 async def mentionadmins(client, message):
     mention = ""
