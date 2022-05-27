@@ -18,7 +18,7 @@ async def mentionadmins(client, message):
             mention += f"➥ {i.user.mention}\n"
     await client.send_message(
         message.chat.id,
-        text=("**{}** a Admin te chu:\n\n{}").format(chat_title=message.chat.title, admins_list=mention),
+        text=("**{}** a Admin te chu:\n\n{}").format(message.chat.title, mention),
     )    
     
     
