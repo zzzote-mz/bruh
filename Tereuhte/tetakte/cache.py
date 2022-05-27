@@ -1,7 +1,7 @@
 from threading import RLock
 from time import perf_counter, time
 from typing import List
-
+from pyrogram.enums import ChatMembersFilter
 from cachetools import TTLCache
 from pyrogram.types import CallbackQuery
 from pyrogram.types.messages_and_media.message import Message
@@ -42,7 +42,7 @@ async def admin_cache_reload(m: Message or CallbackQuery, status=None) -> List[i
                 else z.user.first_name,
                 z.is_anonymous,
             )
-            async for z in m.chat.get_members(filter="administrators")
+            async for z in m.chat.get_members(m.chat.id, filter=ChatMembersFilter.ADMINISTRATORS)
             if not z.user.is_deleted
         ]
 
