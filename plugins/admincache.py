@@ -1,7 +1,5 @@
 from pyrogram import Client, filters
-from Tereuhte.tetakte.cache import ADMIN_CACHE, admin_cache_reload
-from Tereuhte.tetakte.parse import mention_html, mention_markdown
-from Tereuhte.tetakte.helper import admins_only
+from Tereuhte.tetakte.cache import admin_cache_reload
 from Tereuhte.tetakte.admins import admin_status
 from pyrogram.enums import ChatMembersFilter
 
@@ -20,7 +18,7 @@ async def mentionadmins(client, message):
             mention += f"➥ {i.user.mention}\n"
     await client.send_message(
         message.chat.id,
-        text=(f"**{}** a Admin te chu:\n\n{}").format(chat_title=message.chat.title, admins_list=mention),
+        text=("**{}** a Admin te chu:\n\n{}").format(chat_title=message.chat.title, admins_list=mention),
     )    
     
     
