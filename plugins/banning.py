@@ -93,7 +93,7 @@ async def unban(client, message):
 @Client.on_message(filters.command("removeme", prefixes=["/", "!"]) & filters.group)
 async def selfb(client, message):
     si = message.from_user.id
-    se = await message.chat.egt_member(si)
+    se = await message.chat.get_member(si)
     if se.status in admin_status:
         return await message.reply_text(
             "Admin i ni a, chuvang chuan ka remove theilo che."
