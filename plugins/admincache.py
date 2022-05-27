@@ -3,53 +3,27 @@ from Tereuhte.tetakte.cache import ADMIN_CACHE, admin_cache_reload
 from Tereuhte.tetakte.parse import mention_html, mention_markdown
 from Tereuhte.tetakte.helper import admins_only
 from Tereuhte.tetakte.admins import admin_status
+from pyrogram.enums import ChatMembersFilter
 
 
 
 
 
 
-@Client.on_message(filters.command("admins", prefixes=["/", "!"]))
-async def adminlist(client, message):
-    global ADMIN_CACHE
-    try:
-       admin_list = ADMIN_CACHE[message.chat.id]
-    except KeyError:
-       admin_list = await admin_cache_reload(message, "adminlist")
-    adminstr = (f"**{message.chat.title}** a Admin te chu." + "\n\n")
-
-    bot_admins = [i for i in admin_list if (i[1].lower()).endswith("bot")]
-    user_admins = [i for i in admin_list if not (i[1].lower()).endswith("bot")]
-
-    mention_users = [
-        (
-            admin[1]
-            if admin[1].startswith("@")
-            else (await mention_markdown(admin[1], admin[0]))
-        )
-        for admin in user_admins
-        if not admin[2]  
-    ]
-    mention_users.sort(key=lambda x: x[1])
-
-    mention_bots = [
-        (
-            admin[1]
-            if admin[1].startswith("@")
-            else (await mention_markdown(admin[1], admin[0]))
-        )
-        for admin in bot_admins
-    ]
-    mention_bots.sort(key=lambda x: x[1])
-
-    adminstr += "<b><u>User Admin te:</b></u>\n"
-    adminstr += "\n".join(f"➥ {i}" for i in mention_users)
-    adminstr += "\n\n<b><u>Bot:</b></u>\n"
-    adminstr += "\n".join(f"➥ {i}" for i in mention_bots)
-
-    await message.reply_text(adminstr)
-
-
+@Client.on_message(filters.command("admins", prefixes=["/", "!"]) & filters.group)
+async def mentionadmins(client, message):
+    mention = ""
+    async for i in message.chat.get_members(
+        message.chat.id, filter=ChatMembersFilter.ADMINISTRATORS
+    ):
+        if not (i.user.is_deleted or i.privileges.is_anonymous):
+            mention += f"➥ {i.user.mention}\n"
+    await client.send_message(
+        message.chat.id,
+        text=(f"**{}** a Admin te chu:\n\n{}").format(chat_title=message.chat.title, admins_list=mention),
+    )    
+    
+    
     
 @Client.on_message(filters.command("admincache", prefixes=["/", "!"]) & filters.group)    
 async def reload_admins(client, message):
