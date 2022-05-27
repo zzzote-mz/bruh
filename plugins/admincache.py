@@ -33,7 +33,7 @@ async def reload_admins(client, message):
             "Admin i nih loh chuan i ti ve theilo."
         )
     await admin_cache_reload(message, "admincache")
-    await message.reply_text("**Admin list refresh ani e ✅**")
+    await message.reply_text("**Admin list refresh a ni e ✅**")
         
     
     
