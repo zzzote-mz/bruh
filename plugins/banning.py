@@ -23,9 +23,20 @@ async def ban(client, message):
             return await message.reply_text(
                 "Admin chu ka ban theilo."
             )
+    try:
         umen = message.reply_to_message.from_user.mention
         await client.ban_chat_member(message.chat.id, user_id=uid)
         await client.send_message(message.chat.id, text=f"{umen} hi Ban a ni e.", reply_to_message_id=message.id)
+    except ChatAdminRequired:
+        await message.reply_text("Admin ka nih loh vang emaw permission ka neihloh avangin hetah tumah ka ban theilo.")
+    except PeerIdInvalid:
+        await message.reply_text(
+            "He User hi ka hmu zo lo.",
+        )
+    except UserAdminInvalid:
+        await message.reply_text("He User hi ka ban theilo.")
+    except RightForbidden:
+        await message.reply_text("Hetah permission ka neihloh avangin tumah ka ban theilo.")
     else:
         idu = message.text.split(None, 1)[1]
         lul = await message.chat.get_member(idu)
