@@ -1,15 +1,19 @@
 from pyrogram import Client, filters
-from Tereuhte.tetakte.helper import admins_only
+from Tereuhte.tetakte.admins import admin_status
 
 
 
 @Client.on_message(filters.command("dltall", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def spurge(client, message):
     #if message.chat.type != "supergroup":
         #await message.reply_text("Supergroup ami chiah ka delete thei.")
         #return
-
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     if message.reply_to_message:
         message_ids = list(range(message.reply_to_message.message_id, message.id))
 
@@ -46,11 +50,15 @@ async def spurge(client, message):
     
     
 @Client.on_message(filters.command("dlt", prefixes=["/", "!"]) & filters.group)
-@admins_only    
 async def dlt(client, message):
     #if message.chat.type != "supergroup":
         #return
-
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     if message.reply_to_message:
         await message.delete()
         await client.delete_messages(
