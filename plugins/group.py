@@ -67,37 +67,21 @@ async def delgpic(client, message):
     
 @Client.on_message(filters.command(["admin", "admins", "report"], prefixes="@") & filters.group)
 async def report_user(client, message):
-    if not message.reply_to_message:
-        return await message.reply_text(
-            "I report duh message reply rawh."
-        )
-
-    reply = message.reply_to_message
-    reply_id = reply.from_user.id if reply.from_user else reply.sender_chat.id
-    user_id = message.from_user.id if message.from_user else message.sender_chat.id
-    linked_chat = (await client.get_chat(message.chat.id)).linked_chat
-    if linked_chat is not None:
-        heh = message.reply_to_message.from_user.id
-        huh = await message.chat.get_member(heh)
-        if huh.status in admin_status or reply_id == message.chat.id or reply_id == linked_chat.id:
-            return await message.reply_text(
-                "Admin i report theilo."
+    if message.reply_to_message:
+        check_admin = await message.chat.get_member(message.reply_to_message.from_user.id)
+        if check_admin.status not in admin_status:
+            mention = ""
+            async for i in message.chat.get_members(filter=ChatMembersFilter.ADMINISTRATORS):
+                if not (
+                    i.user.is_deleted or i.privileges.is_anonymous or i.user.is_bot
+                ):
+                    mention += f"<a href='tg://user?id={i.user.id}'>\u2063</a>"
+            await m.reply_to_message.reply_text(
+                    "{}{} message hi Admin hnenah report a ni e.").format(
+                    mention,
+                    message.reply_to_message.from_user.mention(),
+                ),
             )
-    else:
-        hih = message.reply_to_message.from_user.id
-        hah = await message.chat.get_member(hih)
-        if hah.status in admin_status or reply_id == message.chat.id:
-            return await message.reply_text(
-                "Admin i report theilo."
-            )
-        user_mention = message.reply_to_message.from_user.mention
-        text = f"{user_mention} message hi Admin hnen ah report ani e."
-        async for admin in message.chat.get_members(
-            message.chat.id, filter=ChatMembersFilter.ADMINISTRATORS
-        ):
-            if not (admin.user.is_deleted or admin.privileges.is_anonymous or admin.user.is_bot):
-                text += f"[\u2063](tg://user?id={admin.user.id})"
-        await message.reply_to_message.reply_text(text)  
     
     
 
