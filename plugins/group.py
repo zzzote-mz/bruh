@@ -1,7 +1,7 @@
 import os
 from pyrogram import Client, filters
 from Tereuhte.tetakte.helper import admins_only
-from pyrogram import enums
+from pyrogram.enums import ChatMembersFilter
 from Tereuhte.tetakte.admins import admin_status
 
 
@@ -92,9 +92,9 @@ async def report_user(client, message):
             )
         user_mention = message.reply_to_message.from_user.mention
         text = f"{user_mention} message hi Admin hnen ah report ani e."
-        admin = list(await client.get_chat_members(
-            chat_id=message.chat.id,
-            filter=enums.ChatMembersFilter.ADMINISTRATORS))
+        async for i in message.chat.get_members(
+        message.chat.id, filter=ChatMembersFilter.ADMINISTRATORS
+        ):
         if not (admin.user.is_deleted or admin.is_anonymous or admin.user.is_bot):
             text += f"[\u2063](tg://user?id={admin.user.id})"
 
