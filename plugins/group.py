@@ -95,7 +95,7 @@ async def report_user(client, message):
         async for i in message.chat.get_members(
             message.chat.id, filter=ChatMembersFilter.ADMINISTRATORS
         ):
-        if not (admin.user.is_deleted or admin.is_anonymous or admin.user.is_bot):
+        if not (admin.user.is_deleted or admin.privileges.is_anonymous or admin.user.is_bot):
             text += f"[\u2063](tg://user?id={admin.user.id})"
 
         await message.reply_to_message.reply_text(text)  
