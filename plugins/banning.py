@@ -70,7 +70,6 @@ async def dban(client, message):
         ull = message.from_user.mention
         await client.ban_chat_member(message.chat.id, user_id=idu)
         await client.send_message(message.chat.id, text=f"{ull} hian {umens} hi a Ban e.")
-        await message.reply_to_message.delete()
         await message.delete()    
 
     return    
