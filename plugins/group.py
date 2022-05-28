@@ -92,7 +92,7 @@ async def report_user(client, message):
             )
         user_mention = message.reply_to_message.from_user.mention
         text = f"{user_mention} message hi Admin hnen ah report ani e."
-        async for i in message.chat.get_members(
+        async for admin in message.chat.get_members(
             message.chat.id, filter=ChatMembersFilter.ADMINISTRATORS
         ):
         if not (admin.user.is_deleted or admin.privileges.is_anonymous or admin.user.is_bot):
