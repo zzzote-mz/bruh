@@ -15,7 +15,7 @@ async def spurge(client, message):
             "Admin i nih loh chuan i ti ve theilo."
         )
     if message.reply_to_message:
-        message_ids = list(range(message.reply_to_message.message_id, message.id))
+        message_ids = list(range(message.reply_to_message.id, message.id))
 
         def divide_chunks(l: list, n: int = 100):
             for i in range(0, len(l), n):
