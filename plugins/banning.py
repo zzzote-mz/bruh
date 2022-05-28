@@ -1,5 +1,4 @@
 # ©️2022 RSR
-import asyncio
 from pyrogram import Client, filters
 from Tereuhte.tetakte.helper import admins_only
 from info import GROUPS
@@ -117,8 +116,6 @@ async def selfb(client, message):
         text="Aw le, remove i ni e, Bye...",
         reply_to_message_id=message.id,
     )
-
-    await asyncio.sleep(1)
     await client.unban_chat_member(message.chat.id, user_id=si)
     
     
@@ -139,7 +136,6 @@ async def remove(client, message):
         umen = message.reply_to_message.from_user.mention
         await client.ban_chat_member(message.chat.id, user_id=uid)
         await client.send_message(message.chat.id, text=f"{umen} hi remove a ni e.", reply_to_message_id=message.id)
-        await asyncio.sleep(1)
         await client.unban_chat_member(message.chat.id, user_id=uid)
     else:
         idu = message.text.split(None, 1)[1]
@@ -147,7 +143,6 @@ async def remove(client, message):
         umens = hmm.mention
         await client.ban_chat_member(message.chat.id, user_id=idu)
         await client.send_message(message.chat.id, text=f"{umens} hi remove a ni e.", reply_to_message_id=message.id)
-        await asyncio.sleep(1)
         await client.unban_chat_member(message.chat.id, user_id=idu)
     
     
