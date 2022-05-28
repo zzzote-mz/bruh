@@ -16,21 +16,23 @@ async def ban(client, message):
     if not message.reply_to_message and len(message.command) == 1:
         await message.reply_text("**Command hmang hian i ban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.**")
         return
-    lel = message.reply_to_message.from_user.id
-    lal = await message.chat.get_member(lel)
-    lol = message.text.split(None, 1)[1]
-    lil = await message.chat.get_member(lol)
-    if lal.status and lil.status in admin_status:
-        return await message.reply_text(
-            "Admin chu ka ban theilo."
-        )
     elif message.reply_to_message:
         uid = message.reply_to_message.from_user.id
+        lal = await message.chat.get_member(uid)
+        if lal.status in admin_status:
+            return await message.reply_text(
+                "Admin chu ka ban theilo."
+            )
         umen = message.reply_to_message.from_user.mention
         await client.ban_chat_member(message.chat.id, user_id=uid)
         await client.send_message(message.chat.id, text=f"{umen} hi Ban a ni e.", reply_to_message_id=message.id)
     else:
         idu = message.text.split(None, 1)[1]
+        lul = await message.chat.get_member(idu)
+        if lul.status in admin_status:
+            return await message.reply_text(
+                "Admin chu ka ban theilo."
+            )
         hmm = await client.get_users(idu)
         umens = hmm.mention
         await client.ban_chat_member(message.chat.id, user_id=idu)
