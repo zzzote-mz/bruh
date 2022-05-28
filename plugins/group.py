@@ -82,6 +82,8 @@ async def report_user(client, message):
                     message.reply_to_message.from_user.mention(),
                 ),
             )
+    else:
+        await message.reply_text("I report duh message reply rawh.")
     
     
 
