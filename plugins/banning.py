@@ -4,6 +4,14 @@ from pyrogram import Client, filters
 from Tereuhte.tetakte.helper import admins_only
 from info import GROUPS
 from Tereuhte.tetakte.admins import admin_status
+from pyrogram.errors import (
+    ChatAdminRequired,
+    PeerIdInvalid,
+    RightForbidden,
+    UserAdminInvalid,
+)
+
+
 
 @Client.on_message(filters.command("ban", prefixes=["/", "!"]) & filters.group)
 async def ban(client, message):
