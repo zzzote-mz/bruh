@@ -97,7 +97,7 @@ async def report_user(client, message):
         ):
             if not (admin.user.is_deleted or admin.privileges.is_anonymous or admin.user.is_bot):
                 text += f"[\u2063](tg://user?id={admin.user.id})"
-            await message.reply_to_message.reply_text(text)  
+        await message.reply_to_message.reply_text(text)  
     
     
 
