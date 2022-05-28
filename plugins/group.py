@@ -76,11 +76,8 @@ async def report_user(client, message):
                     i.user.is_deleted or i.privileges.is_anonymous or i.user.is_bot
                 ):
                     mention += f"<a href='tg://user?id={i.user.id}'>\u2063</a>"
-            await message.reply_to_message.reply_text(
-                    "{}{} message hi Admin hnenah report a ni e.").format(
-                    mention,
-                    message.reply_to_message.from_user.mention(),
-            )
+                    gg = message.reply_to_message.from_user.mention
+            await message.reply_to_message.reply_text(f"{mention}{gg} message hi Admin hnenah report a ni e.")
     else:
         await message.reply_text("I report duh message reply rawh.")
     
