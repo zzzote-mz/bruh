@@ -19,7 +19,7 @@ async def setgtitle(client, message):
     new_title = message.text.split(None, 1)[1]
     await message.chat.set_title(new_title)
     await message.reply_text(
-        f"He mi group hming hi **{old_title}** tih aṭangin **{new_title}** tih ah thlak ani."
+        f"He mi group hming hi **{old_title}** tih aṭangin **{new_title}** tih ah thlak a ni."
     )
     return
   
