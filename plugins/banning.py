@@ -56,6 +56,11 @@ async def dban(client, message):
         await message.reply_text("**Command hmang hian i ban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.**")
     elif message.reply_to_message:
         uid = message.reply_to_message.from_user.id
+        lal = await message.chat.get_member(uid)
+        if lal.status in admin_status:
+            return await message.reply_text(
+                "Admin chu ka ban theilo."
+            )
         umen = message.reply_to_message.from_user.mention
         uii = message.from_user.mention
         await client.ban_chat_member(message.chat.id, user_id=uid)
@@ -64,6 +69,11 @@ async def dban(client, message):
         await message.delete()
     else:
         idu = message.text.split(None, 1)[1]
+        lul = await message.chat.get_member(idu)
+        if lul.status in admin_status:
+            return await message.reply_text(
+                "Admin chu ka ban theilo."
+            )
         hmm = await client.get_users(idu)
         umens = hmm.mention
         ull = message.from_user.mention
@@ -129,16 +139,26 @@ async def remove(client, message):
             "Admin i nih loh chuan i ti ve theilo."
         )
     if not message.reply_to_message and len(message.command) == 1:
-       await message.reply_text("**Command hmang hian i ban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.**")
+       await message.reply_text("**Command hmang hian i remove duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.**")
        return
     elif message.reply_to_message:
         uid = message.reply_to_message.from_user.id
+        lal = await message.chat.get_member(uid)
+        if lal.status in admin_status:
+            return await message.reply_text(
+                "Admin chu ka remove theilo."
+            )
         umen = message.reply_to_message.from_user.mention
         await client.ban_chat_member(message.chat.id, user_id=uid)
         await client.send_message(message.chat.id, text=f"{umen} hi remove a ni e.", reply_to_message_id=message.id)
         await client.unban_chat_member(message.chat.id, user_id=uid)
     else:
         idu = message.text.split(None, 1)[1]
+        lul = await message.chat.get_member(idu)
+        if lul.status in admin_status:
+            return await message.reply_text(
+                "Admin chu ka remove theilo."
+            )
         hmm = await client.get_users(idu)
         umens = hmm.mention
         await client.ban_chat_member(message.chat.id, user_id=idu)
