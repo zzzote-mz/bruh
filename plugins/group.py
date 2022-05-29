@@ -48,10 +48,10 @@ async def setgpic(client, message):
     if file.file_size > 5000000:
         return await message.reply("I thil reply hi a size a lian lutuk, ka ti theilo..")
 
-    photo = await reply.download()
-    await message.chat.set_photo(photo)
+    image = await reply.download()
+    await message.chat.set_photo(image)
     await message.reply_text("Group icon thlak ani e.")
-    os.remove(photo)
+    os.remove(image)
     
     
     
