@@ -1,6 +1,5 @@
 import os
 from pyrogram import Client, filters
-from Tereuhte.tetakte.helper import admins_only
 from pyrogram.enums import ChatMembersFilter
 from Tereuhte.tetakte.admins import admin_status
 
@@ -27,10 +26,14 @@ async def setgtitle(client, message):
   
   
 @Client.on_message(filters.command("setgpic", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def setgpic(client, message):
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     reply = message.reply_to_message
-
     if not reply:
         return await message.reply_text(
             "Thlalak emaw thlalak document file reply rawh."
@@ -55,8 +58,13 @@ async def setgpic(client, message):
     
     
 @Client.on_message(filters.command("delgpic", prefixes=["/", "!"]) & filters.group)
-@admins_only   
 async def delgpic(client, message):
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     await client.delete_chat_photo(chat_id=message.chat.id)
     await message.reply_text("Group icon delete ani e.")
     return
@@ -65,7 +73,7 @@ async def delgpic(client, message):
     
     
     
-@Client.on_message(filters.command("report") | filters.regex("@admin") | filters.regex("@admins") & filters.group)
+@Client.on_message(filters.command("report", prefixes=["/", "!"]) | filters.regex("@admin") | filters.regex("@admins") & filters.group)
 async def report_user(client, message):
     if message.reply_to_message:
         check_admin = await message.chat.get_member(message.reply_to_message.from_user.id)
@@ -85,8 +93,13 @@ async def report_user(client, message):
 
     
 @Client.on_message(filters.command("setdescription", prefixes=["/", "!"]) & filters.group)
-@admins_only   
 async def setdescription(client, message):
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     if len(message.command) < 2:
         return await message.reply_text("Description tur dah tel rawh.")
     juu = message.text.split(None, 1)[1]
