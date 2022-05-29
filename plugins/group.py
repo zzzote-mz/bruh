@@ -50,7 +50,7 @@ async def setgpic(client, message):
 
     image = await reply.download()
     await message.chat.set_photo(image)
-    await message.reply_text("Group icon thlak ani e.")
+    await message.reply_text("Group icon thlak a ni e.")
     os.remove(image)
     
     
@@ -66,7 +66,7 @@ async def delgpic(client, message):
             "Admin i nih loh chuan i ti ve theilo."
         )
     await client.delete_chat_photo(chat_id=message.chat.id)
-    await message.reply_text("Group icon delete ani e.")
+    await message.reply_text("Group icon delete a ni e.")
     return
     
     
@@ -107,7 +107,7 @@ async def setdescription(client, message):
         await message.reply_text("Character 255 aia tam a tih theihloh.")
         return
     await client.set_chat_description(chat_id=message.chat.id, description=f"{juu}")
-    await message.reply_text("Group description siam ani e.")
+    await message.reply_text("Group description siam a ni e.")
     return   
     
     
