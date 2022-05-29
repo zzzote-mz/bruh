@@ -49,7 +49,7 @@ async def setgpic(client, message):
         return await message.reply("I thil reply hi a size a lian lutuk, ka ti theilo..")
 
     image = await reply.download()
-    await message.chat.set_photo(image)
+    await client.set_chat_photo(message.chat.id, image)
     await message.reply_text("Group icon thlak a ni e.")
     os.remove(image)
     
