@@ -211,8 +211,7 @@ async def fpromote(client, message):
         ),
     )
     await client.send_message(message.chat.id, text="Done Master 😊", reply_to_message_id=message.id)
-
-return
+    return
 
 
 
@@ -239,6 +238,7 @@ async def demote(client, message):
         ),
     )
     await client.send_message(message.chat.id, text="Done Master 😊", reply_to_message_id=message.id)
+    return
     
 
 
