@@ -1,12 +1,17 @@
 # ©️2022 RSR
 from pyrogram import Client, filters
-from Tereuhte.tetakte.helper import admins_only
+from Tereuhte.tetakte.admins import admin_status
 from pyrogram.types import ChatPrivileges
 
 
 @Client.on_message(filters.command("fpromote", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def fpromote(client, message):
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     if not message.reply_to_message and len(message.command) == 1:
         await message.reply_text("**Command hmang hian i promote duh message reply in emaw, command zawh ah an ID emaw username dah a i thawn chauh in mi a promote theih.**")
     elif message.reply_to_message:
@@ -50,8 +55,13 @@ async def fpromote(client, message):
     return
     
 @Client.on_message(filters.command("lpromote", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def lpromote(client, message):
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     if not message.reply_to_message and len(message.command) == 1:
         await message.reply_text("**Command hmang hian i promote duh message reply in emaw, command zawh ah an ID emaw username dah a i thawn chauh in mi a promote theih.**")
     elif message.reply_to_message:
@@ -98,8 +108,13 @@ async def lpromote(client, message):
       
       
 @Client.on_message(filters.command("demote", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def demote(client, message):
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     if not message.reply_to_message and len(message.command) == 1:
         await message.reply_text("**Command hmang hian i demote duh message reply in emaw, command zawh ah an ID emaw username dah a i thawn chauh in mi a demote theih.**")
     elif message.reply_to_message:
@@ -144,8 +159,13 @@ async def demote(client, message):
       
 
 @Client.on_message(filters.command("title", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def title(client, message):
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     if not message.reply_to_message:
         return await message.reply_text(
             "Command hmang hian title i siam sak duh message reply la, command zawh ah a title tur dah rawh."
