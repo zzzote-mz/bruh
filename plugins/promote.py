@@ -183,7 +183,7 @@ async def title(client, message):
     title = message.text.split(None, 1)[1]
     await client.set_administrator_title(chat_id, from_user.id, title)
     await message.reply_text(
-        f"{from_user.mention} hi a Admin title **{title}** tia siam sak a ni."
+        f"{from_user.mention} hi a Admin title **{title}** ti a siam sak a ni."
     )
       
       
