@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
-from pyrogram.types import CallbackQuery, WebAppInfo
-
+from pyrogram.types import CallbackQuery
+from Tereuhte.tetakte.owner import owner_status
 
 
 
@@ -8,13 +8,7 @@ from pyrogram.types import CallbackQuery, WebAppInfo
 async def close_admin_callback(client, query):
     user_id = query.from_user.id
     user_status = (await query.message.chat.get_member(user_id)).status
-    if user_status not in {"creator", "administrator"}:
-        await query.answer(
-            "Group creator chiah in a ti thei.",
-            show_alert=True,
-        )
-        return
-    if user_status != "creator":
+    if not user_status in owner:
         await query.answer(
             "Group creator chiah in a ti thei.",
             show_alert=True,
