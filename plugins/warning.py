@@ -17,7 +17,6 @@ rsrk = InlineKeyboardMarkup(
 
 
 @Client.on_message(filters.command("warn", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def warn(client, message):
     heh = message.from_user.id
     huh = await message.chat.get_member(heh)
@@ -46,7 +45,6 @@ async def warn(client, message):
     
     
 @Client.on_message(filters.command("dwarn", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def dwarn(client, message):
     heh = message.from_user.id
     huh = await message.chat.get_member(heh)
