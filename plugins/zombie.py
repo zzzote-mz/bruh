@@ -46,6 +46,7 @@ async def zombie(client, message):
             await pablo.edit(
                 "Admin i nih loh chuan i ti ve theilo."
             )
+            return
         s = 0
         f = 0
         async for member in client.get_chat_members(message.chat.id):
