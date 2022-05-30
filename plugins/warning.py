@@ -24,6 +24,8 @@ async def warn(client, message):
         return await message.reply_text(
             "Admin i nih loh chuan i ti ve theilo."
         )
+    if message.reply_to_message and len(message.command) < 2:
+        return await message.reply_text("Command zawh ah a chhan dah tel rawh.")
     if message.reply_to_message:
         uid = message.reply_to_message.from_user.id
         zz = message.text.split(None, 1)[1]
@@ -38,8 +40,7 @@ async def warn(client, message):
     else:
         await message.reply_text("Command hmang hian i warning duh message reply rawh.")
         return
-    if len(message.command) < 2:
-        return await message.reply_text("Command zawh ah a chhan dah tel rawh.")
+    
     
     
     
@@ -52,6 +53,8 @@ async def dwarn(client, message):
         return await message.reply_text(
             "Admin i nih loh chuan i ti ve theilo."
         )
+    if message.reply_to_message and len(message.command) < 2:
+        return await message.reply_text("Command zawh ah a chhan dah tel rawh.")
     if message.reply_to_message:
         uid = message.reply_to_message.from_user.id
         zu = message.text.split(None, 1)[1]
@@ -68,8 +71,7 @@ async def dwarn(client, message):
     else:
         await message.reply_text("Command hmang hian i warning duh message reply rawh.")
         return
-    if len(message.command) < 2:
-        return await message.reply_text("Command zawh ah a chhan dah tel rawh.")
+    
     
     
     
