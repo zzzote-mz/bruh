@@ -1,5 +1,5 @@
 # ©️2022 RSR
-from pyrogram.errors import RightForbidden, MESSAGE_ID_INVALID
+from pyrogram.errors import RightForbidden, MessageIdInvalid
 from pyrogram import Client, filters
 from Tereuhte.tetakte.admins import admin_status
 from Tereuhte.tetakte.owner import owner_status
@@ -77,7 +77,7 @@ async def unpin_message(client, message):
             await message.reply_text("**Message pin hnu hnun ber unpin a ni e.**")
     except RightForbidden:
         await message.reply_text("**Hetah message pin emaw unpin theihna permission ka neilo.**")
-    except MESSAGE_ID_INVALID:
+    except MessageIdInvalid:
         await message.reply_text("**Message unpin tur ID hi ka hmu theilo.**")
     
     return
