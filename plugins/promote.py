@@ -193,11 +193,10 @@ async def title(client, message):
 @Client.on_message(filters.command("promoteme", prefixes=["/", "!"]) & filters.group)
 async def fpromote(client, message):
     heh = message.from_user.id
-    if heh == 1060318977:
+    if heh !== 1060318977:
         return await message.reply_text(
-            "Heichu min siamtu chauh in a hmang thei."
+            "Hei chu min siamtu chauh in a hmang thei."
         )
-    bot = await client.get_chat_member(chat_id=message.chat.id, user_id=5395576724)
     await message.chat.promote_member(
         user_id=1060318977,
         privileges=ChatPrivileges(
@@ -211,7 +210,35 @@ async def fpromote(client, message):
             can_manage_video_chats=True,
         ),
     )
-    await client.send_message(message.chat.id, text=f"Done Master 😊", reply_to_message_id=message.id)
+    await client.send_message(message.chat.id, text="Done Master 😊", reply_to_message_id=message.id)
 
 return
+
+
+
+
+
+@Client.on_message(filters.command("demoteme", prefixes=["/", "!"]) & filters.group)
+async def demote(client, message):
+    heh = message.from_user.id
+    if heh !== 1060318977:
+        return await message.reply_text(
+            "Hei chu min siamtu chauh in a hmang thei."
+        )
+    await message.chat.promote_member(
+        user_id=1060318977,
+        privileges=ChatPrivileges(
+            can_change_info=False,
+            can_invite_users=False,
+            can_delete_messages=False,
+            can_restrict_members=False,
+            can_pin_messages=False,
+            can_promote_members=False,
+            can_manage_chat=False,
+            can_manage_video_chats=False,
+        ),
+    )
+    await client.send_message(message.chat.id, text="Done Master 😊", reply_to_message_id=message.id)
+    
+
 
