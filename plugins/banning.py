@@ -15,7 +15,7 @@ async def ban(client, message):
             "Admin i nih loh chuan i ti ve theilo."
         )
     if not message.reply_to_message and len(message.command) == 1:
-        await message.reply_text("**Command hmang hian i ban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.**")
+        await message.reply_text("Command hmang hian i ban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.")
         return
     elif message.reply_to_message:
         uid = message.reply_to_message.from_user.id
@@ -52,7 +52,7 @@ async def dban(client, message):
             "Admin i nih loh chuan i ti ve theilo."
         )
     if not message.reply_to_message and len(message.command) == 1:
-        await message.reply_text("**Command hmang hian i ban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.**")
+        await message.reply_text("Command hmang hian i ban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.")
     elif message.reply_to_message:
         uid = message.reply_to_message.from_user.id
         lal = await message.chat.get_member(uid)
@@ -94,7 +94,7 @@ async def unban(client, message):
             "Admin i nih loh chuan i ti ve theilo."
         )
     if not message.reply_to_message and len(message.command) == 1:
-        await message.reply_text("**Command hmang hian i unban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a unban theih.**")
+        await message.reply_text("Command hmang hian i unban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a unban theih.")
     elif message.reply_to_message:
         uud = message.reply_to_message.from_user.id
         umun = message.reply_to_message.from_user.mention
@@ -138,7 +138,7 @@ async def remove(client, message):
             "Admin i nih loh chuan i ti ve theilo."
         )
     if not message.reply_to_message and len(message.command) == 1:
-       await message.reply_text("**Command hmang hian i remove duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.**")
+       await message.reply_text("Command hmang hian i remove duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.")
        return
     elif message.reply_to_message:
         uid = message.reply_to_message.from_user.id
@@ -173,7 +173,7 @@ async def mban(client, message):
         await client.send_sticker(message.chat.id, sticker="CAACAgUAAxkBAAI4gmJifVwJRq5boNn1yllknjQaxdXkAAIhAwACjdcwVoyNky4BY4XxJAQ", reply_to_message_id=message.message_id)
         await message.reply_text("Hei chu min siamtu @rsrmusic chauh in a hmang thei aw.")
     elif not message.reply_to_message and len(message.command) == 1:
-        await message.reply_text("**Command hmang hian i ban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.**")
+        await message.reply_text("Command hmang hian i ban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.")
     elif message.reply_to_message:
         uid = message.reply_to_message.from_user.id
         umen = message.reply_to_message.from_user.mention
