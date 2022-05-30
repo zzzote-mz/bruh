@@ -31,7 +31,7 @@ async def fpromote(client, message):
                 can_manage_video_chats=True,
             ),
         )
-        await client.send_message(message.chat.id, text=f"{umen} hi Promote ani e.", reply_to_message_id=message.id)
+        await client.send_message(message.chat.id, text=f"{umen} hi Promote a ni e.", reply_to_message_id=message.id)
     else:
         bot = await client.get_chat_member(chat_id=message.chat.id, user_id=5395576724)
         idu = message.text.split(None, 1)[1]
@@ -50,7 +50,7 @@ async def fpromote(client, message):
                 can_manage_video_chats=True,
             ),
         )
-        await client.send_message(message.chat.id, text=f"{umens} hi Promote ani e.", reply_to_message_id=message.id)
+        await client.send_message(message.chat.id, text=f"{umens} hi Promote a ni e.", reply_to_message_id=message.id)
 
     return
     
@@ -81,7 +81,7 @@ async def lpromote(client, message):
                 can_manage_video_chats=True,
             ),
         )
-        await client.send_message(message.chat.id, text=f"{umen} hi Promote ani e.", reply_to_message_id=message.id)
+        await client.send_message(message.chat.id, text=f"{umen} hi Promote a ni e.", reply_to_message_id=message.id)
     else:
         bot = await client.get_chat_member(chat_id=message.chat.id, user_id=5395576724)
         idu = message.text.split(None, 1)[1]
@@ -100,7 +100,7 @@ async def lpromote(client, message):
                 can_manage_video_chats=True,
             ),
         )
-        await client.send_message(message.chat.id, text=f"{umens} hi Promote ani e.", reply_to_message_id=message.id)   
+        await client.send_message(message.chat.id, text=f"{umens} hi Promote a ni e.", reply_to_message_id=message.id)   
 
     return   
     
@@ -133,7 +133,7 @@ async def demote(client, message):
                 can_manage_video_chats=False,
             ),
         )
-        await client.send_message(message.chat.id, text=f"{umun} hi Admin anihna hlih sak ani e.", reply_to_message_id=message.id)
+        await client.send_message(message.chat.id, text=f"{umun} hi Admin anihna hlih sak a ni e.", reply_to_message_id=message.id)
     else:
         idus = message.text.split(None, 1)[1]
         haa = await client.get_users(idus)
@@ -151,7 +151,7 @@ async def demote(client, message):
                 can_manage_video_chats=False,
             ),
         )
-        await client.send_message(message.chat.id, text=f"{umuns} hi Admin anihna hlih sak ani e.", reply_to_message_id=message.id)
+        await client.send_message(message.chat.id, text=f"{umuns} hi Admin anihna hlih sak a ni e.", reply_to_message_id=message.id)
 
     return
       
@@ -183,7 +183,7 @@ async def title(client, message):
     title = message.text.split(None, 1)[1]
     await client.set_administrator_title(chat_id, from_user.id, title)
     await message.reply_text(
-        f"{from_user.mention} hi a Admin title **{title}** tia siam sak ani."
+        f"{from_user.mention} hi a Admin title **{title}** tia siam sak a ni."
     )
       
       
