@@ -5,7 +5,6 @@ from pyrogram.types import ChatPermissions
 
 
 @Client.on_message(filters.command("mute", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def mute(client, message):
     heh = message.from_user.id
     huh = await message.chat.get_member(heh)
@@ -42,7 +41,6 @@ async def mute(client, message):
 
 
 @Client.on_message(filters.command("dmute", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def dmute(client, message):
     heh = message.from_user.id
     huh = await message.chat.get_member(heh)
@@ -84,7 +82,6 @@ async def dmute(client, message):
 
       
 @Client.on_message(filters.command("unmute", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def unmute(client, message):
     heh = message.from_user.id
     huh = await message.chat.get_member(heh)
