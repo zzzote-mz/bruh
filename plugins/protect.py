@@ -1,12 +1,17 @@
 #©️ 2022 RSR
 
 from pyrogram import Client, filters
-from Tereuhte.tetakte.helper import admins_only
+from Tereuhte.tetakte.admins import admin_status
 
 
 @Client.on_message(filters.command("protect", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def protect(client, message):
+  heh = message.from_user.id
+  huh = await message.chat.get_member(heh)
+  if not huh.status in admin_status:
+      return await message.reply_text(
+          "Admin i nih loh chuan i ti ve theilo."
+      )
   if message.reply_to_message:
      await client.copy_message(
        chat_id=message.chat.id,
