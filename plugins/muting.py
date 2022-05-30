@@ -23,7 +23,7 @@ async def mute(client, message):
             )
         umen = message.reply_to_message.from_user.mention
         await client.restrict_chat_member(chat_id=message.chat.id, user_id=uid, permissions=ChatPermissions())
-        await client.send_message(message.chat.id, text=f"{umen} hi Mute ani e.", reply_to_message_id=message.id)
+        await client.send_message(message.chat.id, text=f"{umen} hi Mute a ni e.", reply_to_message_id=message.id)
     else:
         idu = message.text.split(None, 1)[1]
         lul = await message.chat.get_member(idu)
@@ -34,7 +34,7 @@ async def mute(client, message):
         hmm = await client.get_users(idu)
         umens = hmm.mention
         await client.restrict_chat_member(chat_id=message.chat.id, user_id=idu, permissions=ChatPermissions())
-        await client.send_message(message.chat.id, text=f"{umens} hi Mute ani e.", reply_to_message_id=message.id)
+        await client.send_message(message.chat.id, text=f"{umens} hi Mute a ni e.", reply_to_message_id=message.id)
 
     return
  
@@ -58,8 +58,9 @@ async def dmute(client, message):
                 "Admin chu ka mute theilo."
             )
         umen = message.reply_to_message.from_user.mention
+        ull = message.from_user.mention
         await client.restrict_chat_member(chat_id=message.chat.id, user_id=uid, permissions=ChatPermissions())
-        await client.send_message(message.chat.id, text=f"{umen} hi Mute ani e.")
+        await client.send_message(message.chat.id, text=f"{ull} hian {umen} hi a Mute e.")
         await message.reply_to_message.delete()
         await message.delete()
     else:
@@ -71,8 +72,9 @@ async def dmute(client, message):
             )
         hmm = await client.get_users(idu)
         umens = hmm.mention
+        uii = message.from_user.mention
         await client.restrict_chat_member(chat_id=message.chat.id, user_id=idu, permissions=ChatPermissions())
-        await client.send_message(message.chat.id, text=f"{umens} hi Mute ani e.")
+        await client.send_message(message.chat.id, text=f"{uii} hian {umens} hi a Mite e.")
         await message.reply_to_message.delete()
         await message.delete()
 
@@ -95,13 +97,13 @@ async def unmute(client, message):
         uud = message.reply_to_message.from_user.id
         umun = message.reply_to_message.from_user.mention
         await client.unban_chat_member(chat_id=message.chat.id, user_id=uud)
-        await client.send_message(chat_id=message.chat.id, text=f"{umun} hi Mute anihna hlih sak ani e.", reply_to_message_id=message.id)
+        await client.send_message(chat_id=message.chat.id, text=f"{umun} hi Mute anihna hlih sak a ni e.", reply_to_message_id=message.id)
     else:
         idus = message.text.split(None, 1)[1]
         haa = await client.get_users(idus)
         umuns = haa.mention
         await client.unban_chat_member(chat_id=message.chat.id, user_id=idus)
-        await client.send_message(chat_id=message.chat.id, text=f"{umuns} hi Mute anihna hlih sak ani e.", reply_to_message_id=message.id)
+        await client.send_message(chat_id=message.chat.id, text=f"{umuns} hi Mute anihna hlih sak a ni e.", reply_to_message_id=message.id)
 
     return
       
