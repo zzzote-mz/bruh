@@ -46,7 +46,7 @@ async def setgpic(client, message):
         )
 
     if file.file_size > 5000000:
-        return await message.reply("I thil reply hi a size a lian lutuk, ka ti theilo.")
+        return await message.reply("I thil reply hi a size a lian lutuk a ka ti theilo.")
 
     image = await reply.download()
     await message.chat.set_photo(image)
