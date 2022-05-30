@@ -24,8 +24,6 @@ async def warn(client, message):
         return await message.reply_text(
             "Admin i nih loh chuan i ti ve theilo."
         )
-    if len(message.command) < 2:
-        return await message.reply_text("Command zawh ah a chhan dah tel rawh.")
     if message.reply_to_message:
         uid = message.reply_to_message.from_user.id
         zz = message.text.split(None, 1)[1]
@@ -37,9 +35,11 @@ async def warn(client, message):
         umen = message.reply_to_message.from_user.mention
         await client.send_message(message.chat.id, text=f"**❗ Warning**\n\n**➥User:** {umen}\n**➥ID:** `{uid}`\n**➥A chhan:** {zz}", reply_markup=rsrk, reply_to_message_id=message.reply_to_message.id)
         return
-    if not message.reply_to_message and len(message.command) == 1:
-        await message.reply_text("Command hmang hian i warning duh message reply rawh. I warning chhan dah tel i duh chuan command zawh ah a chhan tur i dah dawn nia")
+    else:
+        await message.reply_text("Command hmang hian i warning duh message reply rawh.")
         return
+    if len(message.command) < 2:
+        return await message.reply_text("Command zawh ah a chhan dah tel rawh.")
     
     
     
@@ -52,8 +52,6 @@ async def dwarn(client, message):
         return await message.reply_text(
             "Admin i nih loh chuan i ti ve theilo."
         )
-    if len(message.command) < 2:
-        return await message.reply_text("Command zawh ah a chhan dah tel rawh.")
     if message.reply_to_message:
         uid = message.reply_to_message.from_user.id
         zu = message.text.split(None, 1)[1]
@@ -67,9 +65,11 @@ async def dwarn(client, message):
         await message.reply_to_message.delete()
         await message.delete()
         return
-    if not message.reply_to_message and len(message.command) == 1:
-        await message.reply_text("Command hmang hian i warning duh message reply rawh. I warning chhan dah tel i duh chuan command zawh ah a chhan tur i dah dawn nia")
-        return  
+    else:
+        await message.reply_text("Command hmang hian i warning duh message reply rawh.")
+        return
+    if len(message.command) < 2:
+        return await message.reply_text("Command zawh ah a chhan dah tel rawh.")
     
     
     
