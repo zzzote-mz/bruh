@@ -1,5 +1,5 @@
 # ©️2022 RSR
-from pyrogram.errors import RightForbidden
+from pyrogram.errors import RightForbidden, MESSAGE_ID_INVALID
 from pyrogram import Client, filters
 from Tereuhte.tetakte.admins import admin_status
 from Tereuhte.tetakte.owner import owner_status
