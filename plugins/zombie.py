@@ -3,7 +3,7 @@ import os
 import time
 from asyncio import sleep
 from pyrogram import Client, filters
-
+from Tereuhte.tetakte.admins import admin_status
 
 
 @Client.on_message(filters.command("zombies", prefixes=["/", "!"]) & filters.group)
@@ -39,10 +39,11 @@ async def zombie(client, message):
     sgname = message.text.split(None, 1)[1]
     user_id = message.from_user.id
     if sgname.lower().strip() == "clean":
-        lol = await client.get_chat_member(message.chat.id, user_id)
-        if lol.status not in {"creator", "administrator"}:
-            await pablo.edit("**Admin inih loh chuan iti ve theilo.**")
-            return
+        huh = await message.chat.get_member(user_id)
+        if not huh.status in admin_status:
+            return await message.reply_text(
+                "Admin i nih loh chuan i ti ve theilo."
+            )
         s = 0
         f = 0
         async for member in client.get_chat_members(message.chat.id):
