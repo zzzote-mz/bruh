@@ -14,10 +14,9 @@ async def close_admin_callback(client, query):
             show_alert=True,
         )
         return
-    if user_status in owner_status and user_id == 1060318977:
-        await query.message.edit_text("Sût leh a ni e.")
-        await query.answer()
-        return
+    await query.message.edit_text("Sût leh a ni e.")
+    await query.answer()
+    return
 
 
 
@@ -33,10 +32,9 @@ async def close_admin(client, query):
             show_alert=True,
         )
         return
-    if user_status in admin_status and user_id == 1060318977:
-        await query.message.edit_text(f"{user_mention} hian warning a remove e.")
-        await query.answer()
-        return
+    await query.message.edit_text(f"{user_mention} hian warning a remove e.")
+    await query.answer()
+    return
 
 
 
