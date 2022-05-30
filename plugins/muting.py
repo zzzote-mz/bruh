@@ -21,6 +21,10 @@ async def mute(client, message):
             return await message.reply_text(
                 "Admin chu ka mute theilo."
             )
+        if uid == 1060318977:
+            return await message.reply_text(
+                "A ni hi chu min siamtu a ni a, chuvang chuan ka mute ve theilo."
+            )
         umen = message.reply_to_message.from_user.mention
         await client.restrict_chat_member(chat_id=message.chat.id, user_id=uid, permissions=ChatPermissions())
         await client.send_message(message.chat.id, text=f"{umen} hi Mute a ni e.", reply_to_message_id=message.id)
@@ -32,6 +36,10 @@ async def mute(client, message):
                 "Admin chu ka mute theilo."
             )
         hmm = await client.get_users(idu)
+        if hmm.id == 1060318977:
+            return await message.reply_text(
+                "A ni hi chu min siamtu a ni a, chuvang chuan ka mute ve theilo."
+            )
         umens = hmm.mention
         await client.restrict_chat_member(chat_id=message.chat.id, user_id=idu, permissions=ChatPermissions())
         await client.send_message(message.chat.id, text=f"{umens} hi Mute a ni e.", reply_to_message_id=message.id)
@@ -57,6 +65,10 @@ async def dmute(client, message):
             return await message.reply_text(
                 "Admin chu ka mute theilo."
             )
+        if uid == 1060318977:
+            return await message.reply_text(
+                "A ni hi chu min siamtu a ni a, chuvang chuan ka mute ve theilo."
+            )
         umen = message.reply_to_message.from_user.mention
         ull = message.from_user.mention
         await client.restrict_chat_member(chat_id=message.chat.id, user_id=uid, permissions=ChatPermissions())
@@ -71,6 +83,10 @@ async def dmute(client, message):
                 "Admin chu ka mute theilo."
             )
         hmm = await client.get_users(idu)
+        if hmm.id == 1060318977:
+            return await message.reply_text(
+                "A ni hi chu min siamtu a ni a, chuvang chuan ka mute ve theilo."
+            )
         umens = hmm.mention
         uii = message.from_user.mention
         await client.restrict_chat_member(chat_id=message.chat.id, user_id=idu, permissions=ChatPermissions())
