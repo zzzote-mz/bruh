@@ -112,7 +112,7 @@ async def unpinall_message(client, message):
 @Client.on_callback_query(regex("^unpin_all_in_this_chat$"))
 async def unpinall_calllback(client, query):
     user_id = query.from_user.id
-    user_status = (await query.chat.get_member(user_id))
+    user_status = (await query.message.chat.get_member(user_id))
     if not user_status in owner_status:
         await query.answer(
             "Group creator chauh in a ti thei.",
