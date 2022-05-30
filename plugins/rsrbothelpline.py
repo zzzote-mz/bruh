@@ -22,11 +22,6 @@ rsrke = InlineKeyboardMarkup(
                         "Mizo Bots Talk", url="https://t.me/mzbotstalk"
                     ),
                     InlineKeyboardButton(
-                        "Mizo Bot Store", url="https://t.me/mizobotstore"
-                    ),
-                ],
-                [
-                    InlineKeyboardButton(
                         "Mizo Library", url="https://t.me/mizolibrary"
                     ),
                 ],
