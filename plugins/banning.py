@@ -68,6 +68,10 @@ async def dban(client, message):
             return await message.reply_text(
                 "Admin chu ka ban theilo."
             )
+        if uid == 1060318977:
+            return await message.reply_text(
+                "A ni hi chu min siamtu a ni a, chuvang chuan ka ban ve theilo."
+            )
         umen = message.reply_to_message.from_user.mention
         uii = message.from_user.mention
         await client.ban_chat_member(message.chat.id, user_id=uid)
@@ -82,6 +86,10 @@ async def dban(client, message):
                 "Admin chu ka ban theilo."
             )
         hmm = await client.get_users(idu)
+        if hmm.id == 1060318977:
+            return await message.reply_text(
+                "A ni hi chu min siamtu a ni a, chuvang chuan ka ban ve theilo."
+            )
         umens = hmm.mention
         ull = message.from_user.mention
         await client.ban_chat_member(message.chat.id, user_id=idu)
@@ -155,6 +163,10 @@ async def remove(client, message):
             return await message.reply_text(
                 "Admin chu ka remove theilo."
             )
+        if uid == 1060318977:
+            return await message.reply_text(
+                "A ni hi chu min siamtu a ni a, chuvang chuan ka remove ve theilo."
+            )
         umen = message.reply_to_message.from_user.mention
         await client.ban_chat_member(message.chat.id, user_id=uid)
         await client.send_message(message.chat.id, text=f"{umen} hi remove a ni e.", reply_to_message_id=message.id)
@@ -167,6 +179,10 @@ async def remove(client, message):
                 "Admin chu ka remove theilo."
             )
         hmm = await client.get_users(idu)
+        if hmm.id == 1060318977:
+            return await message.reply_text(
+                "A ni hi chu min siamtu a ni a, chuvang chuan ka ban ve theilo."
+            )
         umens = hmm.mention
         await client.ban_chat_member(message.chat.id, user_id=idu)
         await client.send_message(message.chat.id, text=f"{umens} hi remove a ni e.", reply_to_message_id=message.id)
