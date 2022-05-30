@@ -8,7 +8,7 @@ from Tereuhte.tetakte.owner import owner_status
 async def close_admin_callback(client, query):
     user_id = query.from_user.id
     user_status = (await query.message.chat.get_member(user_id)).status
-    if not user_status in owner:
+    if not user_status in owner_status:
         await query.answer(
             "Group creator chiah in a ti thei.",
             show_alert=True,
