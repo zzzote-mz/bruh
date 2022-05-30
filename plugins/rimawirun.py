@@ -30,11 +30,6 @@ rsrke = InlineKeyboardMarkup(
                         "Bot Helpline", url="https://t.me/helptereuhte"
                     ),
                 ],
-                [
-                    InlineKeyboardButton(
-                        "Mizo Bot Store", url="https://t.me/mizobotstore"
-                    ),
-                ],
             ]
         )
 
