@@ -17,11 +17,6 @@ rsrke = InlineKeyboardMarkup(
                         "Submit", url="https://t.me/mzsubbot"
                     ),
                 ],
-                [
-                    InlineKeyboardButton(
-                        "Mizo Bot Store", url="https://t.me/mizobotstore"
-                    ),
-                ],
             ]
         )
 
