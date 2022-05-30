@@ -87,7 +87,7 @@ async def lpromote(client, message):
         idu = message.text.split(None, 1)[1]
         hmm = await client.get_users(idu)
         umens = hmm.mention
-        await member.chat.promote_member(
+        await message.chat.promote_member(
             user_id=idu,
             privileges=ChatPrivileges(
                 can_change_info=False,
