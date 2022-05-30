@@ -2,6 +2,7 @@
 from pyrogram.errors import RightForbidden
 from pyrogram import Client, filters
 from Tereuhte.tetakte.admins import admin_status
+from Tereuhte.tetakte.owner import owner_status
 from pyrogram.filters import regex
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -111,14 +112,8 @@ async def unpinall_message(client, message):
 @Client.on_callback_query(regex("^unpin_all_in_this_chat$"))
 async def unpinall_calllback(client, query):
     user_id = query.from_user.id
-    user_status = (await query.client.get_chat_member(query.message.chat.id, user_id)).status
-    if user_status not in {"creator", "administrator"}:
-        await query.answer(
-            "Group creator chauh in a ti thei.",
-            show_alert=True,
-        )
-        return
-    if user_status != "creator":
+    user_status = (await query.chat.get_member(user_id))
+    if not user_status in owner_status:
         await query.answer(
             "Group creator chauh in a ti thei.",
             show_alert=True,
