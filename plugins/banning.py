@@ -1,6 +1,5 @@
 # ©️2022 RSR
 from pyrogram import Client, filters
-from Tereuhte.tetakte.helper import admins_only
 from info import GROUPS
 from Tereuhte.tetakte.admins import admin_status
 
