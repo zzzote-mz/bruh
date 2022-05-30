@@ -86,9 +86,9 @@ async def unpin_message(client, message):
 async def unpinall_message(client, message):
     heh = message.from_user.id
     huh = await message.chat.get_member(heh)
-    if not huh.status in admin_status:
+    if not huh.status in owner_status:
         return await message.reply_text(
-            "Admin i nih loh chuan i ti ve theilo."
+            "Group creator chauh in a ti thei."
         )
     rsrkey = InlineKeyboardMarkup(
                  [
