@@ -76,7 +76,9 @@ async def unpin_message(client, message):
             await client.unpin_chat_message(message.chat.id)
             await message.reply_text("**Message pin hnu hnun ber unpin a ni e.**")
     except RightForbidden:
-        await m.reply_text("**Hetah message pin emaw unpin theihna permission ka neilo.**")
+        await message.reply_text("**Hetah message pin emaw unpin theihna permission ka neilo.**")
+    except MESSAGE_ID_INVALID:
+        await message.reply_text("**Message unpin tur ID hi ka hmu theilo.**")
     
     return
                                      
