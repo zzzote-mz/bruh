@@ -14,7 +14,7 @@ async def close_admin_callback(client, query):
             show_alert=True,
         )
         return
-    await query.message.edit_text("Sût leh ani e.")
+    await query.message.edit_text("Sût leh a ni e.")
     await query.answer()
     return
 
