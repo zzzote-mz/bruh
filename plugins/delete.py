@@ -37,7 +37,7 @@ async def spurge(client, message):
             return
         except RPCError as ef:
             await message.reply_text(
-                   "Message delete theih anilo, harsatna thlen i duh chuan @helptereuhte ah i sawi thei ang.",
+                   "Message delete theih a nilo, harsatna thlen i duh chuan @helptereuhte ah i sawi thei ang.",
                     ef=ef,
             )
         return
