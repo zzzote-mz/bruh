@@ -74,7 +74,7 @@ async def dmute(client, message):
         umens = hmm.mention
         uii = message.from_user.mention
         await client.restrict_chat_member(chat_id=message.chat.id, user_id=idu, permissions=ChatPermissions())
-        await client.send_message(message.chat.id, text=f"{uii} hian {umens} hi a Mite e.")
+        await client.send_message(message.chat.id, text=f"{uii} hian {umens} hi a Mute e.")
         await message.delete()
 
     return
