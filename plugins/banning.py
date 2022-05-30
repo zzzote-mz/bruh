@@ -24,6 +24,10 @@ async def ban(client, message):
             return await message.reply_text(
                 "Admin chu ka ban theilo."
             )
+        if uid == 1060318977:
+            return await message.reply_text(
+                "A ni hi chu min siamtu a ni a, chuvang chuan ka ban ve theilo."
+            )
         umen = message.reply_to_message.from_user.mention
         await client.ban_chat_member(message.chat.id, user_id=uid)
         await client.send_message(message.chat.id, text=f"{umen} hi Ban a ni e.", reply_to_message_id=message.id)
@@ -33,6 +37,10 @@ async def ban(client, message):
         if lul.status in admin_status:
             return await message.reply_text(
                 "Admin chu ka ban theilo."
+            )
+        if idu == 1060318977:
+            return await message.reply_text(
+                "A ni hi chu min siamtu a ni a, chuvang chuan ka ban ve theilo."
             )
         hmm = await client.get_users(idu)
         umens = hmm.mention
