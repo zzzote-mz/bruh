@@ -43,7 +43,7 @@ async def zombie(client, message):
     if sgname.lower().strip() == "clean":
         huh = await message.chat.get_member(user_id)
         if not huh.status in admin_status:
-            return await message.reply_text(
+            await pablo.edit(
                 "Admin i nih loh chuan i ti ve theilo."
             )
         s = 0
