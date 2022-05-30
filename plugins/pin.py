@@ -117,7 +117,7 @@ async def unpinall_calllback(client, query):
     user_status = (await query.message.chat.get_member(user_id)).status
     if not user_status in owner_status:
         await query.answer(
-            "Group creator chauh in a ti thei.",
+            "Group creator chauh in a ti thei",
             show_alert=True,
         )
         return
