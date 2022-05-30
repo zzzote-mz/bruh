@@ -60,7 +60,7 @@ async def zombie(client, message):
         if s > 0:
             text += f"**Account Delete** {s} **Remove ani.**"
         if f > 0:
-            text += "\n\n**Account Delete remove theihloh** {} **a awm, Admin emaw Creator an nih vang ani maithei.**".format(f)
+            text += "\n\n**Account Delete remove theihloh** {} **a awm, Admin emaw Creator account delete anih chuan ka remove theilo.**".format(f)
         await pablo.edit(text)
     else:
         await pablo.edit("**He mi group ah hian account delete a awmlo.**")
