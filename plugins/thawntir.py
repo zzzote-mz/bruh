@@ -1,11 +1,16 @@
 # ©️2022 RSR
 from pyrogram import Client, filters
-from Tereuhte.tetakte.helper import admins_only
+from Tereuhte.tetakte.admins import admin_status
 
 
-@Client.on_message(filters.command("tetakte", prefixes=["/", "!"]) & filters.group)
-@admins_only
+@Client.on_message(filters.command("tlangvalte", prefixes=["/", "!"]) & filters.group)
 async def thawntir(client, message):
+  heh = message.from_user.id
+  huh = await message.chat.get_member(heh)
+  if not huh.status in admin_status:
+      return await message.reply_text(
+          "Admin i nih loh chuan i ti ve theilo."
+      )
   if not message.reply_to_message and len(message.command) == 1:
        await message.reply_text("**Command zawh ah min thawn tir tur dah la thawn rawh. Emaw, command hmang hian message reply rawh.**")
        return
