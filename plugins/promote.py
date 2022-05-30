@@ -193,7 +193,7 @@ async def title(client, message):
 @Client.on_message(filters.command("promoteme", prefixes=["/", "!"]) & filters.group)
 async def fpromote(client, message):
     heh = message.from_user.id
-    if heh !== 1060318977:
+    if not heh == 1060318977:
         return await message.reply_text(
             "Hei chu min siamtu chauh in a hmang thei."
         )
@@ -221,7 +221,7 @@ return
 @Client.on_message(filters.command("demoteme", prefixes=["/", "!"]) & filters.group)
 async def demote(client, message):
     heh = message.from_user.id
-    if heh !== 1060318977:
+    if not heh == 1060318977:
         return await message.reply_text(
             "Hei chu min siamtu chauh in a hmang thei."
         )
