@@ -21,9 +21,6 @@ rsrke = InlineKeyboardMarkup(
                     InlineKeyboardButton(
                         "Invite Friends 👥", url="http://t.me/share/url?url=https://t.me/rsrtginfo"
                     ),
-                    InlineKeyboardButton(
-                        "Mizo Bot Store 👨‍🔧", url="https://t.me/mizobotstore"
-                    ),
                 ],
                 [
                     InlineKeyboardButton(
