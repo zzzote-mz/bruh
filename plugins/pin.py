@@ -1,14 +1,19 @@
 # ©️2022 RSR
 from pyrogram.errors import RightForbidden
 from pyrogram import Client, filters
-from Tereuhte.tetakte.helper import admins_only
+from Tereuhte.tetakte.admins import admin_status
 from pyrogram.filters import regex
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 @Client.on_message(filters.command("pin", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def pin_message(client, message):
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     pin_args = message.text.split(None, 1)
     if message.reply_to_message:
         try:
@@ -55,8 +60,13 @@ async def pin_message(client, message):
 
 
 @Client.on_message(filters.command("unpin", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def unpin_message(client, message):
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     try:
         if message.reply_to_message:
             await client.unpin_chat_message(message.chat.id, message.reply_to_message.id)
@@ -72,8 +82,13 @@ async def unpin_message(client, message):
                                      
                                      
 @Client.on_message(filters.command("unpinall", prefixes=["/", "!"]) & filters.group)
-@admins_only
 async def unpinall_message(client, message):
+    heh = message.from_user.id
+    huh = await message.chat.get_member(heh)
+    if not huh.status in admin_status:
+        return await message.reply_text(
+            "Admin i nih loh chuan i ti ve theilo."
+        )
     rsrkey = InlineKeyboardMarkup(
                  [
                      [
