@@ -320,8 +320,8 @@ async def admins(client, message):
 
 
 
-@Client.on_message(filters.private & filters.command("report", prefixes=["/", "!"]) | filters.regex("@admin") | filters.regex("@admins"))
-async def report(client, message):
+@Client.on_message(filters.private & filters.command("report", prefixes=["/", "!"]))
+async def reports(client, message):
     await client.send_message(
         message.chat.id,
         text="**Hei chu group ah chauh a hman theih.**",
@@ -331,5 +331,25 @@ async def report(client, message):
 
 
 
+@Client.on_message(filters.private & filters.regex("@admin"))
+async def reportss(client, message):
+    await client.send_message(
+        message.chat.id,
+        text="**Hei chu group ah chauh a hman theih.**",
+        reply_to_message_id=message.id
+    )
+    return
+
+
+
+
+@Client.on_message(filters.private & filters.regex("@admins"))
+async def reportsss(client, message):
+    await client.send_message(
+        message.chat.id,
+        text="**Hei chu group ah chauh a hman theih.**",
+        reply_to_message_id=message.id
+    )
+    return
 
 
