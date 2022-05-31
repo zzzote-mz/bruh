@@ -6,6 +6,7 @@ from pyrogram.errors import (
     ChatAdminRequired,
     PeerIdInvalid,
     RightForbidden,
+    UserNotParticipant,
 )
 
 
@@ -42,6 +43,8 @@ async def ban(client, message):
             return await message.reply_text("Ban tur ID hi ka hmulo.")
         except RightForbidden:
             return await message.reply_text("Hetah mi ban theihna permission ka neilo.")
+        except UserNotParticipant:
+            return await message.reply_text("Ban tur hi group ah hian a awmlo.")
     else:
         try:
             idu = message.text.split(None, 1)[1]
@@ -64,6 +67,8 @@ async def ban(client, message):
             return await message.reply_text("Ban tur ID hi ka hmulo.")
         except RightForbidden:
             return await message.reply_text("Hetah mi ban theihna permission ka neilo.")
+        except UserNotParticipant:
+            return await message.reply_text("Ban tur hi group ah hian a awmlo.")
        
     
     
