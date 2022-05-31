@@ -2,6 +2,7 @@ pyrogram==2.0.26
 tgcrypto==1.2.2
 requests
 asyncio
+aiohttp
 wget
 Pillow
 cachetools==4.2.4
