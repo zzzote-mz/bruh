@@ -20,7 +20,7 @@ async def logo(client, message):
  if  not text:
     await lol.edit("I logo hming tur dah tel rawh.")
     return
- fpath = glob.glob("bot_utils_files/Fonts/*")
+ fpath = glob.glob("Botfiles/Fonts/*")
  font_ = random.choice(fpath)
  oho = random.choice(S)
  pics = wget.download(oho)
