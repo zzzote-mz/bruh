@@ -60,11 +60,21 @@ async def dlt(client, message):
             "Admin i nih loh chuan i ti ve theilo."
         )
     if message.reply_to_message:
-        await message.delete()
-        await client.delete_messages(
-            chat_id=message.chat.id,
-            message_ids=message.reply_to_message.id,
-        )
+        try:
+            await message.delete()
+            await client.delete_messages(
+                chat_id=message.chat.id,
+                message_ids=message.reply_to_message.id,
+            )
+        except MessageDeleteForbidden:
+            await message.reply_text("I message delete duh hi ka delete theilo, zawh chian duh emaw harsatna i neih chuan @helptereuhte ah hian i sawi thei ang.")
+            return
+        except RPCError as ef:
+            await message.reply_text(
+                   "Message delete theih a nilo, harsatna thlen i duh chuan @helptereuhte ah i sawi thei ang.",
+                    ef=ef,
+            )
+        return
     else:
         await message.reply_text("I message delete duh reply rawh.")
     return   
