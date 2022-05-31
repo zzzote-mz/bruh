@@ -126,4 +126,6 @@ async def unpinall_calllback(client, query):
         await query.message.edit_text("Group a message pin awm zawng zawng te unpin vek a ni e.")
     except RightForbidden:
         await query.message.edit_text("Hetah message pin emaw unpin theihna permission ka neilo.")
+    except MessageIdInvalid:
+        await message.reply_text("**Message unpin tur ID hi ka hmu theilo.**")    
     return
