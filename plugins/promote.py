@@ -241,13 +241,13 @@ async def title(client, message):
             f"{from_user.mention} hi a Admin title **{title}** ti a siam sak a ni."
         )
     except ChatAdminRequired:
-            return await message.reply_text("Admin ka nilo a chuvang chuan tumah Admin title ka siam sak theilo.")
-        except PeerIdInvalid:
-            return await message.reply_text("Admin title siam sak tur ID hi ka hmulo.")
-        except RightForbidden:
-            return await message.reply_text("Hetah mi Admin title siam sak theihna permission ka neilo.")
-        except UserNotParticipant:
-            return await message.reply_text("Admin title siam sak tur hi group ah hian a awmlo.")
+        return await message.reply_text("Admin ka nilo a chuvang chuan tumah Admin title ka siam sak theilo.")
+    except PeerIdInvalid:
+        return await message.reply_text("Admin title siam sak tur ID hi ka hmulo.")
+    except RightForbidden:
+        return await message.reply_text("Hetah mi Admin title siam sak theihna permission ka neilo.")
+    except UserNotParticipant:
+        return await message.reply_text("Admin title siam sak tur hi group ah hian a awmlo.")
       
       
    
