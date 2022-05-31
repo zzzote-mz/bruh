@@ -15,11 +15,11 @@ S = ( "https://telegra.ph/file/6110cc4791371b7240a30.jpg", "https://telegra.ph/f
  
 @Client.on_message(filters.command("clogo", prefixes=["/", "!"]))
 async def logo(client, message):
- text = message.text.split(None, 1)[1]
- lol = await message.reply_text("`Logo siam mek a ni e...`")
  if len(message.command) < 2:
-    await lol.edit("I logo hming tur dah tel rawh.")
+    await client.send_message(message.chat.id, text="I logo hming tur dah tel rawh.", reply_to_message_id=message.id)
     return
+ text = message.text.split(None, 1)[1]
+ lol = await client.send_message(message.chat id, text="`Logo siam mek a ni e...`", reply_to_message_id=message.id)
  fpath = glob.glob("Botfiles/Fonts/*")
  font_ = random.choice(fpath)
  oho = random.choice(S)
