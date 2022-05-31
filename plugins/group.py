@@ -2,6 +2,12 @@ import os
 from pyrogram import Client, filters
 from pyrogram.enums import ChatMembersFilter
 from Tereuhte.tetakte.admins import admin_status
+from pyrogram.errors import (
+    ChatAdminRequired,
+    RightForbidden,
+)
+
+
 
 
 @Client.on_message(filters.command("setgtitle", prefixes=["/", "!"]) & filters.group)
@@ -14,13 +20,18 @@ async def setgtitle(client, message):
         )
     if len(message.command) < 2:
         return await message.reply_text("A hming tur dah tel rawh.")
-    old_title = message.chat.title
-    new_title = message.text.split(None, 1)[1]
-    await message.chat.set_title(new_title)
-    await message.reply_text(
-        f"He mi group hming hi **{old_title}** tih aṭangin **{new_title}** tih ah thlak a ni."
-    )
-    return
+    try:
+        old_title = message.chat.title
+        new_title = message.text.split(None, 1)[1]
+        await message.chat.set_title(new_title)
+        await message.reply_text(
+            f"He mi group hming hi **{old_title}** tih aṭangin **{new_title}** tih ah thlak a ni."
+        )
+        return
+    except ChatAdminRequired:
+        return await message.reply_text("Admin ka nilo a chuvang chuan group hming ka thlak theilo.")
+    except RightForbidden:
+        return await message.reply_text("Group hming thlak theihna permission ka neilo.")
   
   
   
@@ -65,9 +76,14 @@ async def delgpic(client, message):
         return await message.reply_text(
             "Admin i nih loh chuan i ti ve theilo."
         )
-    await client.delete_chat_photo(chat_id=message.chat.id)
-    await message.reply_text("Group icon delete a ni e.")
-    return
+    try:
+        await client.delete_chat_photo(chat_id=message.chat.id)
+        await message.reply_text("Group icon delete a ni e.")
+        return
+    except ChatAdminRequired:
+        return await message.reply_text("Admin ka nilo a chuvang chuan group icon ka delete theilo.")
+    except RightForbidden:
+        return await message.reply_text("Group icon delete theihna permission ka neilo.")
     
     
     
@@ -106,9 +122,12 @@ async def setdescription(client, message):
     if len(juu) > 255:
         await message.reply_text("Character 255 aia tam a tih theihloh.")
         return
-    await client.set_chat_description(chat_id=message.chat.id, description=f"{juu}")
-    await message.reply_text("Group description siam a ni e.")
-    return   
-    
-    
+    try:
+        await client.set_chat_description(chat_id=message.chat.id, description=f"{juu}")
+        await message.reply_text("Group description siam a ni e.")
+        return   
+    except ChatAdminRequired:
+        return await message.reply_text("Admin ka nilo a chuvang chuan group description ka siam theilo.")
+    except RightForbidden:
+        return await message.reply_text("Group description siam theihna permission ka neilo.")
     
