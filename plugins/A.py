@@ -320,7 +320,7 @@ async def admins(client, message):
 
 
 
-@Client.on_message(filters.command("report", prefixes=["/", "!"]) | filters.regex("@admin") | filters.regex("@admins") & filters.private)
+@Client.on_message(filters.private & filters.command("report", prefixes=["/", "!"]) | filters.regex("@admin") | filters.regex("@admins"))
 async def report(client, message):
     await client.send_message(
         message.chat.id,
