@@ -19,7 +19,7 @@ async def logo(client, message):
     await client.send_message(message.chat.id, text="I logo hming tur dah tel rawh.", reply_to_message_id=message.id)
     return
  text = message.text.split(None, 1)[1]
- lol = await client.send_message(message.chat id, text="`Logo siam mek a ni e...`", reply_to_message_id=message.id)
+ lol = await client.send_message(message.chat id, text="`Logo siam mek a ni e...`", reply_to_message_id=message.id,)
  fpath = glob.glob("Botfiles/Fonts/*")
  font_ = random.choice(fpath)
  oho = random.choice(S)
