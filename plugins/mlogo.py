@@ -15,10 +15,10 @@ S = ( "https://telegra.ph//file/111fd979e87e9f42f2c19.jpg", "https://telegra.ph/
  
 @Client.on_message(filters.command("ilogo", prefixes=["/", "!"]))
 async def logo(client, message):
- text = get_text(message)
- lol = await edit_or_reply(message, "`Logo siam mek ani...`")
+ text = message.text.split(None, 1)[1]
+ lol = await message.reply_text("`Logo siam mek a ni e...`")
  if  not text:
-    await lol.edit("`i logo hming tur dah tel rawh`")
+    await lol.edit("I logo hming tur dah tel rawh.")
     return
  fpath = glob.glob("bot_utils_files/Fonts/*")
  font_ = random.choice(fpath)
@@ -52,7 +52,7 @@ async def logo(client, message):
  draw.text(
      (x, y), text, font=font, fill="white", stroke_width=strke, stroke_fill="black"
   )
- file_name = 'friday.png'
+ file_name = 'RSR.png'
  rsrk = InlineKeyboardMarkup(
             [
                 [
@@ -62,20 +62,19 @@ async def logo(client, message):
                 ],
             ]
         )
- await client.send_chat_action(message.chat.id, "upload_photo")
+ await client.send_chat_action(message.chat.id, enums.ChatAction.UPLOAD_PHOTO)
  img.save(file_name, "png")
  if message.reply_to_message:
          await client.send_photo(
              message.chat.id,
              photo=file_name,
              reply_markup=rsrk,
-             reply_to_message_id=message.reply_to_message.message_id,
+             reply_to_message_id=message.reply_to_message.id,
          )
  else:
      await client.send_photo(
          message.chat.id, photo=file_name, reply_markup=rsrk,
      ),
-     await client.send_chat_action(message.chat.id, "cancel")
      await lol.delete()
      if os.path.exists(file_name):
          os.remove(file_name)
