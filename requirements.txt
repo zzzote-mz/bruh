@@ -2,5 +2,6 @@ pyrogram==2.0.26
 tgcrypto==1.2.2
 requests
 asyncio
+wget
 cachetools==4.2.4
 typing-extensions==4.1.1
