@@ -71,6 +71,7 @@ async def logo(client, message):
              reply_markup=rsrk,
              reply_to_message_id=message.reply_to_message.id,
          )
+         await lol.delete()
  else:
      await client.send_photo(
          message.chat.id, photo=file_name, reply_markup=rsrk,
