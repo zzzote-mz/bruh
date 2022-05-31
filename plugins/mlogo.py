@@ -17,7 +17,7 @@ S = ( "https://telegra.ph//file/111fd979e87e9f42f2c19.jpg", "https://telegra.ph/
 async def logo(client, message):
  text = message.text.split(None, 1)[1]
  lol = await message.reply_text("`Logo siam mek a ni e...`")
- if  not text:
+ if len(message.command) < 2:
     await lol.edit("I logo hming tur dah tel rawh.")
     return
  fpath = glob.glob("Botfiles/Fonts/*")
