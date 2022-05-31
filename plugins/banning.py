@@ -2,7 +2,11 @@
 from pyrogram import Client, filters
 from info import GROUPS
 from Tereuhte.tetakte.admins import admin_status
-
+from pyrogram.errors import (
+    ChatAdminRequired,
+    PeerIdInvalid,
+    RightForbidden,
+)
 
 
 
