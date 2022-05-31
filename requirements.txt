@@ -3,5 +3,6 @@ tgcrypto==1.2.2
 requests
 asyncio
 wget
+Pillow
 cachetools==4.2.4
 typing-extensions==4.1.1
