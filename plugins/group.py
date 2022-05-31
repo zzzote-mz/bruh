@@ -89,7 +89,7 @@ async def delgpic(client, message):
     
     
     
-@Client.on_message(filters.command("report", prefixes=["/", "!"]) | filters.regex("@admin") | filters.regex("@admins") & filters.group)
+@Client.on_message(filters.group & filters.command("report", prefixes=["/", "!"]) | filters.regex("@admin") | filters.regex("@admins"))
 async def report_user(client, message):
     if message.reply_to_message:
         check_admin = await message.chat.get_member(message.reply_to_message.from_user.id)
