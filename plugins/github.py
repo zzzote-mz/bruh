@@ -8,7 +8,7 @@ from pyrogram import filters, Client
 @Client.on_message(filters.command("github", prefixes=["/", "!"]))
 async def github(client, message):
     if len(message.command) != 2:
-        await client.send_message(message.chat.id, text="Command zawh ah github username dah rawh", reply_to_message_id=message.id)
+        await client.send_message(message.chat.id, text="Command zawh ah github username dah rawh.", reply_to_message_id=message.id)
         return
     username = message.text.split(None, 1)[1]
     URL = f'https://api.github.com/users/{username}'
