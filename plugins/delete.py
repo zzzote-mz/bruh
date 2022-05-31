@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from Tereuhte.tetakte.admins import admin_status
-
+from pyrogram.errors import MessageDeleteForbidden, RPCError
 
 
 @Client.on_message(filters.command("dltall", prefixes=["/", "!"]) & filters.group)
