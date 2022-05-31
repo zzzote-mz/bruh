@@ -18,36 +18,49 @@ async def ban(client, message):
         await message.reply_text("Command hmang hian i ban duh message reply in emaw, command zawh ah an ID emaw username dah i thawn chauh in mi a ban theih.")
         return
     elif message.reply_to_message:
-        uid = message.reply_to_message.from_user.id
-        lal = await message.chat.get_member(uid)
-        if lal.status in admin_status:
-            return await message.reply_text(
-                "Admin chu ka ban theilo."
-            )
-        if uid == 1060318977:
-            return await message.reply_text(
-                "A ni hi chu min siamtu a ni a, chuvang chuan ka ban ve theilo."
-            )
-        umen = message.reply_to_message.from_user.mention
-        await client.ban_chat_member(message.chat.id, user_id=uid)
-        await client.send_message(message.chat.id, text=f"{umen} hi Ban a ni e.", reply_to_message_id=message.id)
+        try:
+            uid = message.reply_to_message.from_user.id
+            lal = await message.chat.get_member(uid)
+            if lal.status in admin_status:
+                return await message.reply_text(
+                    "Admin chu ka ban theilo."
+                )
+            if uid == 1060318977:
+                return await message.reply_text(
+                    "A ni hi chu min siamtu a ni a, chuvang chuan ka ban ve theilo."
+                )
+            umen = message.reply_to_message.from_user.mention
+            await client.ban_chat_member(message.chat.id, user_id=uid)
+            await client.send_message(message.chat.id, text=f"{umen} hi Ban a ni e.", reply_to_message_id=message.id)
+        except ChatAdminRequired:
+            return await message.reply_text("Admin ka nilo a chuvang chuan tumah ka ban theilo.")
+        except PeerIdInvalid:
+            return await message.reply_text("Ban tur ID hi ka hmulo.")
+        except RightForbidden:
+            return await message.reply_text("Hetah mi ban theihna permission ka neilo.")
     else:
-        idu = message.text.split(None, 1)[1]
-        lul = await message.chat.get_member(idu)
-        if lul.status in admin_status:
-            return await message.reply_text(
-                "Admin chu ka ban theilo."
-            )
-        hmm = await client.get_users(idu)
-        if hmm.id == 1060318977:
-            return await message.reply_text(
-                "A ni hi chu min siamtu a ni a, chuvang chuan ka ban ve theilo."
-            )
-        umens = hmm.mention
-        await client.ban_chat_member(message.chat.id, user_id=idu)
-        await client.send_message(message.chat.id, text=f"{umens} hi Ban a ni e.", reply_to_message_id=message.id)
-    
-    return
+        try:
+            idu = message.text.split(None, 1)[1]
+            lul = await message.chat.get_member(idu)
+            if lul.status in admin_status:
+                return await message.reply_text(
+                    "Admin chu ka ban theilo."
+                )
+            hmm = await client.get_users(idu)
+            if hmm.id == 1060318977:
+                return await message.reply_text(
+                    "A ni hi chu min siamtu a ni a, chuvang chuan ka ban ve theilo."
+                )
+            umens = hmm.mention
+            await client.ban_chat_member(message.chat.id, user_id=idu)
+            await client.send_message(message.chat.id, text=f"{umens} hi Ban a ni e.", reply_to_message_id=message.id)
+        except ChatAdminRequired:
+            return await message.reply_text("Admin ka nilo a chuvang chuan tumah ka ban theilo.")
+        except PeerIdInvalid:
+            return await message.reply_text("Ban tur ID hi ka hmulo.")
+        except RightForbidden:
+            return await message.reply_text("Hetah mi ban theihna permission ka neilo.")
+       
     
     
     
