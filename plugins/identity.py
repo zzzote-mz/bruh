@@ -13,7 +13,7 @@ async def identity(client, message):
         user3n = await client.export_chat_invite_link(user3.id)
         await client.send_message(
           message.chat.id,
-          text=f"**{user1.mention} ID:** `{user1.id}`\n**{user2.mention} ID:** `{user2.id}`\n**{[user3.chat.title](user3n)} ID:** `{user3.id}`"
+          text=f"**{user1.mention} ID:** `{user1.id}`\n**{user2.mention} ID:** `{user2.id}`\n**{[user3.chat.title](user3n)} ID:** `{user3.id}`",
           reply_to_message_id=message.id
         )
         return
@@ -21,7 +21,7 @@ async def identity(client, message):
          user = message.from_user
          await client.send_message(
            message.chat.id,
-           text=f"**{user.mention} ID:** `{user.id}`"
+           text=f"**{user.mention} ID:** `{user.id}`",
            reply_to_message_id=message.id
          )
          return
@@ -30,7 +30,7 @@ async def identity(client, message):
          userqs = await client.get_users(userq)
          await client.send_message(
            message.chat.id,
-           text=f"**{userqs.mention} ID:** `{userqs.id}`"
+           text=f"**{userqs.mention} ID:** `{userqs.id}`",
            reply_to_message_id=message.id
          )
          return
