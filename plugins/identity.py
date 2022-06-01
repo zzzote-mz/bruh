@@ -1,5 +1,5 @@
 from pyrogram import Client, filters, enums
-
+from Tereuhte.tetakte.admins import group_types
 
 
 
@@ -15,7 +15,7 @@ async def identity(client, message):
           reply_to_message_id=message.id
         )
         return
-    if not message.reply_to_message and message.chat.type == enums.ChatType.GROUP:
+    if not message.reply_to_message and message.chat.type in group_types:
         chan = message.chat
         user = message.from_user
         await client.send_message(
