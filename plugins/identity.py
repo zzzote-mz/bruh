@@ -24,12 +24,12 @@ async def identity(client, message):
           reply_to_message_id=message.id
         )
         return
-    elif message.reply_to_message and message.reply_to_message.forward_from:
-        user1 = message.reply_to_message.from_user
+    elif message.reply_to_message.forward_from:
+        user1 = message.reply_to_message.forward_from_chat
         user2 = message.reply_to_message.forward_from
         await client.send_message(
           message.chat.id,
-          text=f"**{user1.mention} ID:** `{user1.id}`\n**{user2.mention} ID:** `{user2.id}`",
+          text=f"**{user2.mention} ID:** `{user2.id}`\n**{user1.title} ID:** `{user1.id}`",
           reply_to_message_id=message.id
         )
         return
