@@ -9,21 +9,23 @@ async def identity(client, message):
     if message.reply_to_message and message.reply_to_message.forward_from:
         user1 = message.reply_to_message.from_user
         user2 = message.reply_to_message.forward_from
+        user3 = message.reply_to_message.forward_from_chat
         await client.send_message(
           message.chat.id,
-          text=f"**{user1.mention} ID:** `{user1.id}`\n**{user2.mention} ID:** `{user2.id}`",
+          text=f"**{user1.mention} ID:** `{user1.id}`\n**{user2.mention} ID:** `{user2.id}`\n**{user3.tilte} ID:** `{user3.id}`",
           reply_to_message_id=message.id
         )
         return
-    if message.reply_to_message.chat.type == enums.ChatType.CHANNEL:
-        chan = message.reply_to_message.forward_from_chat
+    if not message.reply_to_message and message.chat.type == enums.ChatType.GROUP:
+        chan = message.chat
+        user = message.from_user
         await client.send_message(
           message.chat.id,
-          text=f"**{chan.title} ID: `{chan.id}`",
+          text=f"**{user.mention} ID:** `{user.id}`\n**{chan.title} ID:** `{chan.id}`",
           reply_to_message_id=message.id
         )
         return
-    if not message.reply_to_message and len(message.command) == 1:
+    if not message.reply_to_message and message.chat.type == enums.ChatType.PRIVATE:
          user = message.from_user
          await client.send_message(
            message.chat.id,
