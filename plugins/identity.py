@@ -8,11 +8,10 @@ from pyrogram import Client, filters, enums
 async def identity(client, message):
     if message.reply_to_message and message.reply_to_message.forward_from:
         user1 = message.reply_to_message.from_user
-        user2 = message.reply_to_message.forward_from_user
-        user3 = message.reply_to_message.forward_from_chat
+        user2 = message.reply_to_message.forward_from
         await client.send_message(
           message.chat.id,
-          text=f"**{user1.mention} ID:** `{user1.id}`\n**{user2.mention} ID:** `{user2.id}`\n**{user3.tilte} ID:** `{user3.id}`",
+          text=f"**{user1.mention} ID:** `{user1.id}`\n**{user2.mention} ID:** `{user2.id}`",
           reply_to_message_id=message.id
         )
         return
