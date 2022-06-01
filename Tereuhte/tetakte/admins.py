@@ -6,6 +6,8 @@ from typing import Iterable
 from pyrogram.enums import ChatMemberStatus, ChatType
 
 group_types: Iterable[ChatType] = (ChatType.GROUP, ChatType.SUPERGROUP)
+    
+group_channel: Iterable[ChatType] = (ChatType.GROUP, ChatType.SUPERGROUP, ChatType.CHANNEL)
 
 admin_status: Iterable[ChatMemberStatus] = (
     ChatMemberStatus.OWNER,
