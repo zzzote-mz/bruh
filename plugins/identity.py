@@ -15,15 +15,15 @@ async def identity(client, message):
           reply_to_message_id=message.id
         )
         return
-        if message.reply_to_message.chat.type == enums.ChatType.CHANNEL:
-            chan = message.reply_to_message.forward_from_chat
-            await client.send_message(
-              message.chat.id,
-              text=f"**{chan.title} ID: `{chan.id}`",
-              reply_to_message_id=message.id
-            )
-            return
-    else:
+    if message.reply_to_message.chat.type == enums.ChatType.CHANNEL:
+        chan = message.reply_to_message.forward_from_chat
+        await client.send_message(
+          message.chat.id,
+          text=f"**{chan.title} ID: `{chan.id}`",
+          reply_to_message_id=message.id
+        )
+        return
+    if not message.reply_to_message and len(message.command) == 1:
          user = message.from_user
          await client.send_message(
            message.chat.id,
