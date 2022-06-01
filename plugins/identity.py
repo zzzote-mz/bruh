@@ -24,10 +24,13 @@ async def identity(client, message):
            text=f"**{user.mention} ID:** `{user.id}`"
            reply_to_message_id=message.id
          )
+         return
      if len(message.command) == 2:
          userq = message.text.split(None, 1)[1]
+         userqs = await client.get_users(userq)
          await client.send_message(
            message.chat.id,
-           text=f"**{userq.mention} ID:** `{userq.id}`"
+           text=f"**{userqs.mention} ID:** `{userqs.id}`"
            reply_to_message_id=message.id
          )
+         return
