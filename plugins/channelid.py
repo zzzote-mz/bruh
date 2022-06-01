@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 
 
-@pbot.on_message(filters.command("chid", prefixes=["/", "!"]))
+@Client.on_message(filters.command("chid", prefixes=["/", "!"]))
 async def channelid(client, message):
     if not message.reply_to_message:
         await client.send_message(
