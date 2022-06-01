@@ -1,5 +1,5 @@
 from pyrogram import Client, filters, enums
-from Tereuhte.tetakte.admins import group_types
+from Tereuhte.tetakte.admins import group_types, group_channel
 
 
 
@@ -15,7 +15,7 @@ async def identity(client, message):
            reply_to_message_id=message.id
          )
          return
-    elif message.reply_to_message.forward_from:
+    elif message.reply_to_message.sender_chat.type in group_channel:
         user1 = message.reply_to_message.forward_from_chat
         user2 = message.reply_to_message.forward_from
         await client.send_message(
