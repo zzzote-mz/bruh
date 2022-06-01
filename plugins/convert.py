@@ -1,4 +1,5 @@
 import os
+import ffmpeg
 import time
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
