@@ -9,7 +9,7 @@ from Tereuhte.tetakte.helper import runcmd
 async def convert(client, message):
   op = await client.send_message(message.chat.id, text="`Convert mek a ni...`", reply_to_message_id=message.id)
   format = message.text.split(None, 1)[1]
-  if len(message.command) < 2:
+  if len(message.command) == 1:
     await op.edit("`Audio format dah tel rawh`\n\n**Entirnan:** mp3, m4a...etc")
     return
   if not message.reply_to_message:
