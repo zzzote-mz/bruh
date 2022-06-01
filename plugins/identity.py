@@ -6,13 +6,12 @@ from Tereuhte.tetakte.admins import group_types
 
 @Client.on_message(filters.command("id", prefixes=["/", "!"]))
 async def identity(client, message):
-    if message.reply_to_message and message.reply_to_message.forward_from and message.reply_to_message.forward_from_chat:
+    if message.reply_to_message and message.reply_to_message.forward_from:
         user1 = message.reply_to_message.from_user
         user2 = message.reply_to_message.forward_from
-        user3 = message.reply_to_message.forward_from_chat
         await client.send_message(
           message.chat.id,
-          text=f"**{user1.mention} ID:** `{user1.id}`\n**{user2.mention} ID:** `{user2.id}`\n**{user3.title} ID:** `{user3.id}`",
+          text=f"**{user1.mention} ID:** `{user1.id}`\n**{user2.mention} ID:** `{user2.id}`",
           reply_to_message_id=message.id
         )
         return
