@@ -6,7 +6,7 @@ async def channelid(client, message):
     if not message.reply_to_message:
         await client.send_message(
           message.chat.id,
-          text="Channel message rawn forward la, chu chu command hian reply rawh",
+          text="Channel message rawn forward la, chu chu command hian reply rawh.",
           reply_to_message_id=message.id
         )
     else:
