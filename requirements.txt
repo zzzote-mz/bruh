@@ -8,4 +8,4 @@ Pillow
 cachetools==4.2.4
 typing-extensions==4.1.1
 ffmpeg-python>=0.2.0
-git+https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
+
