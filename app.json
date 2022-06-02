@@ -1,19 +1,9 @@
 {
-    "name": "EvaMariaBot",
-    "description": "When you going to send file on telegram channel this bot will save that in database, So you can search that easily in inline mode",
+    "name": "Tlangvaltea",
+    "description": "Private Bot",
     "stack": "container",
     "keywords": [
-      "telegram",
-      "auto-filter",
-      "filter",
-      "best",
-      "indian",
-      "pyrogram",
-      "media",
-      "search",
-      "channel",
-      "index",
-      "inline"
+      "My bot"
     ],
     "website": "https://github.com/RSR-TG-Info/TereuhteBackup",
     "repository": "https://github.com/RSR-TG-Info/TereuhteBackup",
