@@ -1,4 +1,4 @@
-# ©️2022 RSRh
+# ©️2022 RSR
 from pyrogram import Client, filters
 from info import GROUPS
 from Tereuhte.tetakte.admins import admin_status
