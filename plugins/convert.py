@@ -24,9 +24,9 @@ async def convert(client, message):
   audio = str(os.path.basename(kk)).split(".")[0] + str(f".{format}")
   
   c_time = time.time()
-  cmd = f"ffmpeg -i {kk} -map 0:a {audio}"
+  #cmd = f"ffmpeg -i {kk} -map 0:a {audio}"
 
-  ok = await runcmd(cmd)
+  #ok = await runcmd(cmd)
   filem = audio
   if not os.path.exists(filem):
       await op.edit("**Ka convert theilo.**")
